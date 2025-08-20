@@ -1,0 +1,42 @@
+User-agent: Googlebot
+Allow: /
+Allow: /Images/
+
+User-agent: Bingbot
+Allow: /
+Allow: /Images/
+
+User-agent: Twitterbot
+Allow: /
+Allow: /Images/
+
+User-agent: facebookexternalhit
+Allow: /
+Allow: /Images/
+
+User-agent: *
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.divinefabtech.com/sitemap.xml
+
+# Important sections
+Allow: /products/
+Allow: /about
+Allow: /services
+Allow: /gallery
+Allow: /blog
+Allow: /inquiry
+
+# Media files
+Allow: /Images/
+Allow: /*.jpg$
+Allow: /*.jpeg$
+Allow: /*.png$
+Allow: /*.svg$
+Allow: /*.webp$
+
+# Block access to admin or private areas if they exist
+Disallow: /admin/
+Disallow: /private/
+Disallow: /internal/

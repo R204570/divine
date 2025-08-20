@@ -1,0 +1,93 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+:root {
+    --background: 0 0% 100%;
+    --foreground: 220 25% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 25% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 15%;
+    --primary: 220 100% 20%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 220 15% 95%;
+    --secondary-foreground: 220 25% 15%;
+    --muted: 220 15% 95%;
+    --muted-foreground: 220 10% 50%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 90%;
+    --input: 220 15% 90%;
+    --ring: 220 100% 20%;
+    --radius: 1rem;
+    --sidebar-background: 220 15% 98%;
+    --sidebar-foreground: 220 25% 15%;
+    --sidebar-primary: 220 100% 20%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 220 15% 95%;
+    --sidebar-accent-foreground: 220 25% 15%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 220 100% 20%;
+    
+    /* Custom gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(220 100% 20%), hsl(210 100% 30%));
+    --gradient-secondary: linear-gradient(135deg, hsl(210 100% 50%), hsl(200 100% 60%));
+    --gradient-hero: linear-gradient(135deg, hsl(220 100% 15%) 0%, hsl(210 100% 25%) 100%);
+    
+    /* Shadows */
+    --shadow-elegant: 0 10px 30px -10px hsl(220 100% 20% / 0.3);
+    --shadow-glow: 0 0 40px hsl(210 100% 50% / 0.2);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .dark {
+    --background: 220 25% 8%;
+    --foreground: 0 0% 95%;
+    --card: 220 25% 10%;
+    --card-foreground: 0 0% 95%;
+    --popover: 220 25% 10%;
+    --popover-foreground: 0 0% 95%;
+    --primary: 210 100% 60%;
+    --primary-foreground: 220 25% 8%;
+    --secondary: 220 15% 15%;
+    --secondary-foreground: 0 0% 95%;
+    --muted: 220 15% 15%;
+    --muted-foreground: 220 10% 65%;
+    --accent: 210 100% 50%;
+    --accent-foreground: 220 25% 8%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 220 15% 20%;
+    --input: 220 15% 20%;
+    --ring: 210 100% 60%;
+    --sidebar-background: 220 25% 12%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 210 100% 60%;
+    --sidebar-primary-foreground: 220 25% 8%;
+    --sidebar-accent: 220 15% 18%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 220 15% 20%;
+    --sidebar-ring: 210 100% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
