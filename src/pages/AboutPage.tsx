@@ -36,7 +36,7 @@ const AboutPage = () => {
     {
       year: "2013",
       title: "Product Expansion",
-      description: "Expanded product line to include multilayered crosslaminated tarpaulins and rainwear."
+      description: "Expanded product line to include multilayer tarpauline and rainwear."
     },
     {
       year: "2016",
@@ -125,7 +125,7 @@ const AboutPage = () => {
                   <p>
                     Based in Gujarat, India, we have grown from a small manufacturing unit to become 
                     one of the region's most trusted suppliers of industrial fabrics. Our specialization 
-                    in multilayered crosslaminated tarpaulins, raincoat ponchos, and custom industrial 
+                    in multilayer tarpauline, raincoat ponchos, and custom industrial 
                     fabric solutions has earned us recognition across multiple industries.
                   </p>
                   <p>
@@ -336,7 +336,7 @@ const AboutPage = () => {
                 </ul>
 
                 <div className="mt-8">
-                  <Link to="/inquiry">
+                  <Link to="/contact">
                     <Button size="lg" className="w-full">
                       Get in Touch with Us
                     </Button>

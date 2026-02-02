@@ -7,7 +7,7 @@ const Hero = () => {
   
   const heroSlides = [
     {
-      title: "Multilayered Cross Laminated Tarpaulins",
+      title: "Multilayer Tarpauline",
       subtitle: "CUSTOM SIZES AVAILABLE FOR BULK ORDERS",
       image: "/Images/Tarpauline/cover.jpeg"
     },

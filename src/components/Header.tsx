@@ -9,11 +9,9 @@ const Header = () => {
   const navigation = [
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
-    { name: "Services", href: "/services" },
     { name: "Gallery", href: "/gallery" },
     { name: "About", href: "/about" },
-    { name: "Blog", href: "/blog" },
-    { name: "Inquiry", href: "/inquiry" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   return (
@@ -96,7 +94,7 @@ const Header = () => {
                 </Link>
               ))}
               <div className="px-4">
-                <Link to="/inquiry">
+                <Link to="/inquiry" className="block">
                   <Button variant="secondary" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
                     Get Quote
                   </Button>

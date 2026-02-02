@@ -8,22 +8,15 @@ const Footer = () => {
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
     { name: "About Us", href: "/about" },
-    { name: "Inquiry", href: "/inquiry" },
+    { name: "Contact Us", href: "/contact" },
   ];
 
   const products = [
     "Indoline Brand Tarpaulins",
-    "Multilayered Cross Laminated Tarpaulins",
+    "Multilayer Tarpauline",
     "Poncho Raincoats",
     "Bulk Custom Orders",
     "Plastic Rolls"
-  ];
-
-  const services = [
-    "Custom Sizing",
-    "Bulk Manufacturing",
-    "Custom Branding",
-    "Custom Packaging"
   ];
 
   return (
@@ -45,7 +38,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm leading-relaxed">
-              Leading manufacturer of multilayered cross laminated tarpaulins and poncho raincoats.
+              Leading manufacturer of multilayer tarpauline and poncho raincoats.
               Home of the Indoline brand, specializing in custom bulk manufacturing solutions.
             </p>
             <div className="flex space-x-4">

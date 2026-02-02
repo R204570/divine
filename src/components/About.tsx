@@ -41,7 +41,7 @@ const About = () => {
                   exceptional quality products that meet the demanding requirements of various industries.
                 </p>
                 <p>
-                  Our specialization in multilayered crosslaminated tarpaulins, raincoat ponchos, and custom 
+                  Our specialization in multilayer tarpauline, raincoat ponchos, and custom 
                   industrial fabric solutions has made us the preferred choice for businesses across India. 
                   We combine traditional craftsmanship with modern technology to ensure every product meets 
                   the highest standards of durability and performance.

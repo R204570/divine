@@ -6,8 +6,8 @@ const Products = () => {
   const products = [
     {
       id: "tarpaulins",
-      title: "Multilayered Cross Laminated Tarpaulins",
-      description: "Premium quality multilayered cross laminated tarpaulins with superior strength and durability.",
+      title: "Multilayer Tarpauline",
+      description: "Premium quality multilayer tarpauline with superior strength and durability.",
       image: "/Images/Tarpauline/cover.jpeg"
     },
     {

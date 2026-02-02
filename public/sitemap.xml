@@ -66,12 +66,12 @@
     <xhtml:link rel="alternate" hreflang="gu" href="https://www.divinefabtech.com/gu/blog"/>
   </url>
   <url>
-    <loc>https://www.divinefabtech.com/inquiry</loc>
+    <loc>https://www.divinefabtech.com/contact</loc>
     <lastmod>2025-08-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="en" href="https://www.divinefabtech.com/inquiry"/>
-    <xhtml:link rel="alternate" hreflang="hi" href="https://www.divinefabtech.com/hi/inquiry"/>
-    <xhtml:link rel="alternate" hreflang="gu" href="https://www.divinefabtech.com/gu/inquiry"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.divinefabtech.com/contact"/>
+    <xhtml:link rel="alternate" hreflang="hi" href="https://www.divinefabtech.com/hi/contact"/>
+    <xhtml:link rel="alternate" hreflang="gu" href="https://www.divinefabtech.com/gu/contact"/>
   </url>
 </urlset>

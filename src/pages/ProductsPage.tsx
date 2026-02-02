@@ -8,14 +8,14 @@ const ProductsPage = () => {
   const products = [
     {
       id: "tarpaulins",
-      title: "Multilayered Cross Laminated Tarpaulins",
+      title: "Multilayer Tarpauline",
       category: "CUSTOM SIZES FOR BULK ORDERS",
       image: "/Images/Tarpauline/cover.jpeg",
-      description: "Our premium quality multilayered cross laminated tarpaulins offer superior strength and durability. We specialize in bulk manufacturing with custom sizes.",
+      description: "Our premium quality multilayer tarpauline offer superior strength and durability. We specialize in bulk manufacturing with custom sizes.",
       features: [
         "100% Waterproof",
         "UV Resistant coating",
-        "Cross Laminated for extra strength",
+        "Multilayered for extra strength",
         "Reinforced edges",
         "Custom sizes available",
         "Bulk orders only"
@@ -29,7 +29,7 @@ const ProductsPage = () => {
         "Marine applications"
       ],
       specifications: {
-        "Material": "Cross Laminated HDPE/LDPE",
+        "Material": "Multilayered HDPE/LDPE",
         "Type": "Multilayered",
         "Colors": "Blue, Green, Yellow",
         "Sizes": "Custom sizes for bulk orders",
@@ -38,8 +38,6 @@ const ProductsPage = () => {
       galleryImages: [
         "/Images/Tarpauline/cover.jpeg",
         "/Images/Tarpauline/cover1.jpeg",
-        "/Images/Tarpauline/cross-laminated-multilayer-ldpe-ll-tarpaulins.jpeg",
-        "/Images/Tarpauline/cross-laminated-tarpaulin.jpg",
         "/Images/Tarpauline/Tarp-water.jpeg",
         "/Images/Tarpauline/Tarp-water1.jpeg",
         "/Images/Tarpauline/Tarp1.jpeg",
@@ -99,7 +97,7 @@ const ProductsPage = () => {
                 Our <span className="text-accent">Products</span>
               </h1>
               <p className="text-xl mb-8">
-                Premium multilayered cross laminated tarpaulins and poncho raincoats. 
+                Premium multilayer tarpauline and poncho raincoats. 
                 Custom sizes available for bulk orders.
               </p>
               <Link to="/">

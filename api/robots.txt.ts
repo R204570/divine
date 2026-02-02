@@ -42,7 +42,7 @@ Allow: /about
 Allow: /services
 Allow: /gallery
 Allow: /blog
-Allow: /inquiry
+Allow: /contact
 
 # Media files
 Allow: /Images/

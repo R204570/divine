@@ -123,10 +123,10 @@ const Contact = () => {
           </p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 lg:gap-12">
           {/* Contact Information */}
-          <div className="space-y-6">
-            <h3 className="text-2xl font-bold text-foreground mb-6">Contact Information</h3>
+          <div className="space-y-6 lg:col-span-1 sm:col-span-1">
+            <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-6">Contact Information</h3>
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
@@ -182,10 +182,10 @@ const Contact = () => {
           </div>
 
           {/* Contact Form */}
-          <div className="lg:col-span-2">
+          <div className="lg:col-span-2 sm:col-span-2 col-span-1">
             <Card>
               <CardHeader>
-                <CardTitle className="text-2xl font-bold text-foreground">Send Us an Inquiry</CardTitle>
+                <CardTitle className="text-lg sm:text-xl md:text-2xl font-bold text-foreground">Send Us an Inquiry</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
@@ -312,7 +312,7 @@ const Contact = () => {
           </div>
 
           {/* Map Section */}
-          <div className="col-span-3 mt-8 sm:mt-12 lg:mt-16">
+          <div className="col-span-1 sm:col-span-2 lg:col-span-3 mt-8 sm:mt-12 lg:mt-16">
             <Card>
               <CardHeader className="space-y-1 sm:space-y-2">
                 <CardTitle className="text-xl sm:text-2xl font-bold text-foreground">Find Us</CardTitle>

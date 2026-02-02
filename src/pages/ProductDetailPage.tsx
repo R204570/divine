@@ -40,27 +40,26 @@ const ProductDetailPage = () => {
 
   const productData: ProductData = {
     tarpaulins: {
-      title: "Multilayered Cross Laminated Tarpaulins",
+      title: "Multilayer Tarpauline",
       category: "CUSTOM SIZES FOR BULK ORDERS",
       images: [
         "/Images/Tarpauline/cover.jpeg",
         "/Images/Tarpauline/cover1.jpeg",
-        "/Images/Tarpauline/cross-laminated-tarpaulin.jpg",
         "/Images/Tarpauline/Tarp-water.jpeg",
         "/Images/Tarpauline/Tarp1.jpeg"
       ],
-      description: "Our premium multilayered cross laminated tarpaulins are engineered for maximum durability and weather resistance. Specialized in bulk manufacturing with custom sizes.",
+      description: "Our premium multilayer tarpauline are engineered for maximum durability and weather resistance. Specialized in bulk manufacturing with custom sizes.",
       features: [
         "100% Waterproof",
         "UV Resistant coating",
-        "Cross Laminated for extra strength",
+        "Multilayered for extra strength",
         "Reinforced edges",
         "High tensile strength",
         "Weather resistant"
       ],
       specifications: {
         "Material": "LL, LD, RP and Natural plastics",
-        "Type": "Multilayered Cross Laminated",
+        "Type": "Multilayered Tarpauline",
         "Colors": "Commonly Blue and Yellow, Custom colors available for bulk orders",
         "Size": "Custom sizes available for bulk orders"
       }

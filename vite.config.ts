@@ -20,9 +20,19 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Split large vendor bundles into smaller chunks to avoid >500kb chunks
+    // Multiple entry points for MPA
     rollupOptions: {
-        output: {
+      input: {
+        main: path.resolve(__dirname, 'index.html'),
+        about: path.resolve(__dirname, 'templates/about.html'),
+        products: path.resolve(__dirname, 'templates/products.html'),
+        productDetail: path.resolve(__dirname, 'templates/product-detail.html'),
+        services: path.resolve(__dirname, 'templates/services.html'),
+        inquiry: path.resolve(__dirname, 'templates/inquiry.html'),
+        gallery: path.resolve(__dirname, 'templates/gallery.html'),
+        blog: path.resolve(__dirname, 'templates/blog.html'),
+      },
+      output: {
         manualChunks(id: string) {
           if (id.includes('node_modules')) {
             // Don't force react/react-dom into a separate chunk — let the bundler decide.

@@ -17,7 +17,7 @@ const WhyChooseUs = () => {
     {
       icon: Shield,
       title: "Durable Products",
-      description: "Our multilayered crosslaminated technology ensures superior durability and long-lasting performance.",
+      description: "Our multilayered tarpauline technology ensures superior durability and long-lasting performance.",
       color: "text-purple-600"
     },
     {
