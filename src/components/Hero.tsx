@@ -73,7 +73,7 @@ const Hero = () => {
             </div>
             <div className="flex items-center justify-center gap-2 text-primary-foreground/90">
               <Mail className="h-5 w-5 text-accent" />
-              <span className="font-medium">divine.fabtech@gmail.com</span>
+              <span className="font-medium">divinefabtech@gmail.com</span>
             </div>
             <div className="flex items-center justify-center gap-2 text-primary-foreground/90">
               <MapPin className="h-5 w-5 text-accent" />

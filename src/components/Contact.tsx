@@ -27,8 +27,8 @@ const Contact = () => {
     {
       icon: Mail,
       title: "Email",
-      details: "divine.fabtech@gmail.com",
-      action: "mailto:divine.fabtech@gmail.com"
+      details: "divinefabtech@gmail.com",
+      action: "mailto:divinefabtech@gmail.com"
     },
     {
       icon: MapPin,
@@ -130,28 +130,30 @@ const Contact = () => {
             {contactInfo.map((info, index) => {
               const Icon = info.icon;
               return (
-                <Card key={index} className="hover:shadow-md transition-all duration-300 group">
-                  <CardContent className="p-4 sm:p-6">
-                    <div className="flex items-start gap-3 sm:gap-4">
-                      <div className="bg-primary/10 p-2 sm:p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
-                        <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{info.title}</h4>
-                        {info.action ? (
-                          <a
-                            href={info.action}
-                            className="text-muted-foreground hover:text-primary transition-colors text-sm sm:text-base break-words"
-                          >
-                            {info.details}
-                          </a>
-                        ) : (
+                <a
+                  key={index}
+                  href={info.action || "#"}
+                  onClick={(e) => {
+                    if (!info.action) {
+                      e.preventDefault();
+                    }
+                  }}
+                  className={`block ${info.action ? "cursor-pointer" : ""}`}
+                >
+                  <Card className="hover:shadow-md transition-all duration-300 group h-full">
+                    <CardContent className="p-4 sm:p-6">
+                      <div className="flex items-start gap-3 sm:gap-4">
+                        <div className="bg-primary/10 p-2 sm:p-3 rounded-lg group-hover:bg-primary/20 transition-colors">
+                          <Icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                        </div>
+                        <div className="min-w-0 flex-1">
+                          <h4 className="font-semibold text-foreground mb-1 text-sm sm:text-base">{info.title}</h4>
                           <p className="text-muted-foreground text-sm sm:text-base break-words">{info.details}</p>
-                        )}
+                        </div>
                       </div>
-                    </div>
-                  </CardContent>
-                </Card>
+                    </CardContent>
+                  </Card>
+                </a>
               );
             })}
 
