@@ -1,10 +1,16 @@
 User-agent: Googlebot
 Allow: /
 Allow: /Images/
+Allow: /products/
+Allow: /products/tarpaulins
+Allow: /products/poncho
 
 User-agent: Bingbot
 Allow: /
 Allow: /Images/
+Allow: /products/
+Allow: /products/tarpaulins
+Allow: /products/poncho
 
 User-agent: Twitterbot
 Allow: /
@@ -17,16 +23,16 @@ Allow: /Images/
 User-agent: *
 Allow: /
 
-# Sitemap location
-Sitemap: https://www.divinefabtech.com/sitemap.xml
-
 # Important sections
 Allow: /products/
+Allow: /products/tarpaulins
+Allow: /products/poncho
 Allow: /about
 Allow: /services
 Allow: /gallery
 Allow: /blog
 Allow: /contact
+Allow: /inquiry
 
 # Media files
 Allow: /Images/
@@ -36,7 +42,17 @@ Allow: /*.png$
 Allow: /*.svg$
 Allow: /*.webp$
 
-# Block access to admin or private areas if they exist
+# Block access to admin or private areas
 Disallow: /admin/
 Disallow: /private/
 Disallow: /internal/
+Disallow: /*.json$
+Disallow: /*?*sort=
+Disallow: /*?*filter=
+
+# Sitemap locations
+Sitemap: https://www.divinefabtech.com/sitemap.xml
+Sitemap: https://www.divinefabtech.com/api/sitemap.xml
+
+# Crawl delay to prevent server overload
+Crawl-delay: 1

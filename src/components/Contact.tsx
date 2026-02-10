@@ -22,7 +22,7 @@ const Contact = () => {
       icon: Phone,
       title: "Phone & WhatsApp",
       details: "+91 9825148321",
-      action: "tel:9825148321"
+      action: "tel:+919825148321"
     },
     {
       icon: Mail,
@@ -33,8 +33,8 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Location",
-      details: "Gujarat, India",
-      action: null
+      details: "DIVINE FABTECH INDUSTRIES, Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220",
+      action: "https://www.google.com/maps/search/DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220"
     },
     {
       icon: Clock,
@@ -133,6 +133,8 @@ const Contact = () => {
                 <a
                   key={index}
                   href={info.action || "#"}
+                  target={info.icon === MapPin ? "_blank" : undefined}
+                  rel={info.icon === MapPin ? "noopener noreferrer" : undefined}
                   onClick={(e) => {
                     if (!info.action) {
                       e.preventDefault();
@@ -325,10 +327,10 @@ const Contact = () => {
                     <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-4 mb-4">
                       <div>
                         <h3 className="text-base sm:text-lg font-semibold text-foreground">DIVINE FABTECH INDUSTRIES</h3>
-                        <p className="text-sm text-muted-foreground mt-1">Survey No 710-711, Village Rupal, Bavla, Gujarat 382220</p>
+                        <p className="text-sm text-muted-foreground mt-1">Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220</p>
                       </div>
                       <a 
-                        href="https://www.google.com/maps/search/Survey No 710-711Village Rupal Rupal , Bavla, Jivapura, Gujarat 382220"
+                        href="https://www.google.com/maps/search/DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-primary text-primary-foreground px-3 sm:px-4 py-2 rounded-md text-sm hover:bg-primary/90 transition-colors w-full sm:w-auto text-center"
@@ -338,7 +340,7 @@ const Contact = () => {
                     </div>
                     <div className="aspect-[16/9] sm:aspect-[16/7] w-full overflow-hidden rounded-md bg-muted">
                       <iframe
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Survey No 710-711Village Rupal Rupal , Bavla, Jivapura, Gujarat 382220"
+                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220"
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}

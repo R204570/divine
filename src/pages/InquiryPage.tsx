@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import { ArrowLeft } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -89,14 +91,29 @@ const InquiryPage = () => {
   }
 
   return (
-    <div className="min-h-screen bg-background py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-2xl mx-auto space-y-8">
-        <div className="text-center">
-          <h1 className="text-3xl font-bold tracking-tight">Send Us an Inquiry</h1>
-          <p className="mt-2 text-muted-foreground">
-            Have a question about our products? We'd love to hear from you.
-          </p>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="bg-primary text-primary-foreground py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Send Us an <span className="text-accent">Inquiry</span>
+            </h1>
+            <p className="text-xl mb-8">
+              Have questions about our products? We'd love to hear from you. Fill out the form below and our team will get back to you as soon as possible.
+            </p>
+            <Link to="/">
+              <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Home
+              </Button>
+            </Link>
+          </div>
         </div>
+      </section>
+
+      <div className="py-12 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-2xl mx-auto">
 
         <Card className="p-6">
           <Form {...form}>
@@ -222,6 +239,7 @@ const InquiryPage = () => {
             </form>
           </Form>
         </Card>
+        </div>
       </div>
     </div>
   );

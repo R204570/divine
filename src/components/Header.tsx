@@ -43,7 +43,7 @@ const Header = () => {
             <img 
               src="/Images/logo.png" 
               alt="Divine Fabtech Industries - Tarpaulin Manufacturer" 
-              className="w-16 h-16 object-contain"
+              className="w-16 h-16 object-contain rounded-sm"
             />
             <div className="ml-3">
               <h1 className="text-xl font-bold text-accent">Divine Fabtech</h1>

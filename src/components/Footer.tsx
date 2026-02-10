@@ -48,22 +48,29 @@ const Footer = () => {
                 rel="noopener noreferrer"
                 className="bg-green-500 text-white p-2 rounded-full hover:bg-green-600 transition-colors"
                 aria-label="WhatsApp"
+                title="Chat with us on WhatsApp"
               >
                 <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
                   <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.52 7.16l-4.15 6.67c-.75 1.2-2.4 1.55-3.65.78-.3-.18-.56-.42-.78-.71L6.9 14.05l-.71-1.21 1.38-.8 1.04 1.8 3.84-6.18c.75-1.2 2.4-1.55 3.65-.78 1.25.77 1.6 2.42.83 3.67l-.37.61z"/>
                 </svg>
               </a>
               <a 
-                href="#" 
+                href="https://www.instagram.com/divine.fabtech?igsh=N3NhcnJ4anA3OWpi&utm_source=qr" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-pink-500 text-white p-2 rounded-full hover:bg-pink-600 transition-colors"
                 aria-label="Instagram"
+                title="Follow us on Instagram"
               >
                 <Instagram className="h-4 w-4" />
               </a>
               <a 
-                href="#" 
+                href="https://www.facebook.com/share/1GgA2yKHcW/?mibextid=wwXIfr" 
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-blue-600 text-white p-2 rounded-full hover:bg-blue-700 transition-colors"
                 aria-label="Facebook"
+                title="Follow us on Facebook"
               >
                 <Facebook className="h-4 w-4" />
               </a>
@@ -123,7 +130,15 @@ const Footer = () => {
               </div>
               <div className="flex items-start gap-3">
                 <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                <span className="text-sm">Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220</span>
+                <a 
+                  href="https://www.google.com/maps/search/DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-sm hover:text-primary transition-colors cursor-pointer"
+                  title="Open location in Google Maps"
+                >
+                  DIVINE FABTECH INDUSTRIES, Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220
+                </a>
               </div>
             </div>
           </div>

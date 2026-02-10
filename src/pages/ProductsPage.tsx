@@ -36,13 +36,23 @@ const ProductsPage = () => {
         "Order Type": "Bulk manufacturing only"
       },
       galleryImages: [
+        "/Images/Tarpauline/Multilayer Tarpauline.jpeg",
+        "/Images/Tarpauline/Multilayer 2.jpg",
         "/Images/Tarpauline/cover.jpeg",
         "/Images/Tarpauline/cover1.jpeg",
+        "/Images/Tarpauline/rolls.jpeg",
         "/Images/Tarpauline/Tarp-water.jpeg",
         "/Images/Tarpauline/Tarp-water1.jpeg",
         "/Images/Tarpauline/Tarp1.jpeg",
         "/Images/Tarpauline/Tarp2.jpeg",
-        "/Images/Tarpauline/Tarp3.jpeg"
+        "/Images/Tarpauline/Tarp3.jpeg",
+        "/Images/Tarpauline/waterproof-plastic-tarpaulin-yellow.jpeg",
+        "/Images/Tarpauline/1.jpg",
+        "/Images/Tarpauline/14.jpg",
+        "/Images/Tarpauline/15.jpg",
+        "/Images/Tarpauline/16.jpg",
+        "/Images/Tarpauline/18.jpg",
+        "/Images/Tarpauline/24.jpg"
       ]
     },
     {
@@ -101,7 +111,7 @@ const ProductsPage = () => {
                 Custom sizes available for bulk orders.
               </p>
               <Link to="/">
-                <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Back to Home
                 </Button>
@@ -177,11 +187,11 @@ const ProductsPage = () => {
                     {/* Action Buttons */}
                     <div className="flex gap-3 pt-4">
                       <Link to={`/products/${product.id}`} className="flex-1">
-                        <Button className="w-full">
+                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
                           View Details
                         </Button>
                       </Link>
-                      <Button variant="outline" className="flex-1">
+                      <Button className="flex-1 bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
                         <ShoppingCart className="mr-2 h-4 w-4" />
                         Quick Quote
                       </Button>
@@ -205,14 +215,18 @@ const ProductsPage = () => {
                 tailored to your specific requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button size="lg" className="bg-primary text-primary-foreground">
+                <a href="tel:9825148321">
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                   <Phone className="mr-2 h-5 w-5" />
                   Call 9825148321
                 </Button>
-                <Button size="lg" variant="outline">
+                </a>
+                <a href="mailto:divinefabtech@gmail.com">
+                <Button size="lg" className="bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
                   <Mail className="mr-2 h-5 w-5" />
                   Send Inquiry
                 </Button>
+                </a>
               </div>
             </div>
           </div>

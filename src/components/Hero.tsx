@@ -57,28 +57,47 @@ const Hero = () => {
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <Button size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground animate-glow">
+            <Button 
+              size="lg" 
+              className="bg-white text-slate-900 hover:bg-gray-100 font-semibold shadow-lg hover:shadow-xl transition-all"
+              onClick={() => window.location.href = '/inquiry'}
+            >
               Get Quote <ArrowRight className="ml-2 h-5 w-5" />
             </Button>
-            <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+            <Button 
+              size="lg" 
+              className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-slate-900 font-semibold transition-all shadow-md hover:shadow-lg"
+              onClick={() => window.location.href = '/products'}
+            >
               View Products
             </Button>
           </div>
 
           {/* Quick Contact Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-slide-in-left" style={{ animationDelay: '0.9s' }}>
-            <div className="flex items-center justify-center gap-2 text-primary-foreground/90">
+            <a 
+              href="tel:+919825148321" 
+              className="flex items-center justify-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors cursor-pointer"
+            >
               <Phone className="h-5 w-5 text-accent" />
-              <span className="font-medium">9825148321</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-primary-foreground/90">
+              <span className="font-medium hover:underline">9825148321</span>
+            </a>
+            <a 
+              href="mailto:divinefabtech@gmail.com" 
+              className="flex items-center justify-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors cursor-pointer"
+            >
               <Mail className="h-5 w-5 text-accent" />
-              <span className="font-medium">divinefabtech@gmail.com</span>
-            </div>
-            <div className="flex items-center justify-center gap-2 text-primary-foreground/90">
+              <span className="font-medium hover:underline">divinefabtech@gmail.com</span>
+            </a>
+            <a 
+              href="https://www.google.com/maps/search/Survey+No+710-711+Village+Rupal+Bavla+Gujarat+382220" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center justify-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors cursor-pointer"
+            >
               <MapPin className="h-5 w-5 text-accent" />
-              <span className="font-medium">Mumbai, India</span>
-            </div>
+              <span className="font-medium hover:underline">Gujarat, India</span>
+            </a>
           </div>
         </div>
       </div>

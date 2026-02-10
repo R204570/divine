@@ -38,15 +38,45 @@ const ProductDetailPage = () => {
     });
   };
 
+  const handleShareProduct = () => {
+    const productUrl = `${window.location.origin}/products/${productId}`;
+    navigator.clipboard.writeText(productUrl).then(() => {
+      toast({
+        title: "Link Copied!",
+        description: "Product link copied to clipboard",
+        duration: 2000,
+      });
+    }).catch(() => {
+      toast({
+        title: "Error",
+        description: "Failed to copy link",
+        duration: 2000,
+      });
+    });
+  };
+
   const productData: ProductData = {
     tarpaulins: {
       title: "Multilayer Tarpauline",
       category: "CUSTOM SIZES FOR BULK ORDERS",
       images: [
+        "/Images/Tarpauline/Multilayer Tarpauline.jpeg",
+        "/Images/Tarpauline/Multilayer 2.jpg",
         "/Images/Tarpauline/cover.jpeg",
         "/Images/Tarpauline/cover1.jpeg",
+        "/Images/Tarpauline/rolls.jpeg",
         "/Images/Tarpauline/Tarp-water.jpeg",
-        "/Images/Tarpauline/Tarp1.jpeg"
+        "/Images/Tarpauline/Tarp-water1.jpeg",
+        "/Images/Tarpauline/Tarp1.jpeg",
+        "/Images/Tarpauline/Tarp2.jpeg",
+        "/Images/Tarpauline/Tarp3.jpeg",
+        "/Images/Tarpauline/waterproof-plastic-tarpaulin-yellow.jpeg",
+        "/Images/Tarpauline/1.jpg",
+        "/Images/Tarpauline/14.jpg",
+        "/Images/Tarpauline/15.jpg",
+        "/Images/Tarpauline/16.jpg",
+        "/Images/Tarpauline/18.jpg",
+        "/Images/Tarpauline/24.jpg"
       ],
       description: "Our premium multilayer tarpauline are engineered for maximum durability and weather resistance. Specialized in bulk manufacturing with custom sizes.",
       features: [
@@ -58,7 +88,7 @@ const ProductDetailPage = () => {
         "Weather resistant"
       ],
       specifications: {
-        "Material": "LL, LD, RP and Natural plastics",
+        "Material": "mLDPE, LDPE, LLDPE and HDPE",
         "Type": "Multilayered Tarpauline",
         "Colors": "Commonly Blue and Yellow, Custom colors available for bulk orders",
         "Size": "Custom sizes available for bulk orders"
@@ -72,6 +102,7 @@ const ProductDetailPage = () => {
         "/Images/Poncho/blue.jpeg",
         "/Images/Poncho/green.jpg",
         "/Images/Poncho/purple.jpeg",
+        "/Images/Poncho/transparent.jpeg",
         "/Images/Poncho/yellow.jpg"
       ],
       description: "High-quality waterproof poncho raincoats designed for durability and comfort. Available in various colors with custom branding options for bulk orders.",
@@ -82,9 +113,9 @@ const ProductDetailPage = () => {
         "High durability"
       ],
       specifications: {
-        "Material": "High-grade waterproof fabric",
-        "Colors": "Blue, Green, Yellow, Purple, Transparent",
-        "Branding": "Custom logo printing available",
+        "Material": "mLDPE, LDPE, LLDPE and HDPE",
+        "Colors": "Blue, Green, Yellow, Purple, Pink, Transparent",
+        "Branding": "Custom logo packaging available for bulk orders",
         "Size": "Standard and custom sizes available"
       }
     }
@@ -204,7 +235,12 @@ const ProductDetailPage = () => {
 
             <div className="pt-4 flex items-center justify-between border-t">
               <span className="text-sm text-muted-foreground">Share this product</span>
-              <Button variant="ghost" size="sm">
+              <Button 
+                variant="ghost" 
+                size="sm"
+                onClick={handleShareProduct}
+                title="Copy product link to clipboard"
+              >
                 <Share2 className="h-4 w-4" />
               </Button>
             </div>

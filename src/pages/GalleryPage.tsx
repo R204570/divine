@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { ArrowLeft } from "lucide-react";
 
 const GalleryPage = () => {
   const navigate = useNavigate();
@@ -14,16 +16,22 @@ const GalleryPage = () => {
 
   const tarpaulineImages = [
     { id: 7, title: "Multilayer", image: "/Images/Tarpauline/Multilayer Tarpauline.jpeg" },
-    { id: 8, title: "Cover", image: "/Images/Tarpauline/cover.jpeg" },
-    { id: 9, title: "Cover 2", image: "/Images/Tarpauline/cover1.jpeg" },
-    { id: 10, title: "Rolls", image: "/Images/Tarpauline/rolls.jpeg" },
-    { id: 11, title: "Water Protection", image: "/Images/Tarpauline/Tarp-water.jpeg" },
-    { id: 12, title: "Water Protection 2", image: "/Images/Tarpauline/Tarp-water1.jpeg" },
-    { id: 13, title: "Tarp 1", image: "/Images/Tarpauline/Tarp1.jpeg" },
-    { id: 14, title: "Tarp 2", image: "/Images/Tarpauline/Tarp2.jpeg" },
-    { id: 15, title: "Tarp 3", image: "/Images/Tarpauline/Tarp3.jpeg" },
-    { id: 16, title: "Yellow", image: "/Images/Tarpauline/waterproof-plastic-tarpaulin-yellow.jpeg" },
-    { id: 17, title: "Multilayer 2", image: "/Images/Tarpauline/Multilayer 2.jpg" }
+    { id: 8, title: "Multilayer 2", image: "/Images/Tarpauline/Multilayer 2.jpg" },
+    { id: 9, title: "Cover", image: "/Images/Tarpauline/cover.jpeg" },
+    { id: 10, title: "Cover 2", image: "/Images/Tarpauline/cover1.jpeg" },
+    { id: 11, title: "Rolls", image: "/Images/Tarpauline/rolls.jpeg" },
+    { id: 12, title: "Water Protection", image: "/Images/Tarpauline/Tarp-water.jpeg" },
+    { id: 13, title: "Water Protection 2", image: "/Images/Tarpauline/Tarp-water1.jpeg" },
+    { id: 14, title: "Tarp 1", image: "/Images/Tarpauline/Tarp1.jpeg" },
+    { id: 15, title: "Tarp 2", image: "/Images/Tarpauline/Tarp2.jpeg" },
+    { id: 16, title: "Tarp 3", image: "/Images/Tarpauline/Tarp3.jpeg" },
+    { id: 17, title: "Yellow Tarpaulin", image: "/Images/Tarpauline/waterproof-plastic-tarpaulin-yellow.jpeg" },
+    { id: 18, title: "Tarp 1 (Variant)", image: "/Images/Tarpauline/1.jpg" },
+    { id: 19, title: "Tarp 14 (Variant)", image: "/Images/Tarpauline/14.jpg" },
+    { id: 20, title: "Tarp 15 (Variant)", image: "/Images/Tarpauline/15.jpg" },
+    { id: 21, title: "Tarp 16 (Variant)", image: "/Images/Tarpauline/16.jpg" },
+    { id: 22, title: "Tarp 18 (Variant)", image: "/Images/Tarpauline/18.jpg" },
+    { id: 23, title: "Tarp 24 (Variant)", image: "/Images/Tarpauline/24.jpg" }
   ];
 
   const GalleryImage = ({ image, title, onClick }: { image: string; title: string; onClick: () => void }) => (
@@ -48,15 +56,29 @@ const GalleryPage = () => {
   );
 
   return (
-    <div className="min-h-screen bg-background py-12">
-      <div className="container mx-auto px-4">
-        {/* Header */}
-        <div className="text-center mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-4">Product Gallery</h1>
-          <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Explore our complete range of Poncho Raincoats and Multilayer Tarpaulines. Click on any image to explore the full product details.
-          </p>
+    <div className="min-h-screen bg-background">
+      {/* Hero Section */}
+      <section className="bg-primary text-primary-foreground py-16">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Product <span className="text-accent">Gallery</span>
+            </h1>
+            <p className="text-xl mb-8">
+              Explore our complete range of Poncho Raincoats and Multilayer Tarpaulines. Click on any image to explore the full product details.
+            </p>
+            <Link to="/">
+              <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
+                <ArrowLeft className="mr-2 h-4 w-4" />
+                Back to Home
+              </Button>
+            </Link>
+          </div>
         </div>
+      </section>
+
+      <div className="py-12">
+        <div className="container mx-auto px-4">
 
         {/* Poncho Section */}
         <div className="mb-20">
@@ -95,6 +117,7 @@ const GalleryPage = () => {
               />
             ))}
           </div>
+        </div>
         </div>
       </div>
     </div>

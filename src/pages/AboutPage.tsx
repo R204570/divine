@@ -4,6 +4,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 
 const AboutPage = () => {
+  // Calculate years of experience dynamically from 2019
+  const yearsExp = new Date().getFullYear() - 2019;
   const values = [
     {
       icon: Award,
@@ -29,34 +31,29 @@ const AboutPage = () => {
 
   const milestones = [
     {
-      year: "2010",
+      year: "2019",
       title: "Company Founded",
       description: "Divine Fabtech Industries established with a vision to provide quality industrial fabrics."
     },
     {
-      year: "2013",
-      title: "Product Expansion",
-      description: "Expanded product line to include multilayer tarpauline and rainwear."
-    },
-    {
-      year: "2016",
-      title: "Quality Certification",
-      description: "Achieved ISO 9001:2015 certification for quality management systems."
-    },
-    {
-      year: "2018",
-      title: "Market Leadership",
-      description: "Became one of Gujarat's leading manufacturers of industrial fabrics and tarpaulins."
-    },
-    {
       year: "2020",
-      title: "Digital Transformation",
-      description: "Implemented modern manufacturing processes and digital quality control systems."
+      title: "Quality Systems Established",
+      description: "Implemented quality systems and achieved ISO 9001:2015 certification."
+    },
+    {
+      year: "2021",
+      title: "Product Expansion",
+      description: "Expanded product range and market reach with multilayer tarpauline and custom solutions."
+    },
+    {
+      year: "2022",
+      title: "Industry Recognition",
+      description: "Established presence as a reliable industrial fabric manufacturer."
     },
     {
       year: "2024",
-      title: "Expansion",
-      description: "Continued growth with 500+ satisfied customers and nationwide delivery network."
+      title: "Continued Growth",
+      description: "Improved processes and expanded customer base with 500+ satisfied clients."
     }
   ];
 
@@ -94,11 +91,11 @@ const AboutPage = () => {
                 About <span className="text-accent">Divine Fabtech</span>
               </h1>
               <p className="text-xl mb-8">
-                Over a decade of excellence in manufacturing premium industrial fabrics and tarpaulins, 
-                serving customers across India with quality products and reliable service.
+                Leading manufacturer of premium multilayer tarpaulines and poncho raincoats, 
+                serving customers across India with quality products and reliable service since 2019.
               </p>
               <Link to="/">
-                <Button variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary">
+                <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
                   <ArrowLeft className="mr-2 h-4 w-4" />
                   Back to Home
                 </Button>
@@ -117,21 +114,21 @@ const AboutPage = () => {
                 </h2>
                 <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
                   <p>
-                    Divine Fabtech Industries was founded in 2010 with a simple yet powerful vision: 
-                    to provide high-quality industrial fabrics and tarpaulins that meet the demanding 
+                    Divine Fabtech Industries was founded in 2019 with a simple yet powerful vision: 
+                    to provide high-quality multilayer tarpaulines and poncho raincoats that meet the demanding 
                     requirements of various industries while maintaining competitive pricing and 
                     exceptional customer service.
                   </p>
                   <p>
-                    Based in Gujarat, India, we have grown from a small manufacturing unit to become 
-                    one of the region's most trusted suppliers of industrial fabrics. Our specialization 
-                    in multilayer tarpauline, raincoat ponchos, and custom industrial 
-                    fabric solutions has earned us recognition across multiple industries.
+                    Based in Bavla, Gujarat, India, we operate a single in-house manufacturing facility 
+                    with 24/7 operations (excluding national holidays). Our specialization in custom multilayer 
+                    tarpaulines, raincoat ponchos, and tailored solutions for bulk orders has earned us 
+                    trust across multiple applications and industries.
                   </p>
                   <p>
-                    Today, with over 500 satisfied customers and a nationwide delivery network, we 
-                    continue to innovate and expand our product offerings while maintaining our 
-                    core commitment to quality, reliability, and customer satisfaction.
+                    Today, with over 500 satisfied clients and 5000+ products delivered nationwide, we 
+                    continue to maintain our core commitment to quality, reliability, and exceptional 
+                    customer service through business hours and on-call support.
                   </p>
                 </div>
               </div>
@@ -143,25 +140,25 @@ const AboutPage = () => {
                     <div className="text-muted-foreground">Satisfied Clients</div>
                   </div>
                   <div className="bg-card p-6 rounded-lg border border-border text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">14+</div>
+                    <div className="text-3xl font-bold text-primary mb-2">{yearsExp}+</div>
                     <div className="text-muted-foreground">Years Experience</div>
                   </div>
                   <div className="bg-card p-6 rounded-lg border border-border text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">1000+</div>
+                    <div className="text-3xl font-bold text-primary mb-2">5000+</div>
                     <div className="text-muted-foreground">Products Delivered</div>
                   </div>
                   <div className="bg-card p-6 rounded-lg border border-border text-center">
-                    <div className="text-3xl font-bold text-primary mb-2">24/7</div>
-                    <div className="text-muted-foreground">Customer Support</div>
+                    <div className="text-3xl font-bold text-primary mb-2">24/7*</div>
+                    <div className="text-muted-foreground">Manufacturing Operations</div>
                   </div>
                 </div>
 
                 <div className="bg-muted/30 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-foreground mb-3">Our Mission</h3>
                   <p className="text-muted-foreground">
-                    To be the leading manufacturer of premium industrial fabrics in India, 
-                    providing innovative solutions that protect, preserve, and enhance our 
-                    customers' operations while maintaining the highest standards of quality and service.
+                    To be a trusted manufacturer of premium multilayer tarpaulines and poncho raincoats, 
+                    providing quality products and reliable service that meet the diverse needs of our 
+                    customers across India while maintaining the highest standards of quality and integrity.
                   </p>
                 </div>
               </div>
@@ -273,12 +270,12 @@ const AboutPage = () => {
                   <p>
                     Quality is at the heart of everything we do at Divine Fabtech Industries. 
                     We maintain strict quality control measures throughout our manufacturing 
-                    process to ensure every product meets or exceeds industry standards.
+                    process to ensure every product meets our high standards.
                   </p>
                   <p>
                     Our quality management system is certified to ISO 9001:2015 standards, 
-                    demonstrating our commitment to consistent quality delivery and continuous 
-                    improvement in all our processes.
+                    demonstrating our commitment to consistent quality delivery. Our modern in-house 
+                    manufacturing facility operates 24/7 to ensure efficient production and timely delivery.
                   </p>
                 </div>
 
@@ -291,17 +288,17 @@ const AboutPage = () => {
                   <div className="bg-card p-4 rounded-lg border border-border">
                     <Factory className="h-8 w-8 text-primary mb-3" />
                     <h4 className="font-semibold text-foreground mb-2">Modern Facility</h4>
-                    <p className="text-sm text-muted-foreground">State-of-the-art manufacturing equipment</p>
+                    <p className="text-sm text-muted-foreground">In-house manufacturing with 24/7 operations</p>
                   </div>
                   <div className="bg-card p-4 rounded-lg border border-border">
                     <Clock className="h-8 w-8 text-primary mb-3" />
-                    <h4 className="font-semibold text-foreground mb-2">Timely Delivery</h4>
-                    <p className="text-sm text-muted-foreground">On-time delivery guarantee</p>
+                    <h4 className="font-semibold text-foreground mb-2">Flexible Delivery</h4>
+                    <p className="text-sm text-muted-foreground">National and international logistics support</p>
                   </div>
                   <div className="bg-card p-4 rounded-lg border border-border">
                     <Award className="h-8 w-8 text-primary mb-3" />
-                    <h4 className="font-semibold text-foreground mb-2">Customer Satisfaction</h4>
-                    <p className="text-sm text-muted-foreground">98% customer retention rate</p>
+                    <h4 className="font-semibold text-foreground mb-2">Repeat Business</h4>
+                    <p className="text-sm text-muted-foreground">Strong customer satisfaction and loyalty</p>
                   </div>
                 </div>
               </div>
@@ -311,27 +308,27 @@ const AboutPage = () => {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Over 14 years of industry experience and expertise</span>
+                    <span className="text-muted-foreground">Founded in 2019, focused on quality-driven manufacturing</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Comprehensive range of industrial fabric solutions</span>
+                    <span className="text-muted-foreground">Specialized range of multilayer tarpaulines and poncho raincoats</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Custom manufacturing capabilities for unique requirements</span>
+                    <span className="text-muted-foreground">Custom manufacturing for bulk orders with flexible sizes and GSM</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Competitive pricing with no compromise on quality</span>
+                    <span className="text-muted-foreground">24/7 manufacturing operations for quick turnaround times</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Nationwide delivery network and after-sales support</span>
+                    <span className="text-muted-foreground">Business hours customer support with on-call and WhatsApp assistance</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Commitment to environmental sustainability</span>
+                    <span className="text-muted-foreground">National and international delivery support with coordinated logistics</span>
                   </li>
                 </ul>
 
