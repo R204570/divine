@@ -20,20 +20,10 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    // Multiple entry points for MPA
     rollupOptions: {
-      input: {
-        main: path.resolve(__dirname, 'index.html'),
-        about: path.resolve(__dirname, 'templates/about.html'),
-        products: path.resolve(__dirname, 'templates/products.html'),
-        productDetail: path.resolve(__dirname, 'templates/product-detail.html'),
-        inquiry: path.resolve(__dirname, 'templates/inquiry.html'),
-        gallery: path.resolve(__dirname, 'templates/gallery.html'),
-      },
       output: {
         manualChunks(id: string) {
           if (id.includes('node_modules')) {
-            // Don't force react/react-dom into a separate chunk — let the bundler decide.
             if (id.includes('recharts')) return 'vendor-charts';
             if (id.includes('lucide-react') || id.includes('@radix-ui')) return 'vendor-ui';
             return 'vendor';
@@ -41,7 +31,6 @@ export default defineConfig(({ mode }) => ({
         }
       }
     },
-    // Raise warning threshold slightly after splitting
     chunkSizeWarningLimit: 700,
   },
 }));

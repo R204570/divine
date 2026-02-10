@@ -17,48 +17,32 @@ app.use(express.static(join(__dirname, 'public')));
 // Serve static files from dist directory
 app.use(express.static(join(__dirname, 'dist')));
 
-// Route mapping for MPA
-const routeMap = {
-  '/': 'index.html',
-  '/about': 'about.html',
-  '/products': 'products.html',
-  '/products/:productId': 'product-detail.html',
-  '/services': 'services.html',
-  '/inquiry': 'inquiry.html',
-  '/gallery': 'gallery.html',
-  '/blog': 'blog.html',
-};
-
 // Handle specific routes
 app.get('/about', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'about.html'));
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
 app.get('/products', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'products.html'));
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
 app.get('/products/:productId', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'product-detail.html'));
-});
-
-app.get('/services', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'services.html'));
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
 app.get('/inquiry', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'inquiry.html'));
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
 app.get('/gallery', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'gallery.html'));
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
-app.get('/blog', (req, res) => {
-  res.sendFile(join(__dirname, 'dist', 'blog.html'));
+app.get('/contact', (req, res) => {
+  res.sendFile(join(__dirname, 'dist', 'index.html'));
 });
 
-// For all other routes, serve the index.html (home page)
+// For all other routes, serve the index.html (SPA fallback)
 app.get('*', (req, res) => {
   res.sendFile(join(__dirname, 'dist', 'index.html'));
 });

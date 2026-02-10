@@ -16,7 +16,7 @@ interface ContactInfo {
 const Contact = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-  
+
   const contactInfo: ContactInfo[] = [
     {
       icon: Phone,
@@ -92,7 +92,7 @@ const Contact = () => {
 
       // Reset form
       setFormData({
-          name: "",
+        name: "",
         email: "",
         phone: "",
         company: "",
@@ -118,7 +118,7 @@ const Contact = () => {
             Get in Touch
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-3xl mx-auto">
-            Ready to discuss your industrial fabric requirements? Contact us today for expert advice 
+            Ready to discuss your industrial fabric requirements? Contact us today for expert advice
             and competitive quotes tailored to your needs.
           </p>
         </div>
@@ -163,18 +163,18 @@ const Contact = () => {
             <div className="space-y-4 pt-6">
               <h4 className="font-semibold text-foreground">Quick Actions</h4>
               <div className="space-y-3">
-                <a 
-                  href="https://api.whatsapp.com/send/?phone=919825148321&type=phone_number&app_absent=0" 
-                  target="_blank" 
+                <a
+                  href="https://api.whatsapp.com/send/?phone=919825148321&type=phone_number&app_absent=0"
+                  target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-[#25D366] text-white p-3 rounded-lg hover:bg-[#20BD5C] transition-colors"
                 >
                   <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.52 7.16l-4.15 6.67c-.75 1.2-2.4 1.55-3.65.78-.3-.18-.56-.42-.78-.71L6.9 14.05l-.71-1.21 1.38-.8 1.04 1.8 3.84-6.18c.75-1.2 2.4-1.55 3.65-.78 1.25.77 1.6 2.42.83 3.67l-.37.61z"/>
+                    <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.52 7.16l-4.15 6.67c-.75 1.2-2.4 1.55-3.65.78-.3-.18-.56-.42-.78-.71L6.9 14.05l-.71-1.21 1.38-.8 1.04 1.8 3.84-6.18c.75-1.2 2.4-1.55 3.65-.78 1.25.77 1.6 2.42.83 3.67l-.37.61z" />
                   </svg>
                   WhatsApp Us
                 </a>
-                <a 
+                <a
                   href="tel:9825148321"
                   className="flex items-center gap-3 bg-primary text-primary-foreground p-3 rounded-lg hover:bg-primary/90 transition-colors"
                 >
@@ -287,9 +287,9 @@ const Contact = () => {
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="w-full bg-[#25D366] hover:bg-[#20BD5C] text-white transition-all duration-300"
                     disabled={isSubmitting}
                   >
@@ -304,7 +304,7 @@ const Contact = () => {
                     ) : (
                       <>
                         <svg className="mr-2 h-5 w-5" fill="currentColor" viewBox="0 0 24 24">
-                          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.52 7.16l-4.15 6.67c-.75 1.2-2.4 1.55-3.65.78-.3-.18-.56-.42-.78-.71L6.9 14.05l-.71-1.21 1.38-.8 1.04 1.8 3.84-6.18c.75-1.2 2.4-1.55 3.65-.78 1.25.77 1.6 2.42.83 3.67l-.37.61z"/>
+                          <path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2zm4.52 7.16l-4.15 6.67c-.75 1.2-2.4 1.55-3.65.78-.3-.18-.56-.42-.78-.71L6.9 14.05l-.71-1.21 1.38-.8 1.04 1.8 3.84-6.18c.75-1.2 2.4-1.55 3.65-.78 1.25.77 1.6 2.42.83 3.67l-.37.61z" />
                         </svg>
                         Send via WhatsApp
                       </>
@@ -329,7 +329,7 @@ const Contact = () => {
                         <h3 className="text-base sm:text-lg font-semibold text-foreground">DIVINE FABTECH INDUSTRIES</h3>
                         <p className="text-sm text-muted-foreground mt-1">Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220</p>
                       </div>
-                      <a 
+                      <a
                         href="https://www.google.com/maps/search/DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220"
                         target="_blank"
                         rel="noopener noreferrer"
@@ -340,7 +340,7 @@ const Contact = () => {
                     </div>
                     <div className="aspect-[16/9] sm:aspect-[16/7] w-full overflow-hidden rounded-md bg-muted">
                       <iframe
-                        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220"
+                        src={`https://www.google.com/maps/embed/v1/place?key=${import.meta.env.VITE_GOOGLE_MAPS_API_KEY}&q=DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220`}
                         width="100%"
                         height="100%"
                         style={{ border: 0 }}
