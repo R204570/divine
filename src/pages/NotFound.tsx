@@ -1,8 +1,11 @@
 import { useLocation } from "react-router-dom";
 import { useEffect } from "react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const NotFound = () => {
   const location = useLocation();
+
+  usePageMeta("Page Not Found (404) | Divine Fabtech Industries");
 
   useEffect(() => {
     console.error(

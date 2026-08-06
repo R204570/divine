@@ -13,14 +13,15 @@ import {
   TrendingUp,
   Heart
 } from "lucide-react";
+import { FOUNDING_YEAR } from "@/lib/company";
 
 const Statistics = () => {
   const stats = [
     {
       icon: <Trophy className="h-8 w-8 text-accent" />,
-      number: "25+",
+      number: "10+",
       label: "Years Experience",
-      description: "Leading the industry since 1999"
+      description: `Leading the industry since ${FOUNDING_YEAR}`
     },
     {
       icon: <Users className="h-8 w-8 text-accent" />,

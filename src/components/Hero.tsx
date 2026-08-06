@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
+import { EMAIL, MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -75,19 +76,19 @@ const Hero = () => {
 
           {/* Quick Contact Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-3xl mx-auto animate-slide-in-left" style={{ animationDelay: '0.9s' }}>
-            <a 
-              href="tel:+919825148321" 
+            <a
+              href={TEL_HREF}
               className="flex items-center justify-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors cursor-pointer"
             >
               <Phone className="h-5 w-5 text-accent" />
-              <span className="font-medium hover:underline">9825148321</span>
+              <span className="font-medium hover:underline">{PHONE_DISPLAY}</span>
             </a>
-            <a 
-              href="mailto:divinefabtech@gmail.com" 
+            <a
+              href={MAILTO_HREF}
               className="flex items-center justify-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors cursor-pointer"
             >
               <Mail className="h-5 w-5 text-accent" />
-              <span className="font-medium hover:underline">divinefabtech@gmail.com</span>
+              <span className="font-medium hover:underline">{EMAIL}</span>
             </a>
             <a 
               href="https://www.google.com/maps/search/Survey+No+710-711+Village+Rupal+Bavla+Gujarat+382220" 

@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
+import { ADDRESS, EMAIL, MAILTO_HREF, MAPS_URL, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 
 interface ContactInfo {
   title: string;
@@ -21,20 +22,20 @@ const Contact = () => {
     {
       icon: Phone,
       title: "Phone & WhatsApp",
-      details: "+91 9825148321",
-      action: "tel:+919825148321"
+      details: PHONE_DISPLAY,
+      action: TEL_HREF
     },
     {
       icon: Mail,
       title: "Email",
-      details: "divinefabtech@gmail.com",
-      action: "mailto:divinefabtech@gmail.com"
+      details: EMAIL,
+      action: MAILTO_HREF
     },
     {
       icon: MapPin,
       title: "Location",
-      details: "DIVINE FABTECH INDUSTRIES, Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220",
-      action: "https://www.google.com/maps/search/DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220"
+      details: ADDRESS,
+      action: MAPS_URL
     },
     {
       icon: Clock,
@@ -175,7 +176,7 @@ const Contact = () => {
                   WhatsApp Us
                 </a>
                 <a
-                  href="tel:9825148321"
+                  href={TEL_HREF}
                   className="flex items-center gap-3 bg-primary text-primary-foreground p-3 rounded-lg hover:bg-primary/90 transition-colors"
                 >
                   <Phone className="h-5 w-5" />

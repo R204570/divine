@@ -1,4 +1,6 @@
 import { CheckCircle, Clock, Shield, Truck, Users, Award } from "lucide-react";
+import { Link } from "react-router-dom";
+import { PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 
 const WhyChooseUs = () => {
   const reasons = [
@@ -49,7 +51,7 @@ const WhyChooseUs = () => {
             Why Choose <span className="text-primary">Divine Fabtech</span>?
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            With over a decade of experience and hundreds of satisfied customers, 
+            With years of manufacturing experience and hundreds of satisfied customers,
             we are your trusted partner for premium industrial fabric solutions.
           </p>
         </div>
@@ -89,12 +91,18 @@ const WhyChooseUs = () => {
               Join hundreds of satisfied customers who trust Divine Fabtech for their industrial fabric needs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold">
+              <Link
+                to="/inquiry"
+                className="bg-primary text-primary-foreground px-8 py-3 rounded-lg hover:bg-primary/90 transition-colors font-semibold"
+              >
                 Get Your Quote Today
-              </button>
-              <button className="border border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors font-semibold">
-                Call 9825148321
-              </button>
+              </Link>
+              <a
+                href={TEL_HREF}
+                className="border border-primary text-primary px-8 py-3 rounded-lg hover:bg-primary hover:text-primary-foreground transition-colors font-semibold"
+              >
+                Call {PHONE_DISPLAY}
+              </a>
             </div>
           </div>
         </div>
