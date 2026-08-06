@@ -1,4 +1,5 @@
 import { Award, Users, Zap, Target } from "lucide-react";
+import { FOUNDING_YEAR } from "@/lib/company";
 
 const About = () => {
   const values = [
@@ -36,8 +37,8 @@ const About = () => {
               </h2>
               <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
                 <p>
-                  Divine Fabtech Industries has been a trusted leader in manufacturing premium industrial fabrics 
-                  and tarpaulins for over a decade. Based in Gujarat, we have built our reputation on delivering 
+                  Divine Fabtech Industries has been a trusted manufacturer of premium industrial fabrics
+                  and tarpaulins since {FOUNDING_YEAR}. Based in Gujarat, we have built our reputation on delivering
                   exceptional quality products that meet the demanding requirements of various industries.
                 </p>
                 <p>

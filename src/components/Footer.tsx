@@ -1,5 +1,6 @@
 import { Phone, Mail, MapPin, Facebook, Instagram } from "lucide-react";
 import { Link } from "react-router-dom";
+import { PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -12,11 +13,8 @@ const Footer = () => {
   ];
 
   const products = [
-    "Indoline Brand Tarpaulins",
-    "Multilayer Tarpauline",
-    "Poncho Raincoats",
-    "Bulk Custom Orders",
-    "Plastic Rolls"
+    { name: "Multilayer Tarpauline", href: "/products/tarpaulins" },
+    { name: "Poncho Raincoats", href: "/products/poncho" },
   ];
 
   return (
@@ -99,8 +97,13 @@ const Footer = () => {
             <h4 className="text-lg font-semibold text-foreground mb-4">Our Products</h4>
             <ul className="space-y-2">
               {products.map((product) => (
-                <li key={product}>
-                  <span className="text-sm">{product}</span>
+                <li key={product.name}>
+                  <Link
+                    to={product.href}
+                    className="text-sm hover:text-primary transition-colors"
+                  >
+                    {product.name}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -113,8 +116,8 @@ const Footer = () => {
               <div className="flex items-start gap-3">
                 <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                 <div>
-                  <a href="tel:9825148321" className="text-sm hover:text-primary transition-colors">
-                    +91 9825148321
+                  <a href={TEL_HREF} className="text-sm hover:text-primary transition-colors">
+                    {PHONE_DISPLAY}
                   </a>
                   <p className="text-xs text-muted-foreground">WhatsApp Available</p>
                 </div>
@@ -153,9 +156,9 @@ const Footer = () => {
               © {currentYear} Divine Fabtech Industries. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm">
-              <a href="#" className="hover:text-primary transition-colors">Privacy Policy</a>
-              <a href="#" className="hover:text-primary transition-colors">Terms of Service</a>
-              <a href="#" className="hover:text-primary transition-colors">Sitemap</a>
+              <Link to="/products" className="hover:text-primary transition-colors">Products</Link>
+              <Link to="/gallery" className="hover:text-primary transition-colors">Gallery</Link>
+              <Link to="/contact" className="hover:text-primary transition-colors">Contact Us</Link>
             </div>
           </div>
         </div>

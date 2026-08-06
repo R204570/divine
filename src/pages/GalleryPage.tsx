@@ -1,9 +1,15 @@
 import { useNavigate, Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const GalleryPage = () => {
   const navigate = useNavigate();
+
+  usePageMeta(
+    "Gallery - Tarpaulin & Poncho Photos | Divine Fabtech Industries",
+    "Photo gallery of our multilayer tarpaulins and poncho raincoats, including colours, rolls and waterproofing in use."
+  );
 
   const ponchImages = [
     { id: 1, title: "All Colors", image: "/Images/Poncho/all.jpeg" },

@@ -3,8 +3,15 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 
 const ProductsPage = () => {
+  usePageMeta(
+    "Our Products - Multilayer Tarpaulins & Poncho Raincoats | Divine Fabtech Industries",
+    "Browse our two product lines: multilayer tarpaulins and waterproof poncho raincoats. Custom sizes, bulk manufacturing only."
+  );
+
   const products = [
     {
       id: "tarpaulins",
@@ -191,10 +198,12 @@ const ProductsPage = () => {
                           View Details
                         </Button>
                       </Link>
-                      <Button className="flex-1 bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
-                        <ShoppingCart className="mr-2 h-4 w-4" />
-                        Quick Quote
-                      </Button>
+                      <Link to="/inquiry" className="flex-1">
+                        <Button className="w-full bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
+                          <ShoppingCart className="mr-2 h-4 w-4" />
+                          Quick Quote
+                        </Button>
+                      </Link>
                     </div>
                   </CardContent>
                 </Card>
@@ -215,13 +224,13 @@ const ProductsPage = () => {
                 tailored to your specific requirements.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="tel:9825148321">
+                <a href={TEL_HREF}>
                 <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                   <Phone className="mr-2 h-5 w-5" />
-                  Call 9825148321
+                  Call {PHONE_DISPLAY}
                 </Button>
                 </a>
-                <a href="mailto:divinefabtech@gmail.com">
+                <a href={MAILTO_HREF}>
                 <Button size="lg" className="bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
                   <Mail className="mr-2 h-5 w-5" />
                   Send Inquiry

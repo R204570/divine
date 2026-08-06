@@ -10,6 +10,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 interface Product {
   title: string;
@@ -122,6 +123,14 @@ const ProductDetailPage = () => {
   };
 
   const product = productData[productId as keyof typeof productData];
+
+  // Called before the early return below so the hook order stays stable.
+  usePageMeta(
+    product
+      ? `${product.title} | Divine Fabtech Industries`
+      : "Product Not Found | Divine Fabtech Industries",
+    product?.description
+  );
 
   if (!product) {
     return <div>Product not found</div>;

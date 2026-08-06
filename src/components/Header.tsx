@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { EMAIL, MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -20,13 +21,13 @@ const Header = () => {
       <div className="bg-primary/90 py-2">
         <div className="container mx-auto px-4 flex justify-between items-center text-sm">
           <div className="flex items-center gap-4">
-            <a href="tel:9825148321" className="flex items-center gap-1 hover:text-accent transition-colors">
+            <a href={TEL_HREF} className="flex items-center gap-1 hover:text-accent transition-colors">
               <Phone className="h-3 w-3" />
-              9825148321
+              {PHONE_DISPLAY}
             </a>
-            <a href="mailto:divinefabtech@gmail.com" className="flex items-center gap-1 hover:text-accent transition-colors">
+            <a href={MAILTO_HREF} className="flex items-center gap-1 hover:text-accent transition-colors">
               <Mail className="h-3 w-3" />
-              divinefabtech@gmail.com
+              {EMAIL}
             </a>
           </div>
           <div className="hidden md:flex items-center gap-4">

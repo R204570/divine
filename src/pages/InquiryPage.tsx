@@ -25,6 +25,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { usePageMeta } from "@/hooks/use-page-meta"
 
 const PRODUCT_CATEGORIES = [
   "Tarpaulin",
@@ -55,6 +56,11 @@ const formSchema = z.object({
 const InquiryPage = () => {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  usePageMeta(
+    "Send an Inquiry | Divine Fabtech Industries",
+    "Request a quote for multilayer tarpaulins or poncho raincoats. Tell us your sizes, colours and quantity for a bulk price."
+  )
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),

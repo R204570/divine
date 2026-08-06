@@ -2,10 +2,17 @@ import { ArrowLeft, Award, Users, Zap, Target, Factory, Shield, Clock } from "lu
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
+import { usePageMeta } from "@/hooks/use-page-meta";
+import { FOUNDING_YEAR } from "@/lib/company";
 
 const AboutPage = () => {
-  // Calculate years of experience dynamically from 2019
-  const yearsExp = new Date().getFullYear() - 2019;
+  usePageMeta(
+    "About Us | Divine Fabtech Industries - Tarpaulin & Poncho Manufacturer",
+    "Divine Fabtech Industries has manufactured multilayer tarpaulins and poncho raincoats from Bavla, Gujarat since 2020."
+  );
+
+  // Calculate years of experience dynamically from the year the company was founded
+  const yearsExp = new Date().getFullYear() - FOUNDING_YEAR;
   const values = [
     {
       icon: Award,
@@ -31,22 +38,22 @@ const AboutPage = () => {
 
   const milestones = [
     {
-      year: "2019",
+      year: "2020",
       title: "Company Founded",
       description: "Divine Fabtech Industries established with a vision to provide quality industrial fabrics."
     },
     {
-      year: "2020",
+      year: "2021",
       title: "Quality Systems Established",
       description: "Implemented quality systems and achieved ISO 9001:2015 certification."
     },
     {
-      year: "2021",
+      year: "2022",
       title: "Product Expansion",
       description: "Expanded product range and market reach with multilayer tarpauline and custom solutions."
     },
     {
-      year: "2022",
+      year: "2023",
       title: "Industry Recognition",
       description: "Established presence as a reliable industrial fabric manufacturer."
     },
@@ -92,7 +99,7 @@ const AboutPage = () => {
               </h1>
               <p className="text-xl mb-8">
                 Leading manufacturer of premium multilayer tarpaulines and poncho raincoats, 
-                serving customers across India with quality products and reliable service since 2019.
+                serving customers across India with quality products and reliable service since {FOUNDING_YEAR}.
               </p>
               <Link to="/">
                 <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
@@ -114,7 +121,7 @@ const AboutPage = () => {
                 </h2>
                 <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
                   <p>
-                    Divine Fabtech Industries was founded in 2019 with a simple yet powerful vision: 
+                    Divine Fabtech Industries was founded in {FOUNDING_YEAR} with a simple yet powerful vision:
                     to provide high-quality multilayer tarpaulines and poncho raincoats that meet the demanding 
                     requirements of various industries while maintaining competitive pricing and 
                     exceptional customer service.
@@ -308,7 +315,7 @@ const AboutPage = () => {
                 <ul className="space-y-4">
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Founded in 2019, focused on quality-driven manufacturing</span>
+                    <span className="text-muted-foreground">Founded in {FOUNDING_YEAR}, focused on quality-driven manufacturing</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>

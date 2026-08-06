@@ -2,8 +2,14 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import Contact from "@/components/Contact";
+import { usePageMeta } from "@/hooks/use-page-meta";
 
 const ContactUsPage = () => {
+  usePageMeta(
+    "Contact Us | Divine Fabtech Industries - Tarpaulin & Poncho Manufacturer",
+    "Contact Divine Fabtech Industries in Bavla, Gujarat for multilayer tarpaulin and poncho raincoat bulk orders. Call +91 98251 48321."
+  );
+
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
