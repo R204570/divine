@@ -19,7 +19,7 @@ const WhyChooseUs = () => {
     {
       icon: Shield,
       title: "Durable Products",
-      description: "Our multilayered tarpauline technology ensures superior durability and long-lasting performance.",
+      description: "Our multilayered tarpaulin technology ensures superior durability and long-lasting performance.",
       color: "text-purple-600"
     },
     {

@@ -1,5 +1,5 @@
 import { Award, Users, Zap, Target } from "lucide-react";
-import { FOUNDING_YEAR } from "@/lib/company";
+import { FOUNDING_YEAR, yearsInBusiness } from "@/lib/company";
 
 const About = () => {
   const values = [
@@ -42,7 +42,7 @@ const About = () => {
                   exceptional quality products that meet the demanding requirements of various industries.
                 </p>
                 <p>
-                  Our specialization in multilayer tarpauline, raincoat ponchos, and custom 
+                  Our specialization in multilayer tarpaulin, raincoat ponchos, and custom 
                   industrial fabric solutions has made us the preferred choice for businesses across India. 
                   We combine traditional craftsmanship with modern technology to ensure every product meets 
                   the highest standards of durability and performance.
@@ -61,17 +61,18 @@ const About = () => {
                 <div className="text-3xl font-bold text-primary">500+</div>
                 <div className="text-muted-foreground">Satisfied Clients</div>
               </div>
+              {/* Same figures as the About page, which is the source for these claims. */}
               <div>
-                <div className="text-3xl font-bold text-primary">10+</div>
+                <div className="text-3xl font-bold text-primary">{yearsInBusiness()}+</div>
                 <div className="text-muted-foreground">Years Experience</div>
               </div>
               <div>
-                <div className="text-3xl font-bold text-primary">1000+</div>
+                <div className="text-3xl font-bold text-primary">5000+</div>
                 <div className="text-muted-foreground">Products Delivered</div>
               </div>
               <div>
                 <div className="text-3xl font-bold text-primary">24/7</div>
-                <div className="text-muted-foreground">Customer Support</div>
+                <div className="text-muted-foreground">Manufacturing Operations</div>
               </div>
             </div>
           </div>
