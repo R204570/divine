@@ -66,7 +66,7 @@ const Products = () => {
               Need Something Specific?
             </h3>
             <p className="text-lg text-muted-foreground mb-8">
-              Send us an inquiry for custom sizes, colours, branding or bulk orders
+              Send us an inquiry for custom sizes, colours, GSM or bulk orders
             </p>
             <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
               <Link to="/inquiry">Send Inquiry</Link>

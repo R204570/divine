@@ -41,7 +41,7 @@ export interface LandingPageContent {
 }
 
 const TARPAULIN_PRICE_ANSWER = `Share the size, GSM, colour and quantity you need by phone or WhatsApp on ${PHONE_DISPLAY}, or through our inquiry form, and we will quote our factory price for your bulk order.`;
-const PONCHO_PRICE_ANSWER = `Tell us the quantity, colours, weight, sizes and branding you need, and whether you want the matching pant, by phone or WhatsApp on ${PHONE_DISPLAY} or through our inquiry form, and we will quote our factory price.`;
+const PONCHO_PRICE_ANSWER = `Tell us the quantity, colours, weight and sizes you need, and whether you want the matching pant, by phone or WhatsApp on ${PHONE_DISPLAY} or through our inquiry form, and we will quote our factory price.`;
 
 const TARPAULIN_GSM_FAQ: FaqItem = {
   question: "Which GSM tarpaulins do you make?",
@@ -284,14 +284,14 @@ export const PONCHO_GUJARAT: LandingPageContent = {
     "Every poncho is 100% waterproof, has a hood with a drawstring, and comes in purple, pink, green, blue or yellow. We also make a matching raincoat pant, and both come in global sizes.",
   ],
   heroImage: PONCHO_IMAGES.fiveColoursGrid,
-  highlights: ["Factory in Bavla, Gujarat", "5 colours", "Matching raincoat pant", "Custom logo packaging"],
+  highlights: ["Factory in Bavla, Gujarat", "5 colours", "Matching raincoat pant", "42–140 g per piece"],
   sections: [
     {
       heading: "Why order ponchos from a Gujarat manufacturer",
       bullets: [
         "Factory-direct prices on bulk orders.",
         "Shorter transit to anywhere in Gujarat from our Bavla factory.",
-        "Custom logo packaging for company and promotional orders.",
+        "Custom GSM on orders of 20,000 pieces.",
         "Five colours in global sizes, with a matching raincoat pant.",
       ],
     },
@@ -316,7 +316,7 @@ export const PONCHO_GUJARAT: LandingPageContent = {
         "Construction sites",
         "Emergency services",
         "Outdoor events",
-        "Brands and organisations distributing ponchos in bulk",
+        "Organisations distributing ponchos in bulk",
       ],
     },
   ],
@@ -330,10 +330,6 @@ export const PONCHO_GUJARAT: LandingPageContent = {
     PONCHO_COLOURS_FAQ,
     PONCHO_WEIGHT_FAQ,
     PONCHO_PANT_FAQ,
-    {
-      question: "Can you add our company logo?",
-      answer: "Yes. Custom logo packaging is available for bulk orders.",
-    },
     {
       question: "Do you sell single ponchos?",
       answer: "No. We manufacture poncho raincoats for bulk orders only.",
@@ -361,7 +357,7 @@ export const PONCHO_INDIA: LandingPageContent = {
   h1: "Best Poncho Raincoat Manufacturer in India",
   intro: [
     "Divine Fabtech Industries manufactures waterproof poncho raincoats in Gujarat and supplies bulk orders across India, to companies, contractors, emergency services, event organisers and distributors.",
-    "Pick from five colours and a standard weight of 42–140 grams per piece, or order 20,000 pieces for a custom GSM. Add our matching raincoat pant, in the same global sizes, and custom logo packaging, all at a factory-direct price.",
+    "Pick from five colours and a standard weight of 42–140 grams per piece, or order 20,000 pieces for a custom GSM. Add our matching raincoat pant, in the same global sizes, all at a factory-direct price.",
   ],
   heroImage: PONCHO_IMAGES.green,
   highlights: ["Delivery across India", "5 colours", "Custom GSM on 20,000 pcs", "Matching raincoat pant"],
@@ -383,13 +379,12 @@ export const PONCHO_INDIA: LandingPageContent = {
         "Custom GSM: on orders of 20,000 pieces",
         "Matching raincoat pant available",
         "Sizes: global sizes for both poncho and pant",
-        "Branding: custom logo packaging for bulk orders",
       ],
     },
     {
       heading: "How bulk ordering works",
       bullets: [
-        "Tell us the quantity, colours, weight, sizes and branding you need, and whether you want the matching pant.",
+        "Tell us the quantity, colours, weight and sizes you need, and whether you want the matching pant.",
         "We quote our factory price.",
         "Your ponchos are manufactured at our facility in Bavla, Gujarat.",
         "We dispatch them to your location anywhere in India.",
@@ -410,8 +405,8 @@ export const PONCHO_INDIA: LandingPageContent = {
         "A poncho is a loose, one-piece hooded rain cover that goes on over the head and fits over clothes, so sizing is forgiving. A raincoat is a fitted coat. We make ponchos and a matching raincoat pant, in global sizes.",
     },
     {
-      question: "Can you pack ponchos with our brand?",
-      answer: "Yes. Custom logo packaging is available for bulk orders.",
+      question: "Do you print custom logos on ponchos?",
+      answer: "No. We don't offer custom logo printing on ponchos.",
     },
     {
       question: "Are your ponchos reusable and recyclable?",
@@ -434,14 +429,14 @@ export const RECYCLABLE_PONCHO: LandingPageContent = {
   path: "/recyclable-poncho-raincoat",
   title: "Recyclable Poncho Raincoat Manufacturer | Bulk Orders | Divine Fabtech",
   description:
-    "Recyclable, reusable poncho raincoats made from polyethylene. Waterproof, 5 colours, 42–140 g per piece, custom logo packaging. Bulk orders from Gujarat.",
+    "Recyclable, reusable poncho raincoats made from polyethylene. Waterproof, 5 colours, 42–140 g per piece, matching pant. Bulk orders from Gujarat.",
   breadcrumbName: "Recyclable Poncho Raincoat",
   product: PONCHO,
   eyebrow: "Reusable & recyclable",
   h1: "Recyclable Poncho Raincoats for Bulk Orders",
   intro: [
     "Our poncho raincoats are made from polyethylene (mLDPE, LDPE, LLDPE and HDPE), one of the most widely recycled plastic families. They are also durable and reusable, so one poncho lasts through many rainy days instead of being thrown away after one.",
-    "We manufacture them in Bavla, Gujarat, in purple, pink, green, blue and yellow, for organisations, brands and event organisers that want waterproof rain protection in bulk, with a lighter footprint.",
+    "We manufacture them in Bavla, Gujarat, in purple, pink, green, blue and yellow, for companies, organisations and event organisers that want waterproof rain protection in bulk, with a lighter footprint.",
   ],
   heroImage: PONCHO_IMAGES.fiveColoursGrid,
   highlights: ["Polyethylene material", "Reusable", "5 colours", "Bulk orders"],
@@ -465,7 +460,7 @@ export const RECYCLABLE_PONCHO: LandingPageContent = {
       bullets: [
         "Companies equipping workforces for the monsoon",
         "Events and venues that hand out rain protection",
-        "Brands looking for practical merchandise with custom logo packaging",
+        "Construction and industrial sites",
         "Organisations running distribution drives",
       ],
     },
@@ -495,10 +490,7 @@ export const RECYCLABLE_PONCHO: LandingPageContent = {
     },
     PONCHO_COLOURS_FAQ,
     PONCHO_WEIGHT_FAQ,
-    {
-      question: "Can you add our logo?",
-      answer: "Yes. Custom logo packaging is available for bulk orders.",
-    },
+    PONCHO_PANT_FAQ,
   ],
   related: [
     { label: "Poncho raincoat manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },

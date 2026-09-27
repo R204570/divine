@@ -92,10 +92,10 @@ export const PONCHO: Product = {
   name: "Poncho Raincoats",
   tagline: "5 COLOURS • MATCHING PANT AVAILABLE",
   summary:
-    "Waterproof hooded poncho raincoats in purple, pink, green, blue and yellow, 42–140 grams per piece, with a matching raincoat pant. Bulk orders with custom logo packaging.",
+    "Waterproof hooded poncho raincoats in purple, pink, green, blue and yellow, 42–140 grams per piece, with a matching raincoat pant. Custom GSM on orders of 20,000 pieces.",
   overview: [
     "Our poncho raincoats are made from polyethylene (mLDPE, LDPE, LLDPE and HDPE): 100% waterproof, durable enough to use again and again, and made from a recyclable plastic family. Each poncho has a hood with a drawstring and slips on over clothes in seconds.",
-    `Standard ponchos weigh ${PONCHO_STANDARD_WEIGHT}, and for orders of ${PONCHO_CUSTOM_GSM_ORDER} we make custom GSM. They come in five colours (${PONCHO_COLOURS}) and in global sizes, and we also make a matching raincoat pant in the same global sizes. Custom logo packaging is available for bulk orders.`,
+    `Standard ponchos weigh ${PONCHO_STANDARD_WEIGHT}, and for orders of ${PONCHO_CUSTOM_GSM_ORDER} we make custom GSM. They come in five colours (${PONCHO_COLOURS}) and in global sizes, and we also make a matching raincoat pant in the same global sizes, all for bulk orders.`,
   ],
   cardImage: PONCHO_IMAGES.fiveColoursGrid,
   shareImage: SHARE_IMAGES.poncho,
@@ -107,7 +107,7 @@ export const PONCHO: Product = {
     "42–140 g per piece",
     "Matching raincoat pant",
     "Global sizes",
-    "Custom logo packaging",
+    "Custom GSM on 20,000 pcs",
     "Recyclable polyethylene",
   ],
   applications: [
@@ -115,7 +115,7 @@ export const PONCHO: Product = {
     "Construction sites",
     "Emergency services",
     "Outdoor events",
-    "Promotional and bulk distribution",
+    "Bulk distribution",
   ],
   specifications: {
     Material: MATERIALS,
@@ -125,7 +125,6 @@ export const PONCHO: Product = {
     "Custom GSM": "On orders of 20,000 pieces",
     "Raincoat pant": "Available, in global sizes",
     Sizes: "Global sizes for both poncho raincoat and pant",
-    Branding: "Custom logo packaging available for bulk orders",
     "Order type": "Bulk orders only",
   },
   relatedPages: [

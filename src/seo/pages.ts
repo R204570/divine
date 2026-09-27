@@ -47,7 +47,7 @@ export const PAGES: PageMeta[] = [
     title:
       product.id === "tarpaulins"
         ? "Multilayer Tarpaulin Manufacturer – Waterproof, UV Resistant | Divine Fabtech"
-        : "Poncho Raincoat Manufacturer – Bulk & Custom Branded | Divine Fabtech",
+        : "Poncho Raincoat Manufacturer – 5 Colours, Matching Pant | Divine Fabtech",
     description:
       product.id === "tarpaulins"
         ? "Multilayer tarpaulin in 90, 120, 150 and 200 GSM, or custom 70–200 GSM on 2-ton orders. 100% waterproof, UV-resistant, reinforced edges, custom sizes."
