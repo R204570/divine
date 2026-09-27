@@ -27,9 +27,9 @@ const PRODUCTS_CRUMB: Crumb = { name: "Products", path: "/products" };
 export const PAGES: PageMeta[] = [
   {
     path: "/",
-    title: "Multilayer Tarpaulin & Poncho Raincoat Manufacturer in Gujarat, India | Divine Fabtech",
+    title: "Multilayer Tarpaulin & Rain Poncho Manufacturer in Ahmedabad, Gujarat, India | Divine Fabtech",
     description:
-      "Manufacturer of multilayer tarpaulins and waterproof poncho raincoats in Bavla, Gujarat. Custom sizes, factory-direct bulk prices and delivery across India.",
+      "Multilayer tarpaulin and rain poncho manufacturer in Bavla, Ahmedabad, Gujarat. 90–200 GSM tarpaulins, 5-colour ponchos, factory prices, delivery across India.",
     shareImage: SHARE_IMAGES.home,
     sitemapImages: [PRODUCTS[0].cardImage, PRODUCTS[1].cardImage],
   },
@@ -47,7 +47,7 @@ export const PAGES: PageMeta[] = [
     title:
       product.id === "tarpaulins"
         ? "Multilayer Tarpaulin Manufacturer – Waterproof, UV Resistant | Divine Fabtech"
-        : "Poncho Raincoat Manufacturer – 5 Colours, Matching Pant | Divine Fabtech",
+        : "Rain Poncho & Poncho Raincoat – 5 Colours, Matching Pant | Divine Fabtech",
     description:
       product.id === "tarpaulins"
         ? "Multilayer tarpaulin in 90, 120, 150 and 200 GSM, or custom 70–200 GSM on 2-ton orders. 100% waterproof, UV-resistant, reinforced edges, custom sizes."
@@ -84,7 +84,7 @@ export const PAGES: PageMeta[] = [
   },
   {
     path: "/contact",
-    title: "Contact Divine Fabtech – Tarpaulin & Poncho Manufacturer, Bavla, Gujarat",
+    title: "Contact Divine Fabtech – Tarpaulin & Rain Poncho Manufacturer, Ahmedabad",
     description:
       "Call or WhatsApp +91 98251 48321 for bulk multilayer tarpaulin and poncho raincoat orders. Factory at Survey No 710-711, Village Rupal, Bavla, Gujarat 382220.",
     shareImage: SHARE_IMAGES.home,

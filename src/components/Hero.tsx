@@ -56,7 +56,7 @@ const Hero = () => {
         <div className="max-w-4xl mx-auto animate-fade-in-up">
           {/* The page's one <h1> stays fixed; only the product line below rotates. */}
           <h1 className="text-sm md:text-base font-semibold uppercase tracking-widest text-accent mb-6">
-            Multilayer Tarpaulin &amp; Poncho Raincoat Manufacturer in Gujarat, India
+            Multilayer Tarpaulin &amp; Rain Poncho Manufacturer in Ahmedabad, Gujarat, India
           </h1>
           <p className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
             {heroSlides[currentSlide].title}

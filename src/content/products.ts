@@ -81,7 +81,7 @@ export const TARPAULIN: Product = {
     "Order type": "Bulk manufacturing only",
   },
   relatedPages: [
-    { label: "Multilayer tarpaulin manufacturer in Gujarat", path: "/tarpaulin-manufacturer-in-gujarat" },
+    { label: "Multilayer tarpaulin manufacturer in Ahmedabad, Gujarat", path: "/tarpaulin-manufacturer-in-gujarat" },
     { label: "Multilayer tarpaulin manufacturer in India", path: "/tarpaulin-manufacturer-in-india" },
   ],
 };
@@ -128,9 +128,9 @@ export const PONCHO: Product = {
     "Order type": "Bulk orders only",
   },
   relatedPages: [
-    { label: "Poncho raincoat manufacturer in Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
-    { label: "Poncho raincoat manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
-    { label: "Recyclable poncho raincoat", path: "/recyclable-poncho-raincoat" },
+    { label: "Rain poncho manufacturer in Ahmedabad, Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
+    { label: "Rain poncho manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
+    { label: "Recyclable rain poncho", path: "/recyclable-poncho-raincoat" },
   ],
 };
 

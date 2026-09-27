@@ -33,6 +33,7 @@ const business = {
   address: { "@type": "PostalAddress", ...POSTAL_ADDRESS },
   hasMap: MAPS_URL,
   areaServed: [
+    { "@type": "City", name: "Ahmedabad" },
     { "@type": "State", name: "Gujarat" },
     { "@type": "Country", name: "India" },
   ],
@@ -44,7 +45,7 @@ const business = {
       closes: BUSINESS_HOURS.closes,
     },
   ],
-  knowsAbout: ["Multilayer tarpaulin", "Poncho raincoat", "Recyclable poncho raincoat"],
+  knowsAbout: ["Multilayer tarpaulin", "Rain poncho", "Poncho raincoat", "Raincoat pant", "Recyclable rain poncho"],
   contactPoint: {
     "@type": "ContactPoint",
     contactType: "sales",

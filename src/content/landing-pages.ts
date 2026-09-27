@@ -67,15 +67,15 @@ const PONCHO_COLOURS_FAQ: FaqItem = {
 
 export const TARPAULIN_GUJARAT: LandingPageContent = {
   path: "/tarpaulin-manufacturer-in-gujarat",
-  title: "Best Multilayer Tarpaulin Manufacturer in Gujarat | Divine Fabtech",
+  title: "Best Multilayer Tarpaulin Manufacturer in Ahmedabad, Gujarat | Divine Fabtech",
   description:
-    "Multilayer tarpaulin (tadpatri) manufacturer in Bavla, Gujarat. 90, 120, 150 & 200 GSM or custom 70–200 GSM. Waterproof, UV-resistant, factory prices.",
-  breadcrumbName: "Tarpaulin Manufacturer in Gujarat",
+    "Multilayer tarpaulin (tadpatri) manufacturer in Bavla, Ahmedabad, Gujarat. 90–200 GSM standard or custom 70–200 GSM. Waterproof, UV-resistant, factory prices.",
+  breadcrumbName: "Tarpaulin Manufacturer in Ahmedabad, Gujarat",
   product: TARPAULIN,
-  eyebrow: "Made in Bavla, Gujarat",
-  h1: "Best Multilayer Tarpaulin Manufacturer in Gujarat",
+  eyebrow: "Tarpaulin factory in Bavla, Ahmedabad",
+  h1: "Best Multilayer Tarpaulin Manufacturer in Ahmedabad, Gujarat",
   intro: [
-    "Divine Fabtech Industries manufactures multilayer tarpaulins at our own factory in Bavla, Ahmedabad district, Gujarat. Buyers across Gujarat order directly from the manufacturer, in 90, 120, 150 or 200 GSM, custom sizes and colours, at bulk prices without a trader's margin.",
+    "Divine Fabtech Industries is a multilayer tarpaulin manufacturer with its own factory in Bavla, Ahmedabad district, Gujarat. Buyers in Ahmedabad and across Gujarat order directly from the manufacturer, in 90, 120, 150 or 200 GSM, custom sizes and colours, at bulk prices without a trader's margin.",
     "Whether you call it a tarpaulin, tarpal or tadpatri (તાડપત્રી), our multilayer sheets are built to take Gujarat's strong summer sun and heavy monsoon rain.",
   ],
   heroImage: TARPAULIN_IMAGES.grainSacks,
@@ -87,7 +87,7 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
   ],
   sections: [
     {
-      heading: "Why buyers in Gujarat choose Divine Fabtech",
+      heading: "Why buyers in Ahmedabad and across Gujarat choose Divine Fabtech",
       bullets: [
         "We are the manufacturer, not a reseller: every tarpaulin is made at our single in-house facility in Bavla, near Ahmedabad.",
         "Factory-direct pricing on bulk orders, because there is no middleman between our factory and your site.",
@@ -141,6 +141,10 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
       answer:
         "Our factory is at Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220, in Ahmedabad district.",
     },
+    {
+      question: "What is your contact number?",
+      answer: `Call or WhatsApp ${PHONE_DISPLAY}, Monday to Saturday, 9:00 AM to 6:00 PM.`,
+    },
     TARPAULIN_GSM_FAQ,
     {
       question: "Do you supply tarpaulins all over Gujarat?",
@@ -163,7 +167,7 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
   related: [
     { label: "Multilayer tarpaulin manufacturer in India", path: "/tarpaulin-manufacturer-in-india" },
     { label: "Multilayer tarpaulin product details", path: TARPAULIN.path },
-    { label: "Poncho raincoat manufacturer in Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
+    { label: "Rain poncho manufacturer in Ahmedabad, Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
   ],
 };
 
@@ -264,23 +268,23 @@ export const TARPAULIN_INDIA: LandingPageContent = {
     },
   ],
   related: [
-    { label: "Multilayer tarpaulin manufacturer in Gujarat", path: "/tarpaulin-manufacturer-in-gujarat" },
+    { label: "Multilayer tarpaulin manufacturer in Ahmedabad, Gujarat", path: "/tarpaulin-manufacturer-in-gujarat" },
     { label: "Multilayer tarpaulin product details", path: TARPAULIN.path },
-    { label: "Poncho raincoat manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
+    { label: "Rain poncho manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
   ],
 };
 
 export const PONCHO_GUJARAT: LandingPageContent = {
   path: "/poncho-raincoat-manufacturer-in-gujarat",
-  title: "Best Poncho Raincoat Manufacturer in Gujarat | Divine Fabtech",
+  title: "Best Rain Poncho Manufacturer in Ahmedabad, Gujarat | Divine Fabtech",
   description:
-    "Poncho raincoat manufacturer in Bavla, Gujarat. Hooded ponchos in 5 colours, 42–140 g per piece, matching raincoat pant, factory prices for bulk orders.",
-  breadcrumbName: "Poncho Raincoat Manufacturer in Gujarat",
+    "Rain poncho manufacturer in Bavla, Ahmedabad, Gujarat. Hooded poncho raincoats in 5 colours, 42–140 g per piece, matching raincoat pant, factory prices.",
+  breadcrumbName: "Rain Poncho Manufacturer in Ahmedabad, Gujarat",
   product: PONCHO,
-  eyebrow: "Made in Bavla, Gujarat",
-  h1: "Best Poncho Raincoat Manufacturer in Gujarat",
+  eyebrow: "Made in Bavla, Ahmedabad",
+  h1: "Best Rain Poncho & Poncho Raincoat Manufacturer in Ahmedabad, Gujarat",
   intro: [
-    "Divine Fabtech Industries manufactures waterproof poncho raincoats at our factory in Bavla, Ahmedabad district, Gujarat. Companies, contractors, event organisers and distributors across Gujarat buy directly from us in bulk.",
+    "Divine Fabtech Industries is a rain poncho manufacturer with its own factory in Bavla, Ahmedabad district, Gujarat. Companies, contractors, event organisers and distributors in Ahmedabad and across Gujarat buy our poncho raincoats directly from us in bulk.",
     "Every poncho is 100% waterproof, has a hood with a drawstring, and comes in purple, pink, green, blue or yellow. We also make a matching raincoat pant, and both come in global sizes.",
   ],
   heroImage: PONCHO_IMAGES.fiveColoursGrid,
@@ -340,23 +344,23 @@ export const PONCHO_GUJARAT: LandingPageContent = {
     },
   ],
   related: [
-    { label: "Poncho raincoat manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
-    { label: "Recyclable poncho raincoat", path: "/recyclable-poncho-raincoat" },
-    { label: "Multilayer tarpaulin manufacturer in Gujarat", path: "/tarpaulin-manufacturer-in-gujarat" },
+    { label: "Rain poncho manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
+    { label: "Recyclable rain poncho", path: "/recyclable-poncho-raincoat" },
+    { label: "Multilayer tarpaulin manufacturer in Ahmedabad, Gujarat", path: "/tarpaulin-manufacturer-in-gujarat" },
   ],
 };
 
 export const PONCHO_INDIA: LandingPageContent = {
   path: "/poncho-raincoat-manufacturer-in-india",
-  title: "Best Poncho Raincoat Manufacturer in India | Divine Fabtech",
+  title: "Best Rain Poncho & Poncho Raincoat Manufacturer in India | Divine Fabtech",
   description:
-    "Indian poncho raincoat manufacturer. 5 colours, 42–140 g per piece, custom GSM on 20,000-piece orders, matching raincoat pant, delivered across India.",
-  breadcrumbName: "Poncho Raincoat Manufacturer in India",
+    "Indian rain poncho manufacturer. 5 colours, 42–140 g per piece, custom GSM on 20,000-piece orders, matching raincoat pant, delivered across India.",
+  breadcrumbName: "Rain Poncho Manufacturer in India",
   product: PONCHO,
   eyebrow: "Bulk supply across India",
-  h1: "Best Poncho Raincoat Manufacturer in India",
+  h1: "Best Rain Poncho & Poncho Raincoat Manufacturer in India",
   intro: [
-    "Divine Fabtech Industries manufactures waterproof poncho raincoats in Gujarat and supplies bulk orders across India, to companies, contractors, emergency services, event organisers and distributors.",
+    "Divine Fabtech Industries manufactures waterproof rain ponchos (poncho raincoats) in Gujarat and supplies bulk orders across India, to companies, contractors, emergency services, event organisers and distributors.",
     "Pick from five colours and a standard weight of 42–140 grams per piece, or order 20,000 pieces for a custom GSM. Add our matching raincoat pant, in the same global sizes, all at a factory-direct price.",
   ],
   heroImage: PONCHO_IMAGES.green,
@@ -419,23 +423,23 @@ export const PONCHO_INDIA: LandingPageContent = {
     },
   ],
   related: [
-    { label: "Poncho raincoat manufacturer in Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
-    { label: "Recyclable poncho raincoat", path: "/recyclable-poncho-raincoat" },
+    { label: "Rain poncho manufacturer in Ahmedabad, Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
+    { label: "Recyclable rain poncho", path: "/recyclable-poncho-raincoat" },
     { label: "Multilayer tarpaulin manufacturer in India", path: "/tarpaulin-manufacturer-in-india" },
   ],
 };
 
 export const RECYCLABLE_PONCHO: LandingPageContent = {
   path: "/recyclable-poncho-raincoat",
-  title: "Recyclable Poncho Raincoat Manufacturer | Bulk Orders | Divine Fabtech",
+  title: "Recyclable Rain Poncho & Poncho Raincoat | Bulk Orders | Divine Fabtech",
   description:
-    "Recyclable, reusable poncho raincoats made from polyethylene. Waterproof, 5 colours, 42–140 g per piece, matching pant. Bulk orders from Gujarat.",
-  breadcrumbName: "Recyclable Poncho Raincoat",
+    "Recyclable, reusable rain ponchos made from polyethylene. Waterproof, 5 colours, 42–140 g per piece, matching pant. Bulk orders from Gujarat.",
+  breadcrumbName: "Recyclable Rain Poncho",
   product: PONCHO,
   eyebrow: "Reusable & recyclable",
-  h1: "Recyclable Poncho Raincoats for Bulk Orders",
+  h1: "Recyclable Rain Ponchos for Bulk Orders",
   intro: [
-    "Our poncho raincoats are made from polyethylene (mLDPE, LDPE, LLDPE and HDPE), one of the most widely recycled plastic families. They are also durable and reusable, so one poncho lasts through many rainy days instead of being thrown away after one.",
+    "Our rain ponchos (poncho raincoats) are made from polyethylene (mLDPE, LDPE, LLDPE and HDPE), one of the most widely recycled plastic families. They are also durable and reusable, so one poncho lasts through many rainy days instead of being thrown away after one.",
     "We manufacture them in Bavla, Gujarat, in purple, pink, green, blue and yellow, for companies, organisations and event organisers that want waterproof rain protection in bulk, with a lighter footprint.",
   ],
   heroImage: PONCHO_IMAGES.fiveColoursGrid,
@@ -493,8 +497,8 @@ export const RECYCLABLE_PONCHO: LandingPageContent = {
     PONCHO_PANT_FAQ,
   ],
   related: [
-    { label: "Poncho raincoat manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
-    { label: "Poncho raincoat manufacturer in Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
+    { label: "Rain poncho manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
+    { label: "Rain poncho manufacturer in Ahmedabad, Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
     { label: "Poncho raincoat product details", path: PONCHO.path },
   ],
 };

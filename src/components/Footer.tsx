@@ -29,11 +29,11 @@ const Footer = () => {
   const products = PRODUCTS.map((product) => ({ name: product.name, href: product.path }));
 
   const manufacturerPages = [
-    { name: "Tarpaulin Manufacturer in Gujarat", href: "/tarpaulin-manufacturer-in-gujarat" },
+    { name: "Tarpaulin Manufacturer in Ahmedabad, Gujarat", href: "/tarpaulin-manufacturer-in-gujarat" },
     { name: "Tarpaulin Manufacturer in India", href: "/tarpaulin-manufacturer-in-india" },
-    { name: "Poncho Raincoat Manufacturer in Gujarat", href: "/poncho-raincoat-manufacturer-in-gujarat" },
-    { name: "Poncho Raincoat Manufacturer in India", href: "/poncho-raincoat-manufacturer-in-india" },
-    { name: "Recyclable Poncho Raincoat", href: "/recyclable-poncho-raincoat" },
+    { name: "Rain Poncho Manufacturer in Ahmedabad, Gujarat", href: "/poncho-raincoat-manufacturer-in-gujarat" },
+    { name: "Rain Poncho Manufacturer in India", href: "/poncho-raincoat-manufacturer-in-india" },
+    { name: "Recyclable Rain Poncho", href: "/recyclable-poncho-raincoat" },
   ];
 
   return (
