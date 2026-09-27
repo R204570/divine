@@ -5,7 +5,18 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
-import { ADDRESS, EMAIL, MAILTO_HREF, MAPS_URL, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
+import {
+  ADDRESS,
+  BUSINESS_HOURS,
+  EMAIL,
+  MAILTO_HREF,
+  MAPS_URL,
+  PHONE_DISPLAY,
+  TEL_HREF,
+  WHATSAPP_HREF,
+  whatsappHrefWithText,
+} from "@/lib/company";
+import { trackEvent } from "@/lib/analytics";
 
 interface ContactInfo {
   title: string;
@@ -40,7 +51,7 @@ const Contact = () => {
     {
       icon: Clock,
       title: "Business Hours",
-      details: "Mon - Sat: 9:00 AM - 6:00 PM",
+      details: BUSINESS_HOURS.label,
       action: null
     }
   ];
@@ -66,23 +77,22 @@ const Contact = () => {
     setIsSubmitting(true);
 
     try {
-      // Format phone number for WhatsApp (add country code if not present)
-      const phone = "919825148321";
+      const message = [
+        "*Inquiry from Website*",
+        "",
+        `Name: ${formData.name}`,
+        `Email: ${formData.email}`,
+        `Phone: ${formData.phone}`,
+        `Company: ${formData.company}`,
+        `Subject: ${formData.subject}`,
+        "",
+        "Message:",
+        formData.message,
+      ].join("\n");
 
-      // Prepare WhatsApp message with simple formatting
-      const message = `*Inquiry from Website*%0A%0A` +
-        `Name: ${formData.name}%0A` +
-        `Email: ${formData.email}%0A` +
-        `Phone: ${formData.phone}%0A` +
-        `Company: ${formData.company}%0A` +
-        `Subject: ${formData.subject}%0A%0A` +
-        `Message:%0A${formData.message}`;
-
-      // Create WhatsApp URL using the official API endpoint
-      const whatsappUrl = `https://api.whatsapp.com/send/?phone=${phone}&text=${message}&type=phone_number&app_absent=0`;
-
-      // Open in new window for better compatibility
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      // Encoded, so "&", "#" or "+" in what the customer typed can't cut the message short.
+      window.open(whatsappHrefWithText(message), '_blank', 'noopener,noreferrer');
+      trackEvent("generate_lead", { method: "whatsapp_form", page_path: window.location.pathname });
 
       // Show success message
       toast({
@@ -165,7 +175,7 @@ const Contact = () => {
               <h4 className="font-semibold text-foreground">Quick Actions</h4>
               <div className="space-y-3">
                 <a
-                  href="https://api.whatsapp.com/send/?phone=919825148321&type=phone_number&app_absent=0"
+                  href={WHATSAPP_HREF}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 bg-[#25D366] text-white p-3 rounded-lg hover:bg-[#20BD5C] transition-colors"
@@ -331,7 +341,7 @@ const Contact = () => {
                         <p className="text-sm text-muted-foreground mt-1">Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220</p>
                       </div>
                       <a
-                        href="https://www.google.com/maps/search/DIVINE+FABTECH+INDUSTRIES+Survey+No+710-711+Village+Rupal+Bavla+Jivapura+Gujarat+382220"
+                        href={MAPS_URL}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="bg-primary text-primary-foreground px-3 sm:px-4 py-2 rounded-md text-sm hover:bg-primary/90 transition-colors w-full sm:w-auto text-center"

@@ -1,18 +1,12 @@
-import { ArrowLeft, Award, Users, Zap, Target, Factory, Shield, Clock } from "lucide-react";
+import { Award, Users, Zap, Target, Factory, Shield, Clock } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent } from "@/components/ui/card";
 import { Link } from "react-router-dom";
-import { usePageMeta } from "@/hooks/use-page-meta";
-import { FOUNDING_YEAR } from "@/lib/company";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { FOUNDING_YEAR, yearsInBusiness } from "@/lib/company";
 
 const AboutPage = () => {
-  usePageMeta(
-    "About Us | Divine Fabtech Industries - Tarpaulin & Poncho Manufacturer",
-    "Divine Fabtech Industries has manufactured multilayer tarpaulins and poncho raincoats from Bavla, Gujarat since 2020."
-  );
-
-  // Calculate years of experience dynamically from the year the company was founded
-  const yearsExp = new Date().getFullYear() - FOUNDING_YEAR;
+  const yearsExp = yearsInBusiness();
   const values = [
     {
       icon: Award,
@@ -50,7 +44,7 @@ const AboutPage = () => {
     {
       year: "2022",
       title: "Product Expansion",
-      description: "Expanded product range and market reach with multilayer tarpauline and custom solutions."
+      description: "Expanded product range and market reach with multilayer tarpaulin and custom solutions."
     },
     {
       year: "2023",
@@ -89,24 +83,25 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen">
-      <main>
+      <div>
         {/* Hero Section */}
         <section className="bg-primary text-primary-foreground py-16">
           <div className="container mx-auto px-4">
+            <Breadcrumbs
+              className="mb-8 text-primary-foreground"
+              items={[
+                { name: "Home", path: "/" },
+                { name: "About", path: "/about" },
+              ]}
+            />
             <div className="max-w-4xl mx-auto text-center">
               <h1 className="text-4xl md:text-5xl font-bold mb-4">
                 About <span className="text-accent">Divine Fabtech</span>
               </h1>
-              <p className="text-xl mb-8">
-                Leading manufacturer of premium multilayer tarpaulines and poncho raincoats, 
+              <p className="text-xl">
+                Leading manufacturer of premium multilayer tarpaulins and poncho raincoats,
                 serving customers across India with quality products and reliable service since {FOUNDING_YEAR}.
               </p>
-              <Link to="/">
-                <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Home
-                </Button>
-              </Link>
             </div>
           </div>
         </section>
@@ -122,14 +117,14 @@ const AboutPage = () => {
                 <div className="space-y-4 text-muted-foreground text-lg leading-relaxed">
                   <p>
                     Divine Fabtech Industries was founded in {FOUNDING_YEAR} with a simple yet powerful vision:
-                    to provide high-quality multilayer tarpaulines and poncho raincoats that meet the demanding 
+                    to provide high-quality multilayer tarpaulins and poncho raincoats that meet the demanding 
                     requirements of various industries while maintaining competitive pricing and 
                     exceptional customer service.
                   </p>
                   <p>
                     Based in Bavla, Gujarat, India, we operate a single in-house manufacturing facility 
                     with 24/7 operations (excluding national holidays). Our specialization in custom multilayer 
-                    tarpaulines, raincoat ponchos, and tailored solutions for bulk orders has earned us 
+                    tarpaulins, raincoat ponchos, and tailored solutions for bulk orders has earned us 
                     trust across multiple applications and industries.
                   </p>
                   <p>
@@ -163,7 +158,7 @@ const AboutPage = () => {
                 <div className="bg-muted/30 p-6 rounded-lg">
                   <h3 className="text-xl font-semibold text-foreground mb-3">Our Mission</h3>
                   <p className="text-muted-foreground">
-                    To be a trusted manufacturer of premium multilayer tarpaulines and poncho raincoats, 
+                    To be a trusted manufacturer of premium multilayer tarpaulins and poncho raincoats, 
                     providing quality products and reliable service that meet the diverse needs of our 
                     customers across India while maintaining the highest standards of quality and integrity.
                   </p>
@@ -319,7 +314,7 @@ const AboutPage = () => {
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
-                    <span className="text-muted-foreground">Specialized range of multilayer tarpaulines and poncho raincoats</span>
+                    <span className="text-muted-foreground">Specialized range of multilayer tarpaulins and poncho raincoats</span>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-primary rounded-full mt-2"></div>
@@ -340,17 +335,15 @@ const AboutPage = () => {
                 </ul>
 
                 <div className="mt-8">
-                  <Link to="/contact">
-                    <Button size="lg" className="w-full">
-                      Get in Touch with Us
-                    </Button>
-                  </Link>
+                  <Button asChild size="lg" className="w-full">
+                    <Link to="/contact">Get in Touch with Us</Link>
+                  </Button>
                 </div>
               </div>
             </div>
           </div>
         </section>
-      </main>
+      </div>
     </div>
   );
 };

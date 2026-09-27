@@ -1,129 +1,85 @@
-import { useNavigate, Link } from "react-router-dom";
-import { Button } from "@/components/ui/button";
-import { ArrowLeft } from "lucide-react";
-import { usePageMeta } from "@/hooks/use-page-meta";
+import { Link } from "react-router-dom";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import { PONCHO, TARPAULIN } from "@/content/products";
+import type { SiteImage } from "@/content/images";
+
+const GalleryImage = ({ image, to }: { image: SiteImage; to: string }) => (
+  <Link
+    to={to}
+    className="relative block overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 group h-64 sm:h-72"
+  >
+    <img
+      src={image.src}
+      alt={image.alt}
+      width={image.width}
+      height={image.height}
+      loading="lazy"
+      decoding="async"
+      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+    />
+    <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+      <span className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold">
+        View Product
+      </span>
+    </div>
+  </Link>
+);
 
 const GalleryPage = () => {
-  const navigate = useNavigate();
-
-  usePageMeta(
-    "Gallery - Tarpaulin & Poncho Photos | Divine Fabtech Industries",
-    "Photo gallery of our multilayer tarpaulins and poncho raincoats, including colours, rolls and waterproofing in use."
-  );
-
-  const ponchImages = [
-    { id: 1, title: "All Colors", image: "/Images/Poncho/all.jpeg" },
-    { id: 2, title: "Blue", image: "/Images/Poncho/blue.jpeg" },
-    { id: 3, title: "Green", image: "/Images/Poncho/green.jpg" },
-    { id: 4, title: "Purple", image: "/Images/Poncho/purple.jpeg" },
-    { id: 5, title: "Transparent", image: "/Images/Poncho/transparent.jpeg" },
-    { id: 6, title: "Yellow", image: "/Images/Poncho/yellow.jpg" }
-  ];
-
-  const tarpaulineImages = [
-    { id: 7, title: "Multilayer", image: "/Images/Tarpauline/Multilayer Tarpauline.jpeg" },
-    { id: 8, title: "Multilayer 2", image: "/Images/Tarpauline/Multilayer 2.jpg" },
-    { id: 9, title: "Cover", image: "/Images/Tarpauline/cover.jpeg" },
-    { id: 10, title: "Cover 2", image: "/Images/Tarpauline/cover1.jpeg" },
-    { id: 11, title: "Rolls", image: "/Images/Tarpauline/rolls.jpeg" },
-    { id: 12, title: "Water Protection", image: "/Images/Tarpauline/Tarp-water.jpeg" },
-    { id: 13, title: "Water Protection 2", image: "/Images/Tarpauline/Tarp-water1.jpeg" },
-    { id: 14, title: "Tarp 1", image: "/Images/Tarpauline/Tarp1.jpeg" },
-    { id: 15, title: "Tarp 2", image: "/Images/Tarpauline/Tarp2.jpeg" },
-    { id: 16, title: "Tarp 3", image: "/Images/Tarpauline/Tarp3.jpeg" },
-    { id: 17, title: "Yellow Tarpaulin", image: "/Images/Tarpauline/waterproof-plastic-tarpaulin-yellow.jpeg" },
-    { id: 18, title: "Tarp 1 (Variant)", image: "/Images/Tarpauline/1.jpg" },
-    { id: 19, title: "Tarp 14 (Variant)", image: "/Images/Tarpauline/14.jpg" },
-    { id: 20, title: "Tarp 15 (Variant)", image: "/Images/Tarpauline/15.jpg" },
-    { id: 21, title: "Tarp 16 (Variant)", image: "/Images/Tarpauline/16.jpg" },
-    { id: 22, title: "Tarp 18 (Variant)", image: "/Images/Tarpauline/18.jpg" },
-    { id: 23, title: "Tarp 24 (Variant)", image: "/Images/Tarpauline/24.jpg" }
-  ];
-
-  const GalleryImage = ({ image, title, onClick }: { image: string; title: string; onClick: () => void }) => (
-    <div
-      onClick={onClick}
-      className="relative overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 cursor-pointer group h-64 sm:h-72"
-    >
-      <img
-        src={image}
-        alt={title}
-        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-        onError={(e) => {
-          (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&h=400&fit=crop";
-        }}
-      />
-      <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-        <button className="bg-primary text-primary-foreground px-6 py-3 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
-          View Product
-        </button>
-      </div>
-    </div>
-  );
-
   return (
     <div className="min-h-screen bg-background">
       {/* Hero Section */}
       <section className="bg-primary text-primary-foreground py-16">
         <div className="container mx-auto px-4">
+          <Breadcrumbs
+            className="mb-8 text-primary-foreground"
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Gallery", path: "/gallery" },
+            ]}
+          />
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Product <span className="text-accent">Gallery</span>
+              Tarpaulin &amp; Poncho Raincoat <span className="text-accent">Gallery</span>
             </h1>
-            <p className="text-xl mb-8">
-              Explore our complete range of Poncho Raincoats and Multilayer Tarpaulines. Click on any image to explore the full product details.
+            <p className="text-xl">
+              Our multilayer tarpaulins at work and our poncho raincoats in every colour. Click any photo for the full product details.
             </p>
-            <Link to="/">
-              <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
 
       <div className="py-12">
         <div className="container mx-auto px-4">
+          {/* Poncho Section */}
+          <section className="mb-20">
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold tracking-tight mb-2">Poncho Raincoats</h2>
+              <p className="text-muted-foreground">Waterproof hooded ponchos in purple, pink, green, blue and yellow</p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+              {PONCHO.gallery.map((image) => (
+                <GalleryImage key={image.src} image={image} to={PONCHO.path} />
+              ))}
+            </div>
+          </section>
 
-        {/* Poncho Section */}
-        <div className="mb-20">
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold tracking-tight mb-2">Poncho Raincoats</h2>
-            <p className="text-muted-foreground">Premium quality raincoats available in multiple colors</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-            {ponchImages.map((item) => (
-              <GalleryImage
-                key={item.id}
-                image={item.image}
-                title={item.title}
-                onClick={() => navigate("/products/poncho")}
-              />
-            ))}
-          </div>
-        </div>
+          <div className="my-16 border-t border-border" />
 
-        {/* Divider */}
-        <div className="my-16 border-t border-border"></div>
-
-        {/* Tarpauline Section */}
-        <div>
-          <div className="mb-8">
-            <h2 className="text-3xl font-bold tracking-tight mb-2">Multilayer Tarpauline</h2>
-            <p className="text-muted-foreground">Heavy-duty waterproof tarpaulins for industrial and personal use</p>
-          </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-            {tarpaulineImages.map((item) => (
-              <GalleryImage
-                key={item.id}
-                image={item.image}
-                title={item.title}
-                onClick={() => navigate("/products/tarpaulins")}
-              />
-            ))}
-          </div>
-        </div>
+          {/* Tarpaulin Section */}
+          <section>
+            <div className="mb-8">
+              <h2 className="text-3xl font-bold tracking-tight mb-2">Multilayer Tarpaulin</h2>
+              <p className="text-muted-foreground">
+                Covering grain sacks and bales, lining farm ponds, and protecting machinery and stock
+              </p>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+              {TARPAULIN.gallery.map((image) => (
+                <GalleryImage key={image.src} image={image} to={TARPAULIN.path} />
+              ))}
+            </div>
+          </section>
         </div>
       </div>
     </div>

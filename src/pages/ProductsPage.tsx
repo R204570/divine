@@ -1,246 +1,158 @@
-import { ArrowLeft, ShoppingCart, Phone, Mail } from "lucide-react";
+import { ShoppingCart, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
-import { usePageMeta } from "@/hooks/use-page-meta";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
+import { PRODUCTS } from "@/content/products";
 
 const ProductsPage = () => {
-  usePageMeta(
-    "Our Products - Multilayer Tarpaulins & Poncho Raincoats | Divine Fabtech Industries",
-    "Browse our two product lines: multilayer tarpaulins and waterproof poncho raincoats. Custom sizes, bulk manufacturing only."
-  );
-
-  const products = [
-    {
-      id: "tarpaulins",
-      title: "Multilayer Tarpauline",
-      category: "CUSTOM SIZES FOR BULK ORDERS",
-      image: "/Images/Tarpauline/cover.jpeg",
-      description: "Our premium quality multilayer tarpauline offer superior strength and durability. We specialize in bulk manufacturing with custom sizes.",
-      features: [
-        "100% Waterproof",
-        "UV Resistant coating",
-        "Multilayered for extra strength",
-        "Reinforced edges",
-        "Custom sizes available",
-        "Bulk orders only"
-      ],
-      applications: [
-        "Industrial equipment covering",
-        "Construction site protection",
-        "Agricultural storage",
-        "Truck covers",
-        "Warehouse protection",
-        "Marine applications"
-      ],
-      specifications: {
-        "Material": "Multilayered HDPE/LDPE",
-        "Type": "Multilayered",
-        "Colors": "Blue, Green, Yellow",
-        "Sizes": "Custom sizes for bulk orders",
-        "Order Type": "Bulk manufacturing only"
-      },
-      galleryImages: [
-        "/Images/Tarpauline/Multilayer Tarpauline.jpeg",
-        "/Images/Tarpauline/Multilayer 2.jpg",
-        "/Images/Tarpauline/cover.jpeg",
-        "/Images/Tarpauline/cover1.jpeg",
-        "/Images/Tarpauline/rolls.jpeg",
-        "/Images/Tarpauline/Tarp-water.jpeg",
-        "/Images/Tarpauline/Tarp-water1.jpeg",
-        "/Images/Tarpauline/Tarp1.jpeg",
-        "/Images/Tarpauline/Tarp2.jpeg",
-        "/Images/Tarpauline/Tarp3.jpeg",
-        "/Images/Tarpauline/waterproof-plastic-tarpaulin-yellow.jpeg",
-        "/Images/Tarpauline/1.jpg",
-        "/Images/Tarpauline/14.jpg",
-        "/Images/Tarpauline/15.jpg",
-        "/Images/Tarpauline/16.jpg",
-        "/Images/Tarpauline/18.jpg",
-        "/Images/Tarpauline/24.jpg"
-      ]
-    },
-    {
-      id: "poncho",
-      title: "Poncho Raincoats",
-      category: "BULK ORDERS AVAILABLE",
-      image: "/Images/Poncho/all.jpeg",
-      description: "High-quality waterproof poncho raincoats manufactured for bulk orders. Available in various colors with custom branding options.",
-      features: [
-        "100% Waterproof material",
-        "Multiple color options",
-        "Custom branding available",
-        "Bulk manufacturing",
-        "Quality packaging",
-        "Adjustable hood",
-        "Multiple pocket options",
-        "Various colors available"
-      ],
-      applications: [
-        "Industrial use",
-        "Construction sites",
-        "Emergency services",
-        "Outdoor events",
-        "Bulk distribution"
-      ],
-      specifications: {
-        "Material": "High-quality waterproof material",
-        "Type": "Poncho style raincoat",
-        "Colors": "Blue, Green, Yellow, Purple, Transparent",
-        "Packaging": "Custom packaging available",
-        "Order Type": "Bulk orders only"
-      },
-      galleryImages: [
-        "/Images/Poncho/all.jpeg",
-        "/Images/Poncho/blue.jpeg",
-        "/Images/Poncho/green.jpg",
-        "/Images/Poncho/purple.jpeg",
-        "/Images/Poncho/transparent.jpeg",
-        "/Images/Poncho/yellow.jpg"
-      ]
-    }
-  ];
-
   return (
     <div className="min-h-screen">
-      <main>
-        {/* Hero Section */}
-        <section className="bg-primary text-primary-foreground py-16">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h1 className="text-4xl md:text-5xl font-bold mb-4">
-                Our <span className="text-accent">Products</span>
-              </h1>
-              <p className="text-xl mb-8">
-                Premium multilayer tarpauline and poncho raincoats. 
-                Custom sizes available for bulk orders.
-              </p>
-              <Link to="/">
-                <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
-                  <ArrowLeft className="mr-2 h-4 w-4" />
-                  Back to Home
-                </Button>
-              </Link>
-            </div>
+      {/* Hero Section */}
+      <section className="bg-primary text-primary-foreground py-16">
+        <div className="container mx-auto px-4">
+          <Breadcrumbs
+            className="mb-8 text-primary-foreground"
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Products", path: "/products" },
+            ]}
+          />
+          <div className="max-w-4xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold mb-4">
+              Multilayer Tarpaulins &amp; <span className="text-accent">Poncho Raincoats</span>
+            </h1>
+            <p className="text-xl">
+              Multilayer tarpaulins in 90 to 200 GSM and poncho raincoats with matching pants,
+              manufactured in Bavla, Gujarat for bulk orders.
+            </p>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Products Grid */}
-        <section className="py-16 bg-background">
-          <div className="container mx-auto px-4">
-            <div className="grid lg:grid-cols-2 gap-12">
-              {products.map((product) => (
-                <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300">
-                  <div className="relative">
-                    <img 
-                      src={product.image} 
-                      alt={product.title}
-                      className="w-full h-64 object-cover"
-                    />
-                    <div className="absolute top-4 left-4">
-                      <Badge variant="secondary" className="bg-accent text-accent-foreground">
-                        {product.category}
-                      </Badge>
+      {/* Products Grid */}
+      <section className="py-16 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid lg:grid-cols-2 gap-12">
+            {PRODUCTS.map((product) => (
+              <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300">
+                <div className="relative">
+                  <img
+                    src={product.cardImage.src}
+                    alt={product.cardImage.alt}
+                    width={product.cardImage.width}
+                    height={product.cardImage.height}
+                    className="w-full h-64 object-cover"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <Badge variant="secondary" className="bg-accent text-accent-foreground">
+                      {product.tagline}
+                    </Badge>
+                  </div>
+                </div>
+
+                <CardHeader>
+                  <div className="flex justify-between items-start gap-4">
+                    <h2 className="text-2xl font-bold leading-none tracking-tight text-foreground">
+                      {product.name}
+                    </h2>
+                    <Badge variant="secondary" className="bg-accent text-accent-foreground whitespace-nowrap">
+                      Bulk Orders Only
+                    </Badge>
+                  </div>
+                  <p className="text-muted-foreground">{product.summary}</p>
+                </CardHeader>
+
+                <CardContent className="space-y-6">
+                  {/* Features */}
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-3">Key Features:</h3>
+                    <ul className="grid grid-cols-2 gap-2">
+                      {product.features.map((feature) => (
+                        <li key={feature} className="flex items-center text-sm">
+                          <span className="w-1.5 h-1.5 bg-primary rounded-full mr-2" aria-hidden="true" />
+                          {feature}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  {/* Applications */}
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-3">Applications:</h3>
+                    <div className="flex flex-wrap gap-2">
+                      {product.applications.slice(0, 4).map((application) => (
+                        <Badge key={application} variant="outline" className="text-xs">
+                          {application}
+                        </Badge>
+                      ))}
+                      {product.applications.length > 4 && (
+                        <Badge variant="outline" className="text-xs">
+                          +{product.applications.length - 4} more
+                        </Badge>
+                      )}
                     </div>
                   </div>
-                  
-                  <CardHeader>
-                    <div className="flex justify-between items-start">
-                      <CardTitle className="text-2xl font-bold text-foreground">
-                        {product.title}
-                      </CardTitle>
-                      <div className="text-right">
-                        <Badge variant="secondary" className="bg-accent text-accent-foreground">
-                          Bulk Orders Only
-                        </Badge>
-                      </div>
-                    </div>
-                    <p className="text-muted-foreground">{product.description}</p>
-                  </CardHeader>
 
-                  <CardContent className="space-y-6">
-                    {/* Features */}
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3">Key Features:</h4>
-                      <div className="grid grid-cols-2 gap-2">
-                        {product.features.map((feature, index) => (
-                          <div key={index} className="flex items-center text-sm">
-                            <div className="w-1.5 h-1.5 bg-primary rounded-full mr-2"></div>
-                            {feature}
-                          </div>
-                        ))}
-                      </div>
-                    </div>
+                  {/* Manufacturer pages */}
+                  <ul className="space-y-1 text-sm">
+                    {product.relatedPages.map((page) => (
+                      <li key={page.path}>
+                        <Link to={page.path} className="text-primary hover:underline">
+                          {page.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
 
-                    {/* Applications */}
-                    <div>
-                      <h4 className="font-semibold text-foreground mb-3">Applications:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {product.applications.slice(0, 4).map((app, index) => (
-                          <Badge key={index} variant="outline" className="text-xs">
-                            {app}
-                          </Badge>
-                        ))}
-                        {product.applications.length > 4 && (
-                          <Badge variant="outline" className="text-xs">
-                            +{product.applications.length - 4} more
-                          </Badge>
-                        )}
-                      </div>
-                    </div>
-
-                    {/* Action Buttons */}
-                    <div className="flex gap-3 pt-4">
-                      <Link to={`/products/${product.id}`} className="flex-1">
-                        <Button className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-                          View Details
-                        </Button>
+                  {/* Action Buttons */}
+                  <div className="flex gap-3 pt-4">
+                    <Button asChild className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
+                      <Link to={product.path}>View Details</Link>
+                    </Button>
+                    <Button asChild className="flex-1 bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
+                      <Link to={`/inquiry?product=${product.id}`}>
+                        <ShoppingCart className="mr-2 h-4 w-4" />
+                        Quick Quote
                       </Link>
-                      <Link to="/inquiry" className="flex-1">
-                        <Button className="w-full bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
-                          <ShoppingCart className="mr-2 h-4 w-4" />
-                          Quick Quote
-                        </Button>
-                      </Link>
-                    </div>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-muted/30">
-          <div className="container mx-auto px-4">
-            <div className="max-w-4xl mx-auto text-center">
-              <h2 className="text-3xl font-bold text-foreground mb-4">
-                Need Custom Solutions?
-              </h2>
-              <p className="text-xl text-muted-foreground mb-8">
-                Our team of experts can help you design and manufacture custom fabric solutions 
-                tailored to your specific requirements.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
+      {/* CTA Section */}
+      <section className="py-16 bg-muted/30">
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Need Custom Solutions?
+            </h2>
+            <p className="text-xl text-muted-foreground mb-8">
+              Tell us the size, colour, GSM and quantity you need and we will manufacture it for your bulk order.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button asChild size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                 <a href={TEL_HREF}>
-                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
                   <Phone className="mr-2 h-5 w-5" />
                   Call {PHONE_DISPLAY}
-                </Button>
                 </a>
+              </Button>
+              <Button asChild size="lg" className="bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
                 <a href={MAILTO_HREF}>
-                <Button size="lg" className="bg-slate-100 text-slate-900 hover:bg-slate-200 border border-slate-200">
                   <Mail className="mr-2 h-5 w-5" />
                   Send Inquiry
-                </Button>
                 </a>
-              </div>
+              </Button>
             </div>
           </div>
-        </section>
-      </main>
+        </div>
+      </section>
     </div>
   );
 };

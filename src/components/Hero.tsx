@@ -1,23 +1,25 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, MapPin } from "lucide-react";
 import { useState, useEffect } from "react";
-import { EMAIL, MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
+import { Link } from "react-router-dom";
+import { EMAIL, MAILTO_HREF, MAPS_URL, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
+import { PONCHO_IMAGES, TARPAULIN_IMAGES } from "@/content/images";
+
+const heroSlides = [
+  {
+    title: "Multilayer Tarpaulin",
+    subtitle: "90, 120, 150 & 200 GSM, or custom 70–200 GSM, in custom sizes for bulk orders",
+    image: TARPAULIN_IMAGES.rollsYellowBlue,
+  },
+  {
+    title: "Poncho Raincoats",
+    subtitle: "Waterproof ponchos in five colours, with a matching raincoat pant, for bulk orders",
+    image: PONCHO_IMAGES.fiveColoursGrid,
+  },
+];
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
-  
-  const heroSlides = [
-    {
-      title: "Multilayer Tarpauline",
-      subtitle: "CUSTOM SIZES AVAILABLE FOR BULK ORDERS",
-      image: "/Images/Tarpauline/cover.jpeg"
-    },
-    {
-      title: "Poncho Raincoats", 
-      subtitle: "High-quality waterproof ponchos available in various colors for bulk orders",
-      image: "/Images/Poncho/all.jpeg"
-    }
-  ];
 
   useEffect(() => {
     const timer = setInterval(() => {
@@ -32,14 +34,16 @@ const Hero = () => {
       <div className="absolute inset-0">
         {heroSlides.map((slide, index) => (
           <div
-            key={index}
+            key={slide.title}
             className={`absolute inset-0 transition-opacity duration-1000 ${
               index === currentSlide ? 'opacity-100' : 'opacity-0'
             }`}
           >
             <img
-              src={slide.image}
-              alt={slide.title}
+              src={slide.image.src}
+              alt={slide.image.alt}
+              width={slide.image.width}
+              height={slide.image.height}
               className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-primary/80" />
@@ -50,27 +54,33 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
         <div className="max-w-4xl mx-auto animate-fade-in-up">
-          <h1 className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
-            {heroSlides[currentSlide].title}
+          {/* The page's one <h1> stays fixed; only the product line below rotates. */}
+          <h1 className="text-sm md:text-base font-semibold uppercase tracking-widest text-accent mb-6">
+            Multilayer Tarpaulin &amp; Rain Poncho Manufacturer in Ahmedabad, Gujarat, India
           </h1>
+          <p className="text-4xl md:text-7xl font-bold mb-6 leading-tight">
+            {heroSlides[currentSlide].title}
+          </p>
           <p className="text-lg md:text-2xl mb-8 text-primary-foreground/90 animate-fade-in" style={{ animationDelay: '0.3s' }}>
             {heroSlides[currentSlide].subtitle}
           </p>
-          
+
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12 animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <Button 
-              size="lg" 
+            <Button
+              asChild
+              size="lg"
               className="bg-white text-slate-900 hover:bg-gray-100 font-semibold shadow-lg hover:shadow-xl transition-all"
-              onClick={() => window.location.href = '/inquiry'}
             >
-              Get Quote <ArrowRight className="ml-2 h-5 w-5" />
+              <Link to="/inquiry">
+                Get Quote <ArrowRight className="ml-2 h-5 w-5" />
+              </Link>
             </Button>
-            <Button 
-              size="lg" 
+            <Button
+              asChild
+              size="lg"
               className="border-2 border-white text-white bg-transparent hover:bg-white hover:text-slate-900 font-semibold transition-all shadow-md hover:shadow-lg"
-              onClick={() => window.location.href = '/products'}
             >
-              View Products
+              <Link to="/products">View Products</Link>
             </Button>
           </div>
 
@@ -90,14 +100,14 @@ const Hero = () => {
               <Mail className="h-5 w-5 text-accent" />
               <span className="font-medium hover:underline">{EMAIL}</span>
             </a>
-            <a 
-              href="https://www.google.com/maps/search/Survey+No+710-711+Village+Rupal+Bavla+Gujarat+382220" 
-              target="_blank" 
+            <a
+              href={MAPS_URL}
+              target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center gap-2 text-primary-foreground/90 hover:text-accent transition-colors cursor-pointer"
             >
               <MapPin className="h-5 w-5 text-accent" />
-              <span className="font-medium hover:underline">Gujarat, India</span>
+              <span className="font-medium hover:underline">Bavla, Gujarat, India</span>
             </a>
           </div>
         </div>
@@ -105,10 +115,11 @@ const Hero = () => {
 
       {/* Slide Indicators */}
       <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-3 z-10">
-        {heroSlides.map((_, index) => (
+        {heroSlides.map((slide, index) => (
           <button
-            key={index}
+            key={slide.title}
             onClick={() => setCurrentSlide(index)}
+            aria-label={`Show ${slide.title}`}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${
               index === currentSlide ? 'bg-accent scale-125' : 'bg-primary-foreground/50 hover:bg-primary-foreground/75'
             }`}

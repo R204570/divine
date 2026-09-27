@@ -4,7 +4,7 @@ import path from "path";
 import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
-export default defineConfig(({ mode }) => ({
+export default defineConfig(({ mode, isSsrBuild }) => ({
   server: {
     host: "::",
     port: 8080,
@@ -20,17 +20,22 @@ export default defineConfig(({ mode }) => ({
     },
   },
   build: {
-    rollupOptions: {
-      output: {
-        manualChunks(id: string) {
-          if (id.includes('node_modules')) {
-            if (id.includes('recharts')) return 'vendor-charts';
-            if (id.includes('lucide-react') || id.includes('@radix-ui')) return 'vendor-ui';
-            return 'vendor';
+    // The SSR build (src/entry-server.tsx) only feeds scripts/prerender.mjs,
+    // so it needs neither the public assets nor the vendor chunk split.
+    copyPublicDir: !isSsrBuild,
+    rollupOptions: isSsrBuild
+      ? {}
+      : {
+          output: {
+            manualChunks(id: string) {
+              if (id.includes('node_modules')) {
+                if (id.includes('recharts')) return 'vendor-charts';
+                if (id.includes('lucide-react') || id.includes('@radix-ui')) return 'vendor-ui';
+                return 'vendor';
+              }
+            }
           }
-        }
-      }
-    },
+        },
     chunkSizeWarningLimit: 700,
   },
 }));

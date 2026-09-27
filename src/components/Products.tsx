@@ -1,23 +1,10 @@
 import { ArrowRight } from "lucide-react";
+import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
+import { PRODUCTS } from "@/content/products";
 
 const Products = () => {
-  const products = [
-    {
-      id: "tarpaulins",
-      title: "Multilayer Tarpauline",
-      description: "Premium quality multilayer tarpauline with superior strength and durability.",
-      image: "/Images/Tarpauline/cover.jpeg"
-    },
-    {
-      id: "poncho",
-      title: "Poncho Raincoats",
-      description: "High-quality waterproof poncho raincoats available in various colors. Bulk orders available.",
-      image: "/Images/Poncho/all.jpeg"
-    }
-  ];
-
   return (
     <section className="py-20 bg-background">
       <div className="container mx-auto px-4">
@@ -27,37 +14,46 @@ const Products = () => {
             Our <span className="text-primary">Products</span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Discover our comprehensive range of premium industrial fabrics and tarpaulins, 
-            engineered for durability and performance in demanding applications.
+            Multilayer tarpaulins and waterproof poncho raincoats, manufactured at our own factory in
+            Bavla, Gujarat and supplied in bulk across India.
           </p>
         </div>
 
         {/* Products Grid */}
         <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {products.map((product) => (
+          {PRODUCTS.map((product) => (
             <Card key={product.id} className="group hover:shadow-lg transition-all duration-300">
-              <CardContent className="p-6">
+              <CardContent className="p-6 flex flex-col h-full">
                 <div className="aspect-[4/3] mb-4 overflow-hidden rounded-lg">
-                  <img 
-                    src={product.image} 
-                    alt={product.title}
+                  <img
+                    src={product.cardImage.src}
+                    alt={product.cardImage.alt}
+                    width={product.cardImage.width}
+                    height={product.cardImage.height}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                   />
                 </div>
                 <h3 className="text-xl font-semibold mb-2 group-hover:text-primary transition-colors">
-                  {product.title}
+                  {product.name}
                 </h3>
-                <p className="text-muted-foreground mb-6">
-                  {product.description}
-                </p>
-                <a href={`/products/${product.id}`}>
-                  <Button 
-                    className="w-full bg-primary text-primary-foreground hover:bg-primary/90"
-                  >
-                    View Product
+                <p className="text-muted-foreground mb-4">{product.summary}</p>
+                <ul className="mb-6 space-y-1 text-sm">
+                  {product.relatedPages.map((page) => (
+                    <li key={page.path}>
+                      <Link to={page.path} className="text-primary hover:underline">
+                        {page.label}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <Button asChild className="w-full mt-auto bg-primary text-primary-foreground hover:bg-primary/90">
+                  <Link to={product.path}>
+                    View {product.name}
                     <ArrowRight className="ml-2 h-4 w-4" />
-                  </Button>
-                </a>
+                  </Link>
+                </Button>
               </CardContent>
             </Card>
           ))}
@@ -70,13 +66,11 @@ const Products = () => {
               Need Something Specific?
             </h3>
             <p className="text-lg text-muted-foreground mb-8">
-              Send us an inquiry for custom requirements or bulk orders
+              Send us an inquiry for custom sizes, colours, GSM or bulk orders
             </p>
-            <a href="/inquiry">
-              <Button className="bg-primary text-primary-foreground hover:bg-primary/90">
-                Send Inquiry
-              </Button>
-            </a>
+            <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
+              <Link to="/inquiry">Send Inquiry</Link>
+            </Button>
           </div>
         </div>
       </div>

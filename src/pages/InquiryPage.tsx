@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import { ArrowLeft } from "lucide-react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
+import Breadcrumbs from "@/components/Breadcrumbs";
 import { Card } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -25,12 +25,17 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { usePageMeta } from "@/hooks/use-page-meta"
 
 const PRODUCT_CATEGORIES = [
   "Tarpaulin",
   "Poncho"
 ] as const;
+
+/** Maps the ?product= value used by product and landing page links to a form category. */
+const CATEGORY_FROM_PRODUCT_ID: Record<string, (typeof PRODUCT_CATEGORIES)[number]> = {
+  tarpaulins: "Tarpaulin",
+  poncho: "Poncho",
+};
 
 const formSchema = z.object({
   name: z.string().min(2, {
@@ -39,9 +44,10 @@ const formSchema = z.object({
   email: z.string().email({
     message: "Please enter a valid email address.",
   }),
+  // Optional: an empty field is fine, but anything typed must be 2+ characters.
   company: z.string().min(2, {
     message: "Company name must be at least 2 characters.",
-  }).optional(),
+  }).optional().or(z.literal("")),
   phone: z.string()
     .min(10, { message: "Phone number must be at least 10 digits." })
     .regex(/^[0-9+\-\s()]*$/, { message: "Please enter a valid phone number" }),
@@ -56,11 +62,7 @@ const formSchema = z.object({
 const InquiryPage = () => {
   const { toast } = useToast()
   const [isSubmitting, setIsSubmitting] = useState(false)
-
-  usePageMeta(
-    "Send an Inquiry | Divine Fabtech Industries",
-    "Request a quote for multilayer tarpaulins or poncho raincoats. Tell us your sizes, colours and quantity for a bulk price."
-  )
+  const [searchParams] = useSearchParams()
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -73,6 +75,13 @@ const InquiryPage = () => {
       message: "",
     },
   })
+
+  // Pre-select the product from ?product= after hydration: the prerendered
+  // /inquiry page has no query string, so doing it during render would mismatch.
+  useEffect(() => {
+    const category = CATEGORY_FROM_PRODUCT_ID[searchParams.get("product") ?? ""]
+    if (category) form.setValue("productCategory", category)
+  }, [searchParams, form])
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true)
@@ -101,19 +110,20 @@ const InquiryPage = () => {
       {/* Hero Section */}
       <section className="bg-primary text-primary-foreground py-16">
         <div className="container mx-auto px-4">
+          <Breadcrumbs
+            className="mb-8 text-primary-foreground"
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Inquiry", path: "/inquiry" },
+            ]}
+          />
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-4">
-              Send Us an <span className="text-accent">Inquiry</span>
+              Get a Bulk Price <span className="text-accent">Quote</span>
             </h1>
-            <p className="text-xl mb-8">
-              Have questions about our products? We'd love to hear from you. Fill out the form below and our team will get back to you as soon as possible.
+            <p className="text-xl">
+              Tell us the product, size, GSM, colours and quantity you need, and our team will get back to you with a factory price.
             </p>
-            <Link to="/">
-              <Button size="lg" className="border-2 border-primary-foreground text-primary-foreground bg-transparent hover:bg-primary-foreground hover:text-primary font-semibold transition-all shadow-md hover:shadow-lg">
-                <ArrowLeft className="mr-2 h-4 w-4" />
-                Back to Home
-              </Button>
-            </Link>
           </div>
         </div>
       </section>
@@ -192,7 +202,7 @@ const InquiryPage = () => {
                   render={({ field }) => (
                     <FormItem>
                       <FormLabel>Product Category <span className="text-red-500">*</span></FormLabel>
-                      <Select onValueChange={field.onChange} defaultValue={field.value}>
+                      <Select onValueChange={field.onChange} value={field.value ?? ""}>
                         <FormControl>
                           <SelectTrigger>
                             <SelectValue placeholder="Select a product category" />

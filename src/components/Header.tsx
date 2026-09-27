@@ -3,6 +3,7 @@ import { Menu, X, Phone, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { EMAIL, MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
+import { LOGO } from "@/content/images";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,16 +41,19 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
-          <Link to="/" className="flex items-center">
-            <img 
-              src="/Images/logo.png" 
-              alt="Divine Fabtech Industries - Tarpaulin Manufacturer" 
+          {/* Brand text is a span, not a heading: each page has its own single <h1>. */}
+          <Link to="/" className="flex items-center" aria-label="Divine Fabtech Industries home">
+            <img
+              src={LOGO.src}
+              alt={LOGO.alt}
+              width={LOGO.width}
+              height={LOGO.height}
               className="w-16 h-16 object-contain rounded-sm"
             />
-            <div className="ml-3">
-              <h1 className="text-xl font-bold text-accent">Divine Fabtech</h1>
-              <p className="text-xs text-primary-foreground/80">Industries</p>
-            </div>
+            <span className="ml-3 flex flex-col">
+              <span className="text-xl font-bold text-accent">Divine Fabtech</span>
+              <span className="text-xs text-primary-foreground/80">Industries</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -63,11 +67,9 @@ const Header = () => {
                 {item.name}
               </Link>
             ))}
-            <Link to="/inquiry">
-              <Button variant="secondary" className="bg-accent text-accent-foreground hover:bg-accent/90">
-                Get Quote
-              </Button>
-            </Link>
+            <Button asChild variant="secondary" className="bg-accent text-accent-foreground hover:bg-accent/90">
+              <Link to="/inquiry">Get Quote</Link>
+            </Button>
           </nav>
 
           {/* Mobile menu button */}
@@ -95,11 +97,11 @@ const Header = () => {
                 </Link>
               ))}
               <div className="px-4">
-                <Link to="/inquiry" className="block">
-                  <Button variant="secondary" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                <Button asChild variant="secondary" className="w-full bg-accent text-accent-foreground hover:bg-accent/90">
+                  <Link to="/inquiry" onClick={() => setIsMenuOpen(false)}>
                     Get Quote
-                  </Button>
-                </Link>
+                  </Link>
+                </Button>
               </div>
             </nav>
           </div>

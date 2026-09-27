@@ -1,4 +1,5 @@
-import { ChevronLeft, Share2, Download } from "lucide-react";
+import { useState } from "react";
+import { ChevronLeft, MessageCircle, Share2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Link, useParams } from "react-router-dom";
@@ -9,38 +10,25 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
+  type CarouselApi,
 } from "@/components/ui/carousel";
-import { usePageMeta } from "@/hooks/use-page-meta";
-
-interface Product {
-  title: string;
-  category: string;
-  images: string[];
-  description: string;
-  features: string[];
-  specifications: Record<string, string>;
-}
-
-interface ProductData {
-  tarpaulins: Product;
-  poncho: Product;
-}
+import Breadcrumbs from "@/components/Breadcrumbs";
+import NotFound from "./NotFound";
+import { getProduct } from "@/content/products";
+import { whatsappHrefWithText } from "@/lib/company";
 
 const ProductDetailPage = () => {
   const { productId } = useParams();
   const { toast } = useToast();
+  const [carouselApi, setCarouselApi] = useState<CarouselApi>();
+  const product = getProduct(productId);
 
-  const handleDownloadQuote = () => {
-    // TODO: Implement PDF download logic
-    toast({
-      title: "Quote PDF",
-      description: "Downloading product quote PDF...",
-      duration: 3000,
-    });
-  };
+  if (!product) {
+    return <NotFound />;
+  }
 
   const handleShareProduct = () => {
-    const productUrl = `${window.location.origin}/products/${productId}`;
+    const productUrl = `${window.location.origin}${product.path}`;
     navigator.clipboard.writeText(productUrl).then(() => {
       toast({
         title: "Link Copied!",
@@ -56,111 +44,43 @@ const ProductDetailPage = () => {
     });
   };
 
-  const productData: ProductData = {
-    tarpaulins: {
-      title: "Multilayer Tarpauline",
-      category: "CUSTOM SIZES FOR BULK ORDERS",
-      images: [
-        "/Images/Tarpauline/Multilayer Tarpauline.jpeg",
-        "/Images/Tarpauline/Multilayer 2.jpg",
-        "/Images/Tarpauline/cover.jpeg",
-        "/Images/Tarpauline/cover1.jpeg",
-        "/Images/Tarpauline/rolls.jpeg",
-        "/Images/Tarpauline/Tarp-water.jpeg",
-        "/Images/Tarpauline/Tarp-water1.jpeg",
-        "/Images/Tarpauline/Tarp1.jpeg",
-        "/Images/Tarpauline/Tarp2.jpeg",
-        "/Images/Tarpauline/Tarp3.jpeg",
-        "/Images/Tarpauline/waterproof-plastic-tarpaulin-yellow.jpeg",
-        "/Images/Tarpauline/1.jpg",
-        "/Images/Tarpauline/14.jpg",
-        "/Images/Tarpauline/15.jpg",
-        "/Images/Tarpauline/16.jpg",
-        "/Images/Tarpauline/18.jpg",
-        "/Images/Tarpauline/24.jpg"
-      ],
-      description: "Our premium multilayer tarpauline are engineered for maximum durability and weather resistance. Specialized in bulk manufacturing with custom sizes.",
-      features: [
-        "100% Waterproof",
-        "UV Resistant coating",
-        "Multilayered for extra strength",
-        "Reinforced edges",
-        "High tensile strength",
-        "Weather resistant"
-      ],
-      specifications: {
-        "Material": "mLDPE, LDPE, LLDPE and HDPE",
-        "Type": "Multilayered Tarpauline",
-        "Colors": "Commonly Blue and Yellow, Custom colors available for bulk orders",
-        "Size": "Custom sizes available for bulk orders"
-      }
-    },
-    poncho: {
-      title: "Poncho Raincoats",
-      category: "BULK ORDERS WITH CUSTOM BRANDING",
-      images: [
-        "/Images/Poncho/all.jpeg",
-        "/Images/Poncho/blue.jpeg",
-        "/Images/Poncho/green.jpg",
-        "/Images/Poncho/purple.jpeg",
-        "/Images/Poncho/transparent.jpeg",
-        "/Images/Poncho/yellow.jpg"
-      ],
-      description: "High-quality waterproof poncho raincoats designed for durability and comfort. Available in various colors with custom branding options for bulk orders.",
-      features: [
-        "100% Waterproof",
-        "Multiple Colors",
-        "Custom Branding",
-        "High durability"
-      ],
-      specifications: {
-        "Material": "mLDPE, LDPE, LLDPE and HDPE",
-        "Colors": "Blue, Green, Yellow, Purple, Pink, Transparent",
-        "Branding": "Custom logo packaging available for bulk orders",
-        "Size": "Standard and custom sizes available"
-      }
-    }
-  };
-
-  const product = productData[productId as keyof typeof productData];
-
-  // Called before the early return below so the hook order stays stable.
-  usePageMeta(
-    product
-      ? `${product.title} | Divine Fabtech Industries`
-      : "Product Not Found | Divine Fabtech Industries",
-    product?.description
-  );
-
-  if (!product) {
-    return <div>Product not found</div>;
-  }
-
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-8">
         {/* Navigation */}
-        <div className="mb-6">
-          <Link to="/">
-            <Button variant="ghost" className="pl-0">
+        <div className="mb-6 flex flex-col gap-3">
+          <Breadcrumbs
+            className="text-muted-foreground"
+            items={[
+              { name: "Home", path: "/" },
+              { name: "Products", path: "/products" },
+              { name: product.name, path: product.path },
+            ]}
+          />
+          <Button asChild variant="ghost" className="pl-0 self-start">
+            <Link to="/products">
               <ChevronLeft className="mr-2 h-4 w-4" />
               Back to Products
-            </Button>
-          </Link>
+            </Link>
+          </Button>
         </div>
 
         {/* Product Content */}
         <div className="grid md:grid-cols-2 gap-8">
           {/* Left: Product Images */}
           <div>
-            <Carousel className="w-full max-w-xl mx-auto">
+            <Carousel className="w-full max-w-xl mx-auto" setApi={setCarouselApi}>
               <CarouselContent>
-                {product.images.map((image, index) => (
-                  <CarouselItem key={index}>
+                {product.gallery.map((image, index) => (
+                  <CarouselItem key={image.src}>
                     <div className="aspect-square relative rounded-lg overflow-hidden">
                       <img
-                        src={image}
-                        alt={`${product.title} - Image ${index + 1}`}
+                        src={image.src}
+                        alt={image.alt}
+                        width={image.width}
+                        height={image.height}
+                        loading={index === 0 ? "eager" : "lazy"}
+                        decoding="async"
                         className="w-full h-full object-cover"
                       />
                     </div>
@@ -171,16 +91,26 @@ const ProductDetailPage = () => {
               <CarouselNext className="right-2" />
             </Carousel>
 
-            {/* Thumbnail Preview */}
+            {/* Thumbnails */}
             <div className="grid grid-cols-5 gap-2 mt-4 max-w-xl mx-auto">
-              {product.images.map((image, index) => (
-                <div key={index} className="aspect-square rounded-md overflow-hidden border-2 hover:border-primary cursor-pointer">
+              {product.gallery.map((image, index) => (
+                <button
+                  key={image.src}
+                  type="button"
+                  onClick={() => carouselApi?.scrollTo(index)}
+                  aria-label={`Show photo ${index + 1}: ${image.alt}`}
+                  className="aspect-square rounded-md overflow-hidden border-2 hover:border-primary"
+                >
                   <img
-                    src={image}
-                    alt={`Thumbnail ${index + 1}`}
+                    src={image.src}
+                    alt=""
+                    width={image.width}
+                    height={image.height}
+                    loading="lazy"
+                    decoding="async"
                     className="w-full h-full object-cover"
                   />
-                </div>
+                </button>
               ))}
             </div>
           </div>
@@ -188,22 +118,24 @@ const ProductDetailPage = () => {
           {/* Right: Product Info & Actions */}
           <div className="space-y-6">
             <div>
-              <h1 className="text-3xl font-bold mb-2">{product.title}</h1>
+              <h1 className="text-3xl font-bold mb-2">{product.name}</h1>
               <Badge variant="secondary" className="text-lg">
-                {product.category}
+                {product.tagline}
               </Badge>
             </div>
 
             <div className="space-y-4">
-              <p className="text-lg text-muted-foreground">{product.description}</p>
+              {product.overview.map((paragraph) => (
+                <p key={paragraph} className="text-lg text-muted-foreground">{paragraph}</p>
+              ))}
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Key Features</h3>
+              <h2 className="text-xl font-semibold">Key Features</h2>
               <ul className="grid grid-cols-2 gap-2">
-                {product.features.map((feature, index) => (
-                  <li key={index} className="flex items-center space-x-2">
-                    <div className="w-1.5 h-1.5 bg-primary rounded-full" />
+                {product.features.map((feature) => (
+                  <li key={feature} className="flex items-center space-x-2">
+                    <span className="w-1.5 h-1.5 bg-primary rounded-full" aria-hidden="true" />
                     <span>{feature}</span>
                   </li>
                 ))}
@@ -211,49 +143,74 @@ const ProductDetailPage = () => {
             </div>
 
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Specifications</h3>
-              <div className="grid gap-2">
+              <h2 className="text-xl font-semibold">Specifications</h2>
+              <dl className="grid gap-2">
                 {Object.entries(product.specifications).map(([key, value]) => (
                   <div key={key} className="grid grid-cols-2 gap-4 py-2 border-b">
-                    <div className="font-medium">{key}</div>
-                    <div className="text-muted-foreground">{value}</div>
+                    <dt className="font-medium">{key}</dt>
+                    <dd className="text-muted-foreground">{value}</dd>
                   </div>
                 ))}
-              </div>
+              </dl>
             </div>
 
             {/* Action Buttons */}
-            <div className="flex gap-4 pt-6">
-              <Button 
-                onClick={() => window.location.href = `/inquiry?product=${productId}`}
-                className="flex-1"
-                size="lg"
-              >
-                Make Inquiry
+            <div className="flex flex-col sm:flex-row gap-4 pt-6">
+              <Button asChild className="flex-1" size="lg">
+                <Link to={`/inquiry?product=${product.id}`}>Make Inquiry</Link>
               </Button>
-              <Button 
-                onClick={handleDownloadQuote} 
-                variant="outline" 
-                className="flex-1"
-                size="lg"
-              >
-                <Download className="mr-2 h-4 w-4" />
-                Download Quote
+              <Button asChild variant="outline" className="flex-1" size="lg">
+                <a
+                  href={whatsappHrefWithText(`Hi, I'd like the best price for ${product.name.toLowerCase()} (bulk order).`)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <MessageCircle className="mr-2 h-4 w-4" />
+                  Get Best Price on WhatsApp
+                </a>
               </Button>
             </div>
 
             <div className="pt-4 flex items-center justify-between border-t">
               <span className="text-sm text-muted-foreground">Share this product</span>
-              <Button 
-                variant="ghost" 
+              <Button
+                variant="ghost"
                 size="sm"
                 onClick={handleShareProduct}
                 title="Copy product link to clipboard"
+                aria-label="Copy product link to clipboard"
               >
                 <Share2 className="h-4 w-4" />
               </Button>
             </div>
           </div>
+        </div>
+
+        {/* Uses + manufacturer pages */}
+        <div className="grid md:grid-cols-2 gap-8 mt-16">
+          <section>
+            <h2 className="text-2xl font-bold mb-4">Uses</h2>
+            <ul className="space-y-2 text-muted-foreground">
+              {product.applications.map((application) => (
+                <li key={application} className="flex items-start gap-2">
+                  <span className="mt-2 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" aria-hidden="true" />
+                  <span>{application}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+          <section>
+            <h2 className="text-2xl font-bold mb-4">Buying in bulk?</h2>
+            <ul className="space-y-2">
+              {product.relatedPages.map((page) => (
+                <li key={page.path}>
+                  <Link to={page.path} className="text-primary hover:underline">
+                    {page.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
         </div>
       </div>
     </div>
