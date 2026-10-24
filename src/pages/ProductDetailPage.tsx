@@ -130,7 +130,7 @@ const ProductDetailPage = () => {
                   Bulk order price
                 </p>
                 <p className="mt-1 text-primary">
-                  <span className="text-4xl font-bold">₹{product.bulkPricePerPiece}</span>
+                  <span className="text-4xl font-bold">₹{product.bulkPricePerPiece}*</span>
                   <span className="ml-2 text-lg font-medium">per piece</span>
                 </p>
               </div>
