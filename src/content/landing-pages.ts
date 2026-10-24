@@ -121,7 +121,7 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
       heading: "How to choose the best tarpaulin manufacturer",
       bullets: [
         "Buy from a manufacturer: you get factory prices and can have sizes and colours made for you.",
-        "Check the material: we use mLDPE, LDPE, LLDPE and HDPE.",
+        "Check the material: we use mLDPE, LDPE and LLDPE.",
         "Prefer multilayer over single-layer sheets for strength and tear resistance.",
         "Match the GSM to the job, and check the manufacturer can make the grade you need.",
         "Look for UV resistance and reinforced edges if the tarpaulin will sit in the sun and be tied down.",
@@ -260,7 +260,7 @@ export const TARPAULIN_INDIA: LandingPageContent = {
     },
     {
       question: "What material are your tarpaulins made from?",
-      answer: "Multiple bonded layers of mLDPE, LDPE, LLDPE and HDPE, with a UV-resistant coating.",
+      answer: "Multiple bonded layers of mLDPE, LDPE and LLDPE, with a UV-resistant coating.",
     },
     {
       question: "How is the price decided?",
@@ -376,7 +376,7 @@ export const PONCHO_INDIA: LandingPageContent = {
     {
       heading: "Specifications",
       bullets: [
-        "Material: mLDPE, LDPE, LLDPE and HDPE",
+        "Material: mLDPE, LDPE and LLDPE",
         "100% waterproof, with a hood and drawstring",
         "Colours: purple, pink, green, blue and yellow",
         "Standard weight: 42–140 grams per piece (poncho only, pant excluded)",
@@ -439,7 +439,7 @@ export const RECYCLABLE_PONCHO: LandingPageContent = {
   eyebrow: "Reusable & recyclable",
   h1: "Recyclable Rain Ponchos for Bulk Orders",
   intro: [
-    "Our rain ponchos (poncho raincoats) are made from polyethylene (mLDPE, LDPE, LLDPE and HDPE), one of the most widely recycled plastic families. They are also durable and reusable, so one poncho lasts through many rainy days instead of being thrown away after one.",
+    "Our rain ponchos (poncho raincoats) are made from polyethylene (mLDPE, LDPE and LLDPE), one of the most widely recycled plastic families. They are also durable and reusable, so one poncho lasts through many rainy days instead of being thrown away after one.",
     "We manufacture them in Bavla, Gujarat, in purple, pink, green, blue and yellow, for companies, organisations and event organisers that want waterproof rain protection in bulk, with a lighter footprint.",
   ],
   heroImage: PONCHO_IMAGES.fiveColoursGrid,
@@ -448,7 +448,7 @@ export const RECYCLABLE_PONCHO: LandingPageContent = {
     {
       heading: "What makes our ponchos recyclable",
       paragraphs: [
-        "The whole poncho is polyethylene. LDPE and LLDPE carry resin code 4, and HDPE carries resin code 2. Both are standard recyclable plastics that can be recycled wherever polyethylene film collection is available.",
+        "The whole poncho is polyethylene. LDPE and LLDPE carry resin code 4, a standard recyclable plastic that can be recycled wherever polyethylene film collection is available.",
         "Keeping to one plastic family makes a poncho easier to recycle than rainwear made from mixed or coated materials.",
       ],
     },
@@ -481,7 +481,7 @@ export const RECYCLABLE_PONCHO: LandingPageContent = {
     {
       question: "Is your poncho raincoat recyclable?",
       answer:
-        "Yes. It is made from polyethylene (mLDPE, LDPE, LLDPE and HDPE), which can be recycled wherever polyethylene film recycling is available.",
+        "Yes. It is made from polyethylene (mLDPE, LDPE and LLDPE), which can be recycled wherever polyethylene film recycling is available.",
     },
     {
       question: "Is it biodegradable?",
