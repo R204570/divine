@@ -124,6 +124,18 @@ const ProductDetailPage = () => {
               </Badge>
             </div>
 
+            {product.bulkPricePerPiece !== undefined && (
+              <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
+                <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
+                  Bulk order price
+                </p>
+                <p className="mt-1 text-primary">
+                  <span className="text-4xl font-bold">₹{product.bulkPricePerPiece}</span>
+                  <span className="ml-2 text-lg font-medium">per piece</span>
+                </p>
+              </div>
+            )}
+
             <div className="space-y-4">
               {product.overview.map((paragraph) => (
                 <p key={paragraph} className="text-lg text-muted-foreground">{paragraph}</p>

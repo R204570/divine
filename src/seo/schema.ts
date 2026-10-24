@@ -1,4 +1,5 @@
 import { LOGO, SHARE_IMAGES } from "@/content/images";
+import { MATERIALS } from "@/content/products";
 import {
   BUSINESS_HOURS,
   COMPANY_NAME,
@@ -94,6 +95,31 @@ export const buildJsonLd = (meta: PageMeta) => {
         name: crumb.name,
         item: absoluteUrl(crumb.path),
       })),
+    });
+  }
+
+  // Google only accepts a Product with an offer (or reviews), so products
+  // without a published price get no Product node.
+  if (meta.product?.bulkPricePerPiece !== undefined) {
+    const { product } = meta;
+    graph.push({
+      "@type": "Product",
+      "@id": `${url}#product`,
+      name: product.name,
+      description: product.summary,
+      image: product.gallery.map((image) => absoluteUrl(image.src)),
+      material: MATERIALS,
+      manufacturer: { "@id": BUSINESS_ID },
+      offers: {
+        "@type": "Offer",
+        url,
+        description: "Bulk order price per piece",
+        price: product.bulkPricePerPiece,
+        priceCurrency: "INR",
+        availability: "https://schema.org/InStock",
+        itemCondition: "https://schema.org/NewCondition",
+        seller: { "@id": BUSINESS_ID },
+      },
     });
   }
 

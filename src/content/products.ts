@@ -26,6 +26,11 @@ export interface Product {
   features: string[];
   applications: string[];
   specifications: Record<string, string>;
+  /**
+   * Bulk-order price per piece, in rupees. Shown on the product page and sent
+   * to Google as the Product offer price, so the two always match.
+   */
+  bulkPricePerPiece?: number;
   /** Keyword landing pages for this product. */
   relatedPages: { label: string; path: string }[];
 }
@@ -127,6 +132,7 @@ export const PONCHO: Product = {
     Sizes: "Global sizes for both poncho raincoat and pant",
     "Order type": "Bulk orders only",
   },
+  bulkPricePerPiece: 20,
   relatedPages: [
     { label: "Rain poncho manufacturer in Ahmedabad, Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
     { label: "Rain poncho manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
