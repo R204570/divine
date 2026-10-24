@@ -4,8 +4,6 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import BulkPrice from "@/components/BulkPrice";
-import PriceSticker from "@/components/PriceSticker";
 import { MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 import { PRODUCTS } from "@/content/products";
 
@@ -53,14 +51,6 @@ const ProductsPage = () => {
                       {product.tagline}
                     </Badge>
                   </div>
-                  {/* On desktop the price is a sticker on the photo, so it takes no room in the card. */}
-                  {product.bulkPricePerPiece !== undefined && (
-                    <PriceSticker
-                      label="Rain poncho price"
-                      price={product.bulkPricePerPiece}
-                      className="absolute right-4 top-4 hidden w-32 lg:block"
-                    />
-                  )}
                 </div>
 
                 <CardHeader>
@@ -107,22 +97,16 @@ const ProductsPage = () => {
                     </div>
                   </div>
 
-                  {/* Manufacturer pages. Below desktop width the bulk price sits in the free
-                      space beside them; on desktop it is the sticker on the photo instead. */}
-                  <div className="flex flex-wrap items-center justify-between gap-4">
-                    <ul className="min-w-0 grow basis-56 space-y-1 text-sm">
-                      {product.relatedPages.map((page) => (
-                        <li key={page.path}>
-                          <Link to={page.path} className="text-primary hover:underline">
-                            {page.label}
-                          </Link>
-                        </li>
-                      ))}
-                    </ul>
-                    {product.bulkPricePerPiece !== undefined && (
-                      <BulkPrice pricePerPiece={product.bulkPricePerPiece} compact className="shrink-0 lg:hidden" />
-                    )}
-                  </div>
+                  {/* Manufacturer pages */}
+                  <ul className="space-y-1 text-sm">
+                    {product.relatedPages.map((page) => (
+                      <li key={page.path}>
+                        <Link to={page.path} className="text-primary hover:underline">
+                          {page.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
 
                   {/* Action Buttons */}
                   <div className="mt-auto flex gap-3 pt-4">

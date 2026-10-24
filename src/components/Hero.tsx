@@ -4,8 +4,6 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { EMAIL, MAILTO_HREF, MAPS_URL, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 import { PONCHO_IMAGES, TARPAULIN_IMAGES } from "@/content/images";
-import { PONCHO } from "@/content/products";
-import PriceSticker from "@/components/PriceSticker";
 
 const heroSlides = [
   {
@@ -55,16 +53,6 @@ const Hero = () => {
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-4 text-center text-primary-foreground">
-        {/* Poncho price announcement: above the heading on smaller screens, and in the
-            empty space to the right of the heading on wide ones. */}
-        {PONCHO.bulkPricePerPiece !== undefined && (
-          <Link
-            to={PONCHO.path}
-            className="mx-auto mb-6 block w-28 transition-transform hover:scale-105 sm:w-32 xl:absolute xl:right-4 xl:top-0 xl:m-0 xl:w-44 2xl:w-48"
-          >
-            <PriceSticker label="Rain poncho price" price={PONCHO.bulkPricePerPiece} />
-          </Link>
-        )}
         <div className="max-w-4xl mx-auto animate-fade-in-up">
           {/* The page's one <h1> stays fixed; only the product line below rotates. */}
           <h1 className="text-sm md:text-base font-semibold uppercase tracking-widest text-accent mb-6">

@@ -14,7 +14,7 @@ const STARBURST = Array.from({ length: 48 }, (_, i) => {
   return `${(50 + radius * Math.sin(angle)).toFixed(2)},${(50 - radius * Math.cos(angle)).toFixed(2)}`;
 }).join(" ");
 
-/** A tilted red starburst price sticker, used on the home page hero and the poncho card. */
+/** A tilted red starburst price sticker, pinned to the screen on the home page. */
 const PriceSticker = ({ label, price, className }: PriceStickerProps) => (
   <div className={cn("relative aspect-square -rotate-12 drop-shadow-lg [container-type:inline-size]", className)}>
     <svg viewBox="0 0 100 100" className="absolute inset-0 h-full w-full" aria-hidden="true">
