@@ -64,9 +64,6 @@ const ProductsPage = () => {
                     </Badge>
                   </div>
                   <p className="text-muted-foreground">{product.summary}</p>
-                  {product.bulkPricePerPiece !== undefined && (
-                    <BulkPrice pricePerPiece={product.bulkPricePerPiece} className="!mt-4" />
-                  )}
                 </CardHeader>
 
                 <CardContent className="space-y-6">
@@ -100,16 +97,22 @@ const ProductsPage = () => {
                     </div>
                   </div>
 
-                  {/* Manufacturer pages */}
-                  <ul className="space-y-1 text-sm">
-                    {product.relatedPages.map((page) => (
-                      <li key={page.path}>
-                        <Link to={page.path} className="text-primary hover:underline">
-                          {page.label}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
+                  {/* Manufacturer pages, with the bulk price in the free space beside them
+                      so the price doesn't make the card taller */}
+                  <div className="flex flex-wrap items-center justify-between gap-4">
+                    <ul className="min-w-0 grow basis-56 space-y-1 text-sm">
+                      {product.relatedPages.map((page) => (
+                        <li key={page.path}>
+                          <Link to={page.path} className="text-primary hover:underline">
+                            {page.label}
+                          </Link>
+                        </li>
+                      ))}
+                    </ul>
+                    {product.bulkPricePerPiece !== undefined && (
+                      <BulkPrice pricePerPiece={product.bulkPricePerPiece} compact className="shrink-0" />
+                    )}
+                  </div>
 
                   {/* Action Buttons */}
                   <div className="flex gap-3 pt-4">
