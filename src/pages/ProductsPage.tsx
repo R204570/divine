@@ -37,7 +37,7 @@ const ProductsPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {PRODUCTS.map((product) => (
-              <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300">
+              <Card key={product.id} className="flex flex-col overflow-hidden hover:shadow-lg transition-all duration-300">
                 <div className="relative">
                   <img
                     src={product.cardImage.src}
@@ -65,7 +65,8 @@ const ProductsPage = () => {
                   <p className="text-muted-foreground">{product.summary}</p>
                 </CardHeader>
 
-                <CardContent className="space-y-6">
+                {/* Grows to fill the card, so both cards' buttons line up at the bottom */}
+                <CardContent className="flex flex-1 flex-col gap-6">
                   {/* Features */}
                   <div>
                     <h3 className="font-semibold text-foreground mb-3">Key Features:</h3>
@@ -108,7 +109,7 @@ const ProductsPage = () => {
                   </ul>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
+                  <div className="mt-auto flex gap-3 pt-4">
                     <Button asChild className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
                       <Link to={product.path}>View Details</Link>
                     </Button>

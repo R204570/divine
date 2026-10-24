@@ -1,6 +1,6 @@
 import { LANDING_PAGES, type FaqItem } from "@/content/landing-pages";
 import { PONCHO_GALLERY, SHARE_IMAGES, TARPAULIN_GALLERY, type SiteImage } from "@/content/images";
-import { PRODUCTS } from "@/content/products";
+import { PRODUCTS, type Product } from "@/content/products";
 
 export interface Crumb {
   name: string;
@@ -16,6 +16,8 @@ export interface PageMeta {
   /** Trail from Home to this page, used for the BreadcrumbList schema. */
   breadcrumbs?: Crumb[];
   faq?: FaqItem[];
+  /** The product this page sells, for the Product schema. */
+  product?: Product;
   /** Photos listed for this URL in the image sitemap. */
   sitemapImages?: SiteImage[];
   noindex?: boolean;
@@ -51,9 +53,10 @@ export const PAGES: PageMeta[] = [
     description:
       product.id === "tarpaulins"
         ? "Multilayer tarpaulin in 90, 120, 150 and 200 GSM, or custom 70–200 GSM on 2-ton orders. 100% waterproof, UV-resistant, reinforced edges, custom sizes."
-        : "Hooded poncho raincoats in purple, pink, green, blue and yellow, 42–140 g per piece, with a matching raincoat pant in global sizes. Bulk orders only.",
+        : `Hooded poncho raincoats at ₹${product.bulkPricePerPiece} per piece for bulk orders. Purple, pink, green, blue and yellow, 42–140 g per piece, with a matching raincoat pant.`,
     shareImage: product.shareImage,
     breadcrumbs: [HOME, PRODUCTS_CRUMB, { name: product.name, path: product.path }],
+    product,
     sitemapImages: product.gallery,
   })),
   ...LANDING_PAGES.map<PageMeta>((page) => ({

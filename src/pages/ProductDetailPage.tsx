@@ -13,6 +13,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import BulkPrice from "@/components/BulkPrice";
 import NotFound from "./NotFound";
 import { getProduct } from "@/content/products";
 import { whatsappHrefWithText } from "@/lib/company";
@@ -123,6 +124,10 @@ const ProductDetailPage = () => {
                 {product.tagline}
               </Badge>
             </div>
+
+            {product.bulkPricePerPiece !== undefined && (
+              <BulkPrice pricePerPiece={product.bulkPricePerPiece} />
+            )}
 
             <div className="space-y-4">
               {product.overview.map((paragraph) => (
