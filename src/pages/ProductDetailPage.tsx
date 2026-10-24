@@ -13,6 +13,7 @@ import {
   type CarouselApi,
 } from "@/components/ui/carousel";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import BulkPrice from "@/components/BulkPrice";
 import NotFound from "./NotFound";
 import { getProduct } from "@/content/products";
 import { whatsappHrefWithText } from "@/lib/company";
@@ -125,15 +126,7 @@ const ProductDetailPage = () => {
             </div>
 
             {product.bulkPricePerPiece !== undefined && (
-              <div className="rounded-lg border border-primary/20 bg-primary/5 p-4">
-                <p className="text-sm font-semibold uppercase tracking-wide text-muted-foreground">
-                  Bulk order price
-                </p>
-                <p className="mt-1 text-primary">
-                  <span className="text-4xl font-bold">₹{product.bulkPricePerPiece}*</span>
-                  <span className="ml-2 text-lg font-medium">per piece</span>
-                </p>
-              </div>
+              <BulkPrice pricePerPiece={product.bulkPricePerPiece} />
             )}
 
             <div className="space-y-4">

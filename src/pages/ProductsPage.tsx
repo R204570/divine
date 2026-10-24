@@ -4,6 +4,7 @@ import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import BulkPrice from "@/components/BulkPrice";
 import { MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 import { PRODUCTS } from "@/content/products";
 
@@ -63,6 +64,9 @@ const ProductsPage = () => {
                     </Badge>
                   </div>
                   <p className="text-muted-foreground">{product.summary}</p>
+                  {product.bulkPricePerPiece !== undefined && (
+                    <BulkPrice pricePerPiece={product.bulkPricePerPiece} className="!mt-4" />
+                  )}
                 </CardHeader>
 
                 <CardContent className="space-y-6">
