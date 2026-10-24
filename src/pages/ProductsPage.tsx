@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import BulkPrice from "@/components/BulkPrice";
+import PriceSticker from "@/components/PriceSticker";
 import { MAILTO_HREF, PHONE_DISPLAY, TEL_HREF } from "@/lib/company";
 import { PRODUCTS } from "@/content/products";
 
@@ -38,7 +39,7 @@ const ProductsPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12">
             {PRODUCTS.map((product) => (
-              <Card key={product.id} className="overflow-hidden hover:shadow-lg transition-all duration-300">
+              <Card key={product.id} className="flex flex-col overflow-hidden hover:shadow-lg transition-all duration-300">
                 <div className="relative">
                   <img
                     src={product.cardImage.src}
@@ -52,6 +53,14 @@ const ProductsPage = () => {
                       {product.tagline}
                     </Badge>
                   </div>
+                  {/* On desktop the price is a sticker on the photo, so it takes no room in the card. */}
+                  {product.bulkPricePerPiece !== undefined && (
+                    <PriceSticker
+                      label="Rain poncho price"
+                      price={product.bulkPricePerPiece}
+                      className="absolute right-4 top-4 hidden w-32 lg:block"
+                    />
+                  )}
                 </div>
 
                 <CardHeader>
@@ -66,7 +75,8 @@ const ProductsPage = () => {
                   <p className="text-muted-foreground">{product.summary}</p>
                 </CardHeader>
 
-                <CardContent className="space-y-6">
+                {/* Grows to fill the card, so both cards' buttons line up at the bottom */}
+                <CardContent className="flex flex-1 flex-col gap-6">
                   {/* Features */}
                   <div>
                     <h3 className="font-semibold text-foreground mb-3">Key Features:</h3>
@@ -97,8 +107,8 @@ const ProductsPage = () => {
                     </div>
                   </div>
 
-                  {/* Manufacturer pages, with the bulk price in the free space beside them
-                      so the price doesn't make the card taller */}
+                  {/* Manufacturer pages. Below desktop width the bulk price sits in the free
+                      space beside them; on desktop it is the sticker on the photo instead. */}
                   <div className="flex flex-wrap items-center justify-between gap-4">
                     <ul className="min-w-0 grow basis-56 space-y-1 text-sm">
                       {product.relatedPages.map((page) => (
@@ -110,12 +120,12 @@ const ProductsPage = () => {
                       ))}
                     </ul>
                     {product.bulkPricePerPiece !== undefined && (
-                      <BulkPrice pricePerPiece={product.bulkPricePerPiece} compact className="shrink-0" />
+                      <BulkPrice pricePerPiece={product.bulkPricePerPiece} compact className="shrink-0 lg:hidden" />
                     )}
                   </div>
 
                   {/* Action Buttons */}
-                  <div className="flex gap-3 pt-4">
+                  <div className="mt-auto flex gap-3 pt-4">
                     <Button asChild className="flex-1 bg-primary text-primary-foreground hover:bg-primary/90">
                       <Link to={product.path}>View Details</Link>
                     </Button>
