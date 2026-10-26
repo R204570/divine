@@ -26,7 +26,7 @@ export const buildHeadTags = (meta: PageMeta): HeadTag[] => {
     named("description", meta.description),
     named("robots", meta.noindex ? "noindex, follow" : "index, follow, max-image-preview:large"),
     property("og:site_name", COMPANY_NAME),
-    property("og:type", "website"),
+    property("og:type", meta.article ? "article" : "website"),
     property("og:locale", "en_IN"),
     property("og:title", meta.title),
     property("og:description", meta.description),
@@ -39,6 +39,13 @@ export const buildHeadTags = (meta: PageMeta): HeadTag[] => {
     named("twitter:description", meta.description),
     named("twitter:image", imageUrl),
   ];
+
+  if (meta.article) {
+    tags.push(
+      property("article:published_time", meta.article.datePublished),
+      property("article:modified_time", meta.article.dateModified)
+    );
+  }
 
   if (!meta.noindex) {
     tags.push({ tag: "link", attrs: { rel: "canonical", href: url } }, property("og:url", url));

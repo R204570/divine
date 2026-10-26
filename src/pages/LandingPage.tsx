@@ -3,6 +3,7 @@ import { CheckCircle, MessageCircle, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import Faq from "@/components/Faq";
+import RichText from "@/components/RichText";
 import type { LandingPageContent } from "@/content/landing-pages";
 import { PHONE_DISPLAY, TEL_HREF, whatsappHrefWithText } from "@/lib/company";
 
@@ -81,7 +82,7 @@ const LandingPage = ({ content }: { content: LandingPageContent }) => {
               <h2 className="text-2xl md:text-3xl font-bold text-foreground mb-4">{section.heading}</h2>
               {section.paragraphs?.map((paragraph) => (
                 <p key={paragraph} className="text-muted-foreground text-lg leading-relaxed mb-4">
-                  {paragraph}
+                  <RichText text={paragraph} />
                 </p>
               ))}
               {section.bullets && (
@@ -89,7 +90,9 @@ const LandingPage = ({ content }: { content: LandingPageContent }) => {
                   {section.bullets.map((bullet) => (
                     <li key={bullet} className="flex items-start gap-3 text-muted-foreground text-lg">
                       <span className="mt-2.5 h-2 w-2 rounded-full bg-primary flex-shrink-0" aria-hidden="true" />
-                      <span>{bullet}</span>
+                      <span>
+                        <RichText text={bullet} />
+                      </span>
                     </li>
                   ))}
                 </ul>

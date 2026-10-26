@@ -21,6 +21,8 @@ const Footer = () => {
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
     { name: "Gallery", href: "/gallery" },
+    { name: "Blog", href: "/blog" },
+    { name: "FAQ", href: "/faq" },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
     { name: "Get a Quote", href: "/inquiry" },
@@ -34,6 +36,11 @@ const Footer = () => {
     { name: "Rain Poncho Manufacturer in Ahmedabad, Gujarat", href: "/poncho-raincoat-manufacturer-in-gujarat" },
     { name: "Rain Poncho Manufacturer in India", href: "/poncho-raincoat-manufacturer-in-india" },
     { name: "Recyclable Rain Poncho", href: "/recyclable-poncho-raincoat" },
+    { name: "Best Rain Poncho Manufacturers in India", href: "/blog/best-rain-poncho-manufacturers-in-india" },
+    {
+      name: "Best Rain Poncho Manufacturers in Ahmedabad, Gujarat",
+      href: "/blog/best-rain-poncho-manufacturers-in-ahmedabad-gujarat",
+    },
   ];
 
   return (

@@ -1,0 +1,325 @@
+<style>
+.kr { container-type: inline-size; display: grid; gap: var(--cds-gap-xl); font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); }
+.kr h1 { margin: 0; font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.15; text-wrap: balance; }
+.kr h2 { margin: 0; font-size: var(--cds-font-size-heading); font-weight: var(--cds-font-weight-medium); text-wrap: balance; }
+.kr-head { display: grid; gap: var(--cds-gap-sm); }
+.kr-take { margin: 0; max-width: 72ch; line-height: 1.5; }
+.kr-meta { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.kr-tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 13rem), 1fr)); gap: var(--cds-gap-md); }
+.kr-grid2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 20rem), 1fr)); gap: var(--cds-gap-md); }
+.kr-card { background: var(--color-panel); border: 1px solid var(--color-border-line); border-radius: var(--cds-radius); padding: var(--cds-pad-lg); display: grid; gap: var(--cds-gap-sm); align-content: start; min-width: 0; }
+.kr-tile-label { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); line-height: 1.35; }
+.kr-big { font-family: var(--font-anthropic-serif); font-weight: 400; font-size: var(--cds-font-size-title); line-height: 1.1; font-variant-numeric: tabular-nums; }
+.kr-of { font-family: var(--font-anthropic-sans); font-size: var(--cds-font-size-body); color: var(--color-fg-muted); }
+.kr-sub { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); line-height: 1.4; }
+.kr-note { margin: 0; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); line-height: 1.45; max-width: 72ch; }
+.kr-tablebox { overflow: auto; max-height: 36rem; }
+.kr table { width: 100%; border-collapse: collapse; }
+.kr th { position: sticky; top: 0; z-index: 1; background: var(--color-panel); text-align: left; font-weight: var(--cds-font-weight-medium); color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); padding: var(--cds-pad-xs) var(--cds-pad-sm) var(--cds-pad-xs) 0; border-bottom: 1px solid var(--color-border-line); white-space: nowrap; }
+.kr td { padding: var(--cds-pad-xs) var(--cds-pad-sm) var(--cds-pad-xs) 0; border-bottom: 1px solid var(--color-border-line); vertical-align: top; line-height: 1.4; }
+.kr .num { text-align: right; font-variant-numeric: tabular-nums; }
+.kr td.kr-notes { color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.kr td.kr-pos { white-space: nowrap; font-variant-numeric: tabular-nums; font-weight: var(--cds-font-weight-medium); }
+.kr td.kr-pos.top { color: var(--color-ok); }
+.kr td.kr-pos.mid { color: var(--color-warn); }
+.kr td.kr-pos.none { color: var(--color-fg-muted); font-weight: 400; }
+.kr td.kr-listed { color: var(--color-ok); }
+.kr td.kr-missing { color: var(--color-bad); }
+@container (max-width: 44rem) { .kr .kr-wide { display: none; } }
+.kr-bars { position: relative; display: grid; gap: var(--cds-gap-xs); align-content: start; min-height: 13rem; }
+.kr-bar { display: grid; grid-template-columns: minmax(6rem, 9rem) minmax(0, 1fr) 2rem; gap: var(--cds-gap-sm); align-items: center; font-size: var(--cds-font-size-caption); }
+.kr-bar-track { height: 0.9rem; }
+.kr-bar-fill { height: 100%; min-width: 4px; border-radius: 4px; background: var(--cds-chart-muted); }
+.kr-bar-val { text-align: right; font-variant-numeric: tabular-nums; }
+.kr-tip { position: absolute; z-index: 2; pointer-events: none; background: var(--cds-surface-popover); border: 1px solid var(--cds-border); border-radius: var(--cds-radius); box-shadow: var(--cds-shadow-popover); padding: var(--cds-pad-xs) var(--cds-pad-sm); font-size: var(--cds-font-size-caption); white-space: nowrap; display: grid; gap: 2px; }
+.kr-tip-k { color: var(--cds-text-secondary); }
+.kr-fail { display: flex; align-items: center; justify-content: center; gap: var(--cds-gap-xs); min-height: 6rem; color: var(--color-fg-muted); font-size: var(--cds-font-size-caption); }
+.kr-fail::before { content: ""; width: .375rem; height: .375rem; border-radius: 50%; background: var(--color-bad); }
+.kr [data-dash-source-state=refreshing] { opacity: .5; transition: opacity var(--cds-dur-slow); }
+.kr-steps, .kr-method { margin: 0; padding-left: 1.2em; display: grid; gap: var(--cds-gap-sm); line-height: 1.5; max-width: 76ch; }
+.kr-method { font-size: var(--cds-font-size-caption); color: var(--color-fg-muted); gap: var(--cds-gap-xs); }
+</style>
+
+<div class="kr">
+  <header class="kr-head" id="summary">
+    <h1>Divine Fabtech keyword ranks</h1>
+    <p class="kr-take">People who search for your name find you first: you are #1 on <b data-source="summary" data-field="brand_at_1" data-row="0" class="dash-skeleton">—</b> of <b data-source="summary" data-field="brand_total" data-row="0" class="dash-skeleton">—</b> brand searches. On product searches you show up in the top 30 for only <b data-source="summary" data-field="product_in_top30" data-row="0" class="dash-skeleton">—</b> of <b data-source="summary" data-field="product_total" data-row="0" class="dash-skeleton">—</b>, and IndiaMART holds the first spot on <b data-source="top_owners" data-where="site=IndiaMART" data-field="keywords" class="dash-skeleton">—</b> of them.</p>
+    <p class="kr-meta">India web search, first 30 results, checked 26 Oct 2026. Search Console figures to 25 Oct 2026.</p>
+  </header>
+
+  <section class="kr-tiles" aria-label="Headline figures">
+    <div class="kr-card">
+      <span class="kr-tile-label">Brand searches where you are #1</span>
+      <span class="kr-big"><span data-source="summary" data-field="brand_at_1" data-row="0" class="dash-skeleton">—</span> <span class="kr-of">of</span> <span data-source="summary" data-field="brand_total" data-row="0" class="dash-skeleton">—</span></span>
+      <span class="kr-sub">Searches that include your company name</span>
+    </div>
+    <div class="kr-card">
+      <span class="kr-tile-label">Product searches where you are in the top 30</span>
+      <span class="kr-big"><span data-source="summary" data-field="product_in_top30" data-row="0" class="dash-skeleton">—</span> <span class="kr-of">of</span> <span data-source="summary" data-field="product_total" data-row="0" class="dash-skeleton">—</span></span>
+      <span class="kr-sub">Best: #<span data-source="summary" data-field="best_product_position" data-row="0">—</span> for “<span data-source="summary" data-field="best_product_keyword" data-row="0">—</span>”</span>
+    </div>
+    <div class="kr-card">
+      <span class="kr-tile-label">Home page average Google position, last 90 days</span>
+      <span class="kr-big dash-skeleton" data-source="search_console" data-where="window_id=90d" data-field="avg_position">—</span>
+      <span class="kr-sub">Last 28 days: <span data-source="search_console" data-where="window_id=28d" data-field="avg_position">—</span>. Averaged over every search the page appeared in.</span>
+    </div>
+    <div class="kr-card">
+      <span class="kr-tile-label">Clicks from Google, last 90 days</span>
+      <span class="kr-big dash-skeleton" data-source="search_console" data-where="window_id=90d" data-field="clicks">—</span>
+      <span class="kr-sub">From <span data-source="search_console" data-where="window_id=90d" data-field="impressions">—</span> impressions, all on the home page</span>
+    </div>
+  </section>
+
+  <section class="kr-card" id="ranks">
+    <h2>Where you rank, keyword by keyword</h2>
+    <p class="kr-note">Your position among the first 30 results of an India web search. “Not in top 30” means your site was not among them. “Who's #1” is the site in first place.</p>
+    <div class="kr-tablebox">
+      <table data-source="ranks" data-row-key="keyword">
+        <thead>
+          <tr>
+            <th data-field="keyword">Keyword</th>
+            <th data-field="group" class="kr-wide">Type</th>
+            <th data-field="position_label">You</th>
+            <th data-field="top_site">Who's #1</th>
+            <th data-field="notes" class="kr-wide">Notes</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </section>
+
+  <div class="kr-grid2">
+    <section class="kr-card" id="owners">
+      <h2>Who holds #1 on product searches</h2>
+      <p class="kr-note">How many of your product keywords each site is first for. Brand searches are left out.</p>
+      <div class="kr-bars dash-skeleton" data-source="top_owners"></div>
+    </section>
+    <section class="kr-card" id="pages">
+      <h2>Which of your pages Google shows</h2>
+      <p class="kr-note">Impressions from Search Console and visits from Google search, last 90 days. A blank means none were recorded. “Site search” says whether a site: search lists the page.</p>
+      <div class="kr-tablebox">
+        <table data-source="pages" data-row-key="path">
+          <thead>
+            <tr>
+              <th data-field="path">Page</th>
+              <th data-field="google_impressions_90d" class="num">Impressions</th>
+              <th data-field="google_search_visits_90d" class="num kr-wide">Visits</th>
+              <th data-field="site_search">Site search</th>
+            </tr>
+          </thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+  </div>
+
+  <section class="kr-card" id="next">
+    <h2>What to do next, most important first</h2>
+    <ol class="kr-steps">
+      <li><b>Get your other pages into Google.</b> In Search Console, open Sitemaps and submit <code>sitemap.xml</code>, then open URL Inspection for each product and search page and press Request indexing. Your search pages were written for exactly these keywords, but Google can only rank a page it has indexed.</li>
+      <li><b>List on IndiaMART and tidy your Justdial listing.</b> IndiaMART is first for most product searches here, and many buyers search inside it directly. Your Justdial listing appears as “Divine Fab Tech” in Adroda: make its name, address and phone match your website.</li>
+      <li><b>Set up a Google Business Profile for the factory</b> if you don't have one, so you can appear in map results for searches like “tarpaulin manufacturer near me”. Those map results are not counted on this page.</li>
+      <li><b>Move to your own domain when you can.</b> A <code>.vercel.app</code> address is harder for buyers and Google to trust than a domain of your own.</li>
+    </ol>
+  </section>
+
+  <section class="kr-card" id="method">
+    <h2>How this was checked</h2>
+    <ul class="kr-method">
+      <li>Each keyword was searched once on 26 Oct 2026 with the location set to India, and the first 30 results were read. The search was not personalised and leaves out map results, so a buyer's own Google can differ by a few places.</li>
+      <li>Average position, impressions and clicks are page-level Search Console figures, read through Google Analytics. Google Analytics can't list the exact phrases people searched; Search Console's Performance report can.</li>
+      <li>The site: check used the same web search index, which can lag behind Google. Search Console agrees that only the home page is showing.</li>
+    </ul>
+  </section>
+</div>
+
+<script>
+dash.calc('summary', {
+  inputs: ['ranks'],
+  title: 'Brand and product totals',
+  description: 'Counts brand and product keywords, how many of each the site is in the top 30 for, and the best product position.',
+  fn: (ranks) => {
+    const blank = (v) => v === null || v === undefined || String(v).trim() === '';
+    const brand = ranks.filter((r) => r.group === 'Brand');
+    const product = ranks.filter((r) => r.group !== 'Brand');
+    const ranked = product.filter((r) => !blank(r.our_position)).sort((a, b) => Number(a.our_position) - Number(b.our_position));
+    return [{
+      brand_total: brand.length,
+      brand_at_1: brand.filter((r) => Number(r.our_position) === 1).length,
+      product_total: product.length,
+      product_in_top30: ranked.length,
+      best_product_position: ranked.length ? Number(ranked[0].our_position) : null,
+      best_product_keyword: ranked.length ? ranked[0].keyword : null,
+    }];
+  },
+});
+
+dash.calc('top_owners', {
+  inputs: ['ranks'],
+  title: 'Who holds #1',
+  description: 'For each site, the number of product keywords where it is the first result.',
+  fn: (ranks) => {
+    const counts = new Map();
+    ranks.filter((r) => r.group !== 'Brand').forEach((r) => counts.set(r.top_site, (counts.get(r.top_site) || 0) + 1));
+    return Array.from(counts, ([site, keywords]) => ({ site, keywords }))
+      .sort((a, b) => b.keywords - a.keywords || a.site.localeCompare(b.site));
+  },
+});
+
+const krRoot = document.getElementById('dash-root');
+const krInt = d3.format(',');
+const krPos = d3.format('.1f');
+const krBlank = (v) => v === null || v === undefined || String(v).trim() === '';
+const krFormats = {
+  avg_position: (v) => krPos(Number(v)),
+  clicks: (v) => krInt(Number(v)),
+  impressions: (v) => krInt(Number(v)),
+};
+const krGroupOrder = ['Brand', 'Tarpaulin (local)', 'Tarpaulin', 'Tarpaulin (brand)', 'Poncho'];
+
+function krFail(parent) {
+  const div = document.createElement('div');
+  div.className = 'kr-fail';
+  div.textContent = 'Failed to load';
+  parent.appendChild(div);
+}
+
+function krFillValues() {
+  krRoot.querySelectorAll('[data-source][data-field]').forEach((el) => {
+    if (el.closest('table')) return;
+    const d = dash.data(el.dataset.source);
+    el.classList.toggle('dash-skeleton', d.status === 'loading');
+    if (d.status !== 'ok') { el.textContent = '—'; return; }
+    const rows = Array.isArray(d.data) ? d.data : [];
+    let row;
+    if (el.dataset.row !== undefined) row = rows[Number(el.dataset.row)];
+    else if (el.dataset.where) {
+      const [k, v] = el.dataset.where.split('=').map(decodeURIComponent);
+      row = rows.find((r) => String(r[k]) === v);
+    }
+    const val = row ? row[el.dataset.field] : null;
+    const f = krFormats[el.dataset.field];
+    el.textContent = krBlank(val) ? '—' : (f ? f(val) : String(val));
+  });
+}
+
+function krTable(table, id, cols, sorter) {
+  const d = dash.data(id);
+  const tbody = table.querySelector('tbody');
+  tbody.textContent = '';
+  if (d.status !== 'ok') {
+    const tr = document.createElement('tr');
+    const td = document.createElement('td');
+    td.colSpan = cols.length;
+    if (d.status === 'loading') { td.className = 'dash-skeleton'; td.textContent = '—'; }
+    else krFail(td);
+    tr.appendChild(td);
+    tbody.appendChild(tr);
+    return;
+  }
+  const rows = d.data.slice();
+  if (sorter) rows.sort(sorter);
+  rows.forEach((r) => {
+    const tr = document.createElement('tr');
+    cols.forEach((c) => {
+      const td = document.createElement('td');
+      const cls = typeof c.cls === 'function' ? c.cls(r) : c.cls;
+      if (cls) td.className = cls;
+      td.textContent = c.text ? c.text(r[c.key], r) : (krBlank(r[c.key]) ? '' : String(r[c.key]));
+      tr.appendChild(td);
+    });
+    tbody.appendChild(tr);
+  });
+}
+
+const krRankCols = [
+  { key: 'keyword' },
+  { key: 'group', cls: 'kr-wide' },
+  {
+    key: 'position_label',
+    cls: (r) => {
+      if (krBlank(r.our_position)) return 'kr-pos none';
+      return Number(r.our_position) <= 10 ? 'kr-pos top' : 'kr-pos mid';
+    },
+  },
+  { key: 'top_site' },
+  { key: 'notes', cls: 'kr-wide kr-notes' },
+];
+
+const krRankSort = (a, b) => {
+  const pa = krBlank(a.our_position) ? Infinity : Number(a.our_position);
+  const pb = krBlank(b.our_position) ? Infinity : Number(b.our_position);
+  if (pa !== pb) return pa - pb;
+  const ga = krGroupOrder.indexOf(a.group), gb = krGroupOrder.indexOf(b.group);
+  if (ga !== gb) return ga - gb;
+  return a.keyword.localeCompare(b.keyword);
+};
+
+const krPageCols = [
+  { key: 'path' },
+  { key: 'google_impressions_90d', cls: 'num', text: (v) => (krBlank(v) ? '' : krInt(Number(v))) },
+  { key: 'google_search_visits_90d', cls: 'num kr-wide', text: (v) => (krBlank(v) ? '' : krInt(Number(v))) },
+  { key: 'site_search', cls: (r) => (r.site_search === 'Listed' ? 'kr-listed' : 'kr-missing') },
+];
+
+const krBars = krRoot.querySelector('.kr-bars');
+const krTip = document.createElement('div');
+krTip.className = 'kr-tip';
+krTip.hidden = true;
+
+function krDrawBars() {
+  const d = dash.data('top_owners');
+  krBars.textContent = '';
+  krBars.classList.toggle('dash-skeleton', d.status === 'loading');
+  if (d.status === 'loading') return;
+  if (d.status !== 'ok') { krFail(krBars); return; }
+  const rows = d.data;
+  const max = d3.max(rows, (r) => r.keywords) || 1;
+  rows.forEach((r, i) => {
+    const row = document.createElement('div');
+    row.className = 'kr-bar';
+    const label = document.createElement('span');
+    label.textContent = r.site;
+    const track = document.createElement('div');
+    track.className = 'kr-bar-track';
+    const fill = document.createElement('div');
+    fill.className = 'kr-bar-fill';
+    fill.style.width = (r.keywords / max) * 100 + '%';
+    if (i === 0) fill.style.background = dash.colors[0];
+    track.appendChild(fill);
+    const val = document.createElement('span');
+    val.className = 'kr-bar-val';
+    val.textContent = krInt(r.keywords);
+    row.append(label, track, val);
+    row.addEventListener('mouseenter', () => {
+      krTip.textContent = '';
+      const k = document.createElement('span');
+      k.className = 'kr-tip-k';
+      k.textContent = r.site;
+      const v = document.createElement('span');
+      v.textContent = krInt(r.keywords) + (r.keywords === 1 ? ' product keyword at #1' : ' product keywords at #1');
+      krTip.append(k, v);
+      krTip.hidden = false;
+      const boxW = krBars.clientWidth;
+      const tipW = krTip.offsetWidth;
+      const tipH = krTip.offsetHeight;
+      const left = Math.max(0, Math.min(boxW - tipW, track.offsetLeft));
+      let top = row.offsetTop + row.offsetHeight + 4;
+      if (top + tipH > krBars.clientHeight) top = Math.max(0, row.offsetTop - tipH - 4);
+      krTip.style.left = left + 'px';
+      krTip.style.top = top + 'px';
+    });
+    row.addEventListener('mouseleave', () => { krTip.hidden = true; });
+    krBars.appendChild(row);
+  });
+  krBars.appendChild(krTip);
+}
+
+dash.onData(() => {
+  krFillValues();
+  krTable(krRoot.querySelector('table[data-source="ranks"]'), 'ranks', krRankCols, krRankSort);
+  krTable(krRoot.querySelector('table[data-source="pages"]'), 'pages', krPageCols, null);
+  krDrawBars();
+});
+</script>

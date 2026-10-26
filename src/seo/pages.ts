@@ -1,3 +1,5 @@
+import { BLOG_POSTS } from "@/content/blog";
+import { ALL_FAQS } from "@/content/faq";
 import { LANDING_PAGES, type FaqItem } from "@/content/landing-pages";
 import { PONCHO_GALLERY, SHARE_IMAGES, TARPAULIN_GALLERY, type SiteImage } from "@/content/images";
 import { PRODUCTS, type Product } from "@/content/products";
@@ -5,6 +7,14 @@ import { PRODUCTS, type Product } from "@/content/products";
 export interface Crumb {
   name: string;
   path: string;
+}
+
+/** A blog post's details for the BlogPosting schema. */
+export interface ArticleMeta {
+  headline: string;
+  datePublished: string;
+  dateModified: string;
+  image: SiteImage;
 }
 
 /** Everything search engines and link previews need to know about one URL. */
@@ -18,6 +28,8 @@ export interface PageMeta {
   faq?: FaqItem[];
   /** The product this page sells, for the Product schema. */
   product?: Product;
+  /** Set on blog posts, for the BlogPosting schema. */
+  article?: ArticleMeta;
   /** Photos listed for this URL in the image sitemap. */
   sitemapImages?: SiteImage[];
   noindex?: boolean;
@@ -25,19 +37,20 @@ export interface PageMeta {
 
 const HOME: Crumb = { name: "Home", path: "/" };
 const PRODUCTS_CRUMB: Crumb = { name: "Products", path: "/products" };
+const BLOG_CRUMB: Crumb = { name: "Blog", path: "/blog" };
 
 export const PAGES: PageMeta[] = [
   {
     path: "/",
-    title: "Multilayer Tarpaulin & Rain Poncho Manufacturer in Ahmedabad, Gujarat, India | Divine Fabtech",
+    title: "Rain Poncho & Tarpaulin Manufacturer in Ahmedabad, Gujarat",
     description:
-      "Multilayer tarpaulin and rain poncho manufacturer in Bavla, Ahmedabad, Gujarat. 90–200 GSM tarpaulins, 5-colour ponchos, factory prices, delivery across India.",
+      "Rain poncho and multilayer tarpaulin manufacturer in Bavla, Ahmedabad, Gujarat. 5-colour ponchos, 90–200 GSM tarpaulins, factory prices, bulk orders.",
     shareImage: SHARE_IMAGES.home,
     sitemapImages: [PRODUCTS[0].cardImage, PRODUCTS[1].cardImage],
   },
   {
     path: "/products",
-    title: "Multilayer Tarpaulins & Poncho Raincoats – Our Products | Divine Fabtech",
+    title: "Multilayer Tarpaulins & Poncho Raincoats | Divine Fabtech",
     description:
       "Multilayer tarpaulins in 90–200 GSM and hooded poncho raincoats with matching pants. 100% waterproof, bulk manufacturing at factory prices.",
     shareImage: SHARE_IMAGES.home,
@@ -48,8 +61,8 @@ export const PAGES: PageMeta[] = [
     path: product.path,
     title:
       product.id === "tarpaulins"
-        ? "Multilayer Tarpaulin Manufacturer – Waterproof, UV Resistant | Divine Fabtech"
-        : "Rain Poncho & Poncho Raincoat – 5 Colours, Matching Pant | Divine Fabtech",
+        ? "Multilayer Tarpaulin 90–200 GSM | Divine Fabtech"
+        : "Rain Poncho Raincoat with Hood, 5 Colours | Divine Fabtech",
     description:
       product.id === "tarpaulins"
         ? "Multilayer tarpaulin in 90, 120, 150 and 200 GSM, or custom 70–200 GSM on 2-ton orders. 100% waterproof, UV-resistant, reinforced edges, custom sizes."
@@ -69,8 +82,40 @@ export const PAGES: PageMeta[] = [
     sitemapImages: [page.heroImage, ...page.gallery],
   })),
   {
+    path: "/blog",
+    title: "Rain Poncho & Tarpaulin Buying Guides | Divine Fabtech",
+    description:
+      "Buying guides for bulk buyers: how to choose a rain poncho manufacturer in India or Ahmedabad, poncho vs raincoat, and more from our Gujarat factory.",
+    shareImage: SHARE_IMAGES.poncho,
+    breadcrumbs: [HOME, BLOG_CRUMB],
+    sitemapImages: BLOG_POSTS.map((post) => post.heroImage),
+  },
+  ...BLOG_POSTS.map<PageMeta>((post) => ({
+    path: post.path,
+    title: post.title,
+    description: post.description,
+    shareImage: SHARE_IMAGES.poncho,
+    breadcrumbs: [HOME, BLOG_CRUMB, { name: post.breadcrumbName, path: post.path }],
+    article: {
+      headline: post.h1,
+      datePublished: post.datePublished,
+      dateModified: post.dateModified,
+      image: post.heroImage,
+    },
+    sitemapImages: [post.heroImage, ...post.sections.flatMap((section) => (section.image ? [section.image] : []))],
+  })),
+  {
+    path: "/faq",
+    title: "Rain Poncho & Tarpaulin FAQs | Divine Fabtech",
+    description:
+      "Answers on rain poncho weight, colours, pants and material, multilayer tarpaulin GSM and sizes, bulk orders and delivery across India from Gujarat.",
+    shareImage: SHARE_IMAGES.home,
+    breadcrumbs: [HOME, { name: "FAQ", path: "/faq" }],
+    faq: ALL_FAQS,
+  },
+  {
     path: "/gallery",
-    title: "Tarpaulin & Poncho Raincoat Photos – Gallery | Divine Fabtech",
+    title: "Tarpaulin & Poncho Raincoat Photos | Divine Fabtech",
     description:
       "Photos of our multilayer tarpaulins covering produce, lining farm ponds and protecting machinery, and our poncho raincoats in five colours.",
     shareImage: SHARE_IMAGES.home,
@@ -79,7 +124,7 @@ export const PAGES: PageMeta[] = [
   },
   {
     path: "/about",
-    title: "About Divine Fabtech Industries – Tarpaulin & Poncho Manufacturer, Bavla",
+    title: "About Divine Fabtech Industries, Bavla, Gujarat",
     description:
       "Divine Fabtech Industries has manufactured multilayer tarpaulins and poncho raincoats at its in-house facility in Bavla, Gujarat since 2020.",
     shareImage: SHARE_IMAGES.home,
@@ -87,15 +132,15 @@ export const PAGES: PageMeta[] = [
   },
   {
     path: "/contact",
-    title: "Contact Divine Fabtech – Tarpaulin & Rain Poncho Manufacturer, Ahmedabad",
+    title: "Contact Divine Fabtech, Bavla, Ahmedabad, Gujarat",
     description:
-      "Call or WhatsApp +91 98251 48321 for bulk multilayer tarpaulin and poncho raincoat orders. Factory at Survey No 710-711, Village Rupal, Bavla, Gujarat 382220.",
+      "Call or WhatsApp +91 98251 48321 for bulk tarpaulin and rain poncho orders. Factory at Survey No 710-711, Village Rupal, Bavla, Gujarat 382220.",
     shareImage: SHARE_IMAGES.home,
     breadcrumbs: [HOME, { name: "Contact Us", path: "/contact" }],
   },
   {
     path: "/inquiry",
-    title: "Get a Bulk Price Quote – Tarpaulin & Poncho Raincoats | Divine Fabtech",
+    title: "Get a Bulk Price Quote | Divine Fabtech",
     description:
       "Request a factory price for multilayer tarpaulins or poncho raincoats. Tell us the size, GSM, colours and quantity you need.",
     shareImage: SHARE_IMAGES.home,

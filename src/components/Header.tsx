@@ -12,6 +12,8 @@ const Header = () => {
     { name: "Home", href: "/" },
     { name: "Products", href: "/products" },
     { name: "Gallery", href: "/gallery" },
+    { name: "Blog", href: "/blog" },
+    { name: "FAQ", href: "/faq" },
     { name: "About", href: "/about" },
     { name: "Contact Us", href: "/contact" },
   ];
@@ -56,8 +58,8 @@ const Header = () => {
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          {/* Desktop Navigation (lg and up: seven links don't fit beside the logo on a tablet) */}
+          <nav className="hidden lg:flex items-center space-x-6 xl:space-x-8">
             {navigation.map((item) => (
               <Link
                 key={item.name}
@@ -75,7 +77,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2"
+            className="lg:hidden p-2"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -84,7 +86,7 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden border-t border-primary-foreground/20 py-4">
+          <div className="lg:hidden border-t border-primary-foreground/20 py-4">
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link

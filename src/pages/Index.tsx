@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import Hero from "@/components/Hero";
 import Products from "@/components/Products";
+import BuyingGuides from "@/components/BuyingGuides";
 import About from "@/components/About";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
@@ -22,6 +23,7 @@ const Index = () => {
       )}
       <Hero />
       <Products />
+      <BuyingGuides />
       <About />
       <WhyChooseUs />
       <Contact />
