@@ -1,0 +1,6 @@
+{
+  "rows": [
+    {"window_id": "90d", "window": "Last 90 days", "from": "2026-07-28", "to": "2026-10-25", "page": "/", "impressions": 193, "clicks": 26, "avg_position": 10.430051813471502},
+    {"window_id": "28d", "window": "Last 28 days", "from": "2026-09-28", "to": "2026-10-25", "page": "/", "impressions": 68, "clicks": 7, "avg_position": 9.7205882352941178}
+  ]
+}
