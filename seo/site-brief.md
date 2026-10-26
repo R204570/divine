@@ -13,8 +13,8 @@
 
 - **Business name:** Divine Fabtech Industries
 - **Domain:** https://divine-fabtech-industries.vercel.app (the only live host; `divinefabtech.com` is not registered, NXDOMAIN on 26 Oct 2026)
-- **Industry / niche:** B2B manufacturing of mLDPE, LDPE and LLDPE tarpaulins and rain ponchos, sold in bulk
-- **What they actually sell (one sentence):** Multilayer mLDPE, LDPE and LLDPE tarpaulins (90–200 GSM, Indoline brand) and hooded rain ponchos with matching pants, made at their own factory in Bavla, Ahmedabad and sold factory-direct in bulk across India. ⚠️ verify
+- **Industry / niche:** B2B manufacturing of polyethylene tarpaulins and rain ponchos, sold in bulk
+- **What they actually sell (one sentence):** Multilayer polyethylene tarpaulins (90–200 GSM, Indoline brand) and hooded rain ponchos with matching pants, made at their own factory in Bavla, Ahmedabad and sold factory-direct in bulk across India. ⚠️ verify
 - **Price positioning:** Budget / factory-direct. The site sells on "factory prices, no trader's margin", and the ₹20* bulk poncho price sits below the ₹40–₹235 per piece rain poncho listings IndiaMART shows for Ahmedabad. ⚠️ verify
 
 ### Services or products
@@ -69,7 +69,6 @@ Also seen: shreebalahanumanpolycoat.com, hmpolymers.in, narmadapolyfab.com. The 
 - **What a customer is worth, roughly:** ⚠️ NEEDS INPUT
 - **What this business will NOT do:**
   - No HDPE products, ever (confirmed by the business, 24 Oct 2026).
-  - Never call the materials "polyethylene". They are mLDPE, LDPE and LLDPE, named exactly that way (confirmed by the business, 26 Oct 2026).
   - No small retail orders: the site says "bulk orders only". ⚠️ verify the minimum order.
   - No custom logo printing on ponchos: the claim was removed from the site. ⚠️ verify
 
@@ -118,7 +117,7 @@ Plain, specific, direct. ⚠️ verify. This is the voice of the newer product a
 
 | Always | Never |
 |--------|-------|
-| "multilayer tarpaulin", "rain poncho", "poncho raincoat" | HDPE, "polyethylene", "polythene" or "PE", anywhere |
+| "multilayer tarpaulin", "rain poncho", "poncho raincoat" | HDPE, anywhere |
 | "manufacturer, not a reseller"; "factory-direct" | "ISO 9001:2015 certified", until confirmed |
 | Exact numbers: 90, 120, 150, 200 GSM; 42–140 g; 2 tons; 20,000 pieces | "500+ clients" or "5000+ products", until confirmed |
 | Materials as "mLDPE, LDPE and LLDPE" | Custom logo printing on ponchos ⚠️ verify |
@@ -151,7 +150,7 @@ Plain, specific, direct. ⚠️ verify. This is the voice of the newer product a
 
 Things no skill may ever do on this site:
 
-- Name the materials only as "mLDPE, LDPE and LLDPE". Never write HDPE, "polyethylene", "polythene" or "PE", and never use "plastic family" as a stand-in for them.
+- Never mention HDPE. The only materials are mLDPE, LDPE and LLDPE.
 - Never publish a price, capacity, certification or client count the business has not confirmed. The ₹20* bulk poncho price is the only published price, and what the asterisk means is still unconfirmed.
 - Never invent statistics, results, reviews or credentials.
 - Never cite a source that was not fetched and confirmed in that run.
