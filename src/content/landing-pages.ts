@@ -100,7 +100,7 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
       heading: "Standard and custom GSM",
       paragraphs: [
         "GSM (grams per square metre) tells you how heavy, and so how tough, a tarpaulin is. We make four standard grades, 90, 120, 150 and 200 GSM, and for orders of 2 tons we will manufacture any GSM from 70 to 200 to match your use.",
-        "Lighter sheets are easier to handle for shorter-term and lighter covering; heavier sheets stand up better to long outdoor exposure and heavy-duty jobs. Not sure which you need? Tell us the use and we will recommend a grade.",
+        "Lighter sheets are easier to handle for shorter-term and lighter covering; heavier sheets stand up better to long outdoor exposure and heavy-duty jobs. Not sure which you need? Tell us the use and we will recommend a grade, or read our [tarpaulin GSM guide](/blog/tarpaulin-gsm-guide).",
       ],
       image: TARPAULIN_IMAGES.rollsYellowBlue,
     },
@@ -108,6 +108,7 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
       heading: "How our tarpaulins are used across Gujarat",
       paragraphs: [
         "Farmers use our tarpaulins to cover grain sacks, bales and harvested produce in open storage, and to line farm ponds and water-storage pits. Transporters use them as truck covers, builders use them to protect construction sites, and factories and warehouses use them to cover machinery and stock.",
+        "We have a guide for each use: [farm pond lining](/blog/farm-pond-tarpaulin-lining-guide), [grain and crop storage](/blog/tarpaulin-for-grain-and-crop-storage), [truck covers](/blog/truck-tarpaulin-cover-guide), [construction sites](/blog/tarpaulin-for-construction-sites), [monsoon sheds](/blog/monsoon-shed-tarpaulin) and [machinery and warehouses](/blog/tarpaulin-covers-for-machinery-and-warehouses).",
       ],
       image: TARPAULIN_IMAGES.farmPond,
     },
@@ -119,6 +120,9 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
     },
     {
       heading: "How to choose the best tarpaulin manufacturer",
+      paragraphs: [
+        "Our [guide to the best tarpaulin manufacturers in Ahmedabad and Gujarat](/blog/best-tarpaulin-manufacturers-in-ahmedabad-gujarat) covers each of these checks in detail.",
+      ],
       bullets: [
         "Buy from a manufacturer: you get factory prices and can have sizes and colours made for you.",
         "Check the material: we use mLDPE, LDPE and LLDPE.",
@@ -165,8 +169,11 @@ export const TARPAULIN_GUJARAT: LandingPageContent = {
     },
   ],
   related: [
+    { label: "Best tarpaulin manufacturers in Ahmedabad, Gujarat", path: "/blog/best-tarpaulin-manufacturers-in-ahmedabad-gujarat" },
+    { label: "Tarpaulin GSM guide", path: "/blog/tarpaulin-gsm-guide" },
     { label: "Multilayer tarpaulin manufacturer in India", path: "/tarpaulin-manufacturer-in-india" },
     { label: "Multilayer tarpaulin product details", path: TARPAULIN.path },
+    { label: "Tarpaulin FAQs", path: "/faq" },
     { label: "Rain poncho manufacturer in Ahmedabad, Gujarat", path: "/poncho-raincoat-manufacturer-in-gujarat" },
   ],
 };
@@ -196,6 +203,7 @@ export const TARPAULIN_INDIA: LandingPageContent = {
       heading: "What makes a multilayer tarpaulin the better choice",
       paragraphs: [
         "A multilayer tarpaulin bonds several layers of polyethylene together instead of relying on a single sheet. The extra layers add strength and tear resistance, which is why multilayer tarpaulins last longer in demanding outdoor use.",
+        "Read more in [multilayer vs single-layer tarpaulin](/blog/multilayer-vs-single-layer-tarpaulin).",
       ],
       bullets: [
         "100% waterproof",
@@ -207,6 +215,9 @@ export const TARPAULIN_INDIA: LandingPageContent = {
     },
     {
       heading: "Choose your GSM",
+      paragraphs: [
+        "Our [tarpaulin GSM guide](/blog/tarpaulin-gsm-guide) explains each grade, which jobs it suits and how much a sheet weighs.",
+      ],
       bullets: [
         "90 GSM: our lightest standard grade, easy to handle",
         "120 GSM: a middle grade for general covering",
@@ -268,8 +279,11 @@ export const TARPAULIN_INDIA: LandingPageContent = {
     },
   ],
   related: [
+    { label: "Best multilayer tarpaulin manufacturers in India", path: "/blog/best-multilayer-tarpaulin-manufacturers-in-india" },
+    { label: "How to measure and order tarpaulin", path: "/blog/how-to-measure-and-order-tarpaulin" },
     { label: "Multilayer tarpaulin manufacturer in Ahmedabad, Gujarat", path: "/tarpaulin-manufacturer-in-gujarat" },
     { label: "Multilayer tarpaulin product details", path: TARPAULIN.path },
+    { label: "Tarpaulin FAQs", path: "/faq" },
     { label: "Rain poncho manufacturer in India", path: "/poncho-raincoat-manufacturer-in-india" },
   ],
 };
