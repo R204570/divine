@@ -1,0 +1,411 @@
+<title>Divine Fabtech Site Brief</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Source+Sans+3:wght@400;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column, laid out like a spec sheet: findings first, then numbers, then the brief's fields as label/value rows, then the questions. */
+:root {
+  --bg: #f5f6f9;
+  --surface: #ffffff;
+  --fg: #151b2d;
+  --muted: #586179;
+  --line: #dce0e9;
+  --accent: #0b2b7a;
+  --tarp: #e2ad00;
+  --pass: #1b7543;  --pass-soft: #e3f3ea;
+  --warn: #9a5c00;  --warn-soft: #fbf0dc;
+  --fail: #b0251c;  --fail-soft: #fbe5e3;
+  --ask: #5b3fa8;   --ask-soft: #eee9fa;
+  --font-display: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --font-body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0e1220; --surface: #161b2c; --fg: #e6e9f2; --muted: #9ba4ba; --line: #2a3148;
+    --accent: #93b2ff; --tarp: #f2c94c;
+    --pass: #63cf91; --pass-soft: #15301f;
+    --warn: #f2b65a; --warn-soft: #33270f;
+    --fail: #ff8f85; --fail-soft: #3a1816;
+    --ask: #bba7ff;  --ask-soft: #251d40;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0e1220; --surface: #161b2c; --fg: #e6e9f2; --muted: #9ba4ba; --line: #2a3148;
+  --accent: #93b2ff; --tarp: #f2c94c;
+  --pass: #63cf91; --pass-soft: #15301f;
+  --warn: #f2b65a; --warn-soft: #33270f;
+  --fail: #ff8f85; --fail-soft: #3a1816;
+  --ask: #bba7ff;  --ask-soft: #251d40;
+  color-scheme: dark;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 16px;
+  line-height: 1.55;
+}
+.wrap {
+  max-width: 920px;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 28px 64px;
+  display: grid;
+  gap: 44px;
+}
+h1, h2, h3 { font-family: var(--font-display); font-weight: 700; line-height: 1.1; text-wrap: balance; margin: 0; }
+h1 { font-size: clamp(2.2rem, 6vw, 3.2rem); letter-spacing: 0.01em; }
+h2 { font-size: 1.75rem; letter-spacing: 0.01em; }
+h3 { font-size: 1.2rem; letter-spacing: 0.02em; text-transform: uppercase; color: var(--muted); }
+p { margin: 0; max-width: 68ch; }
+a { color: var(--accent); }
+code, .mono { font-family: var(--font-mono); font-size: 0.86em; }
+code { background: var(--line); padding: 1px 5px; border-radius: 4px; overflow-wrap: anywhere; }
+
+/* Header, styled like the label on a tarpaulin roll */
+.label {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-top: 6px solid var(--tarp);
+  border-radius: 6px;
+  padding: 22px 24px;
+  display: grid;
+  gap: 14px;
+}
+.eyebrow { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
+.label .lede { color: var(--muted); font-size: 1.05rem; }
+.specs { display: flex; flex-wrap: wrap; gap: 8px 22px; font-family: var(--font-mono); font-size: 0.8rem; color: var(--muted); }
+.specs b { color: var(--fg); font-weight: 500; }
+
+.flow { display: flex; flex-wrap: wrap; gap: 6px; list-style: none; padding: 0; margin: 0; }
+.flow li {
+  font-family: var(--font-mono); font-size: 0.74rem; padding: 4px 9px;
+  border: 1px solid var(--line); border-radius: 999px; color: var(--muted);
+}
+.flow li.now { border-color: var(--accent); color: var(--accent); font-weight: 500; }
+
+section { display: grid; gap: 16px; }
+.section-intro { color: var(--muted); }
+
+/* Status chips: pass / warn / fail / na, plus the brief's own markers */
+.chip {
+  display: inline-block; font-family: var(--font-mono); font-size: 0.7rem; font-weight: 500;
+  letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 8px; border-radius: 4px;
+  white-space: nowrap; vertical-align: 1px;
+}
+.chip.pass { color: var(--pass); background: var(--pass-soft); }
+.chip.warn, .chip.verify { color: var(--warn); background: var(--warn-soft); }
+.chip.fail { color: var(--fail); background: var(--fail-soft); }
+.chip.input { color: var(--ask); background: var(--ask-soft); }
+
+/* Findings list */
+.findings { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
+.findings li {
+  display: grid; grid-template-columns: 5.5rem minmax(0, 1fr); gap: 4px 16px;
+  padding: 16px 0; border-bottom: 1px solid var(--line);
+}
+.findings .what { font-weight: 700; font-size: 1.05rem; }
+.findings .why { grid-column: 2; color: var(--muted); }
+.findings .fix { grid-column: 2; }
+.findings .fix::before { content: "Fix: "; font-weight: 700; }
+
+/* Number tiles */
+.tiles { display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 10px; }
+.tile { background: var(--surface); border: 1px solid var(--line); border-radius: 6px; padding: 14px 14px 12px; display: grid; gap: 2px; align-content: start; }
+.tile .n { font-family: var(--font-display); font-size: 2.1rem; font-weight: 700; line-height: 1; font-variant-numeric: tabular-nums; }
+.tile .k { font-size: 0.86rem; color: var(--muted); line-height: 1.3; }
+.tile.bad .n { color: var(--fail); }
+
+.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+.two > * { min-width: 0; }
+.tablebox { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 0.94rem; }
+th, td { text-align: left; padding: 7px 10px 7px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 500; letter-spacing: 0.06em; text-transform: uppercase; color: var(--muted); }
+td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; padding-right: 0; padding-left: 10px; }
+caption { text-align: left; font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; padding-bottom: 6px; }
+
+/* Brief fields */
+.fields { display: grid; border-top: 1px solid var(--line); }
+.field { display: grid; grid-template-columns: minmax(0, 13rem) minmax(0, 1fr); gap: 4px 18px; padding: 11px 0; border-bottom: 1px solid var(--line); }
+.field > dt { font-weight: 600; }
+.field > dd { margin: 0; display: grid; gap: 6px; }
+.field ul { margin: 0; padding-left: 1.1em; display: grid; gap: 4px; }
+.field .chip { margin-right: 6px; }
+
+.saytable td:first-child { padding-right: 18px; }
+blockquote { margin: 0; padding: 2px 0 2px 14px; border-left: 3px solid var(--tarp); max-width: 68ch; }
+blockquote cite { display: block; font-style: normal; font-size: 0.85rem; color: var(--muted); font-family: var(--font-mono); }
+.quotes { display: grid; gap: 14px; }
+
+/* Questions */
+.questions { counter-reset: q; list-style: none; padding: 0; margin: 0; display: grid; gap: 12px; }
+.questions li {
+  counter-increment: q; background: var(--surface); border: 1px solid var(--line); border-radius: 6px;
+  padding: 16px 18px 16px 56px; position: relative; display: grid; gap: 6px;
+}
+.questions li::before {
+  content: counter(q); position: absolute; left: 18px; top: 14px;
+  font-family: var(--font-display); font-weight: 700; font-size: 1.6rem; color: var(--accent); line-height: 1;
+}
+.questions .q { font-weight: 700; font-size: 1.05rem; }
+.questions .ctx { color: var(--muted); }
+.later { color: var(--muted); }
+.later ul { margin: 6px 0 0; padding-left: 1.1em; display: grid; gap: 3px; }
+
+.notes { font-size: 0.9rem; color: var(--muted); }
+.notes ul { margin: 0; padding-left: 1.1em; display: grid; gap: 5px; max-width: 76ch; }
+
+.legend { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 0.88rem; color: var(--muted); align-items: center; }
+
+@media (max-width: 560px) {
+  .findings li { grid-template-columns: minmax(0, 1fr); }
+  .findings .why, .findings .fix { grid-column: 1; }
+  .field { grid-template-columns: minmax(0, 1fr); }
+  .label { padding: 18px 16px; }
+}
+@media (prefers-reduced-motion: no-preference) {
+  a { transition: color 0.15s; }
+}
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+
+<div class="wrap">
+
+  <header class="label">
+    <div class="eyebrow">SEO system · Step 0 · Site brief · Draft</div>
+    <h1>Divine Fabtech Industries</h1>
+    <p class="lede">What the SEO flow now knows about the business, measured from a crawl of the live site and Google Analytics. Every later step reads this brief. Fields marked <span class="chip verify">verify</span> were inferred, and fields marked <span class="chip input">needs input</span> only you can answer.</p>
+    <div class="specs">
+      <span>Site <b>divine-fabtech-industries.vercel.app</b></span>
+      <span>Data <b>last 90 days, to 25 Oct 2026</b></span>
+      <span>Built <b>26 Oct 2026</b></span>
+      <span>Market <b>India · English</b></span>
+    </div>
+    <ol class="flow" aria-label="SEO flow steps">
+      <li class="now">0 Site brief</li>
+      <li>1 Keyword map</li>
+      <li>2 Content</li>
+      <li>3 On-page</li>
+      <li>4 Internal links</li>
+      <li>5 AI visibility</li>
+    </ol>
+  </header>
+
+  <section aria-labelledby="h-findings">
+    <h2 id="h-findings">What stands out</h2>
+    <ul class="findings">
+      <li>
+        <span><span class="chip fail">fail</span></span>
+        <span class="what">Google shows only the home page</span>
+        <span class="why">In 90 days, Search Console has impressions for <code>/</code> only. The other 12 pages, including all five keyword landing pages added on 27 Sep, have none. A <code>site:</code> search also returns only the home page, still with its older title.</span>
+        <span class="fix">In Search Console, submit <code>/sitemap.xml</code> and request indexing for the 12 missing URLs. Step 3 checks each page once you confirm the sitemap is in.</span>
+      </li>
+      <li>
+        <span><span class="chip fail">fail</span></span>
+        <span class="what">The inquiry form throws every lead away</span>
+        <span class="why">The form on <code>/inquiry</code> shows "Inquiry Submitted Successfully!" but its submit handler only waits one second and logs to the browser console. Nothing reaches you. Phone and WhatsApp links work.</span>
+        <span class="fix">Send form entries to WhatsApp, email or a sheet. Tell me which one you want.</span>
+      </li>
+      <li>
+        <span><span class="chip fail">fail</span></span>
+        <span class="what">Analytics counts zero conversions</span>
+        <span class="why">The site already sends <code>contact_click</code> (2 in 90 days) and <code>form_start</code> (2), but neither is marked as a key event, so GA cannot say which page or search brings enquiries.</span>
+        <span class="fix">In GA4 Admin → Events, mark <code>contact_click</code> as a key event.</span>
+      </li>
+      <li>
+        <span><span class="chip warn">warn</span></span>
+        <span class="what">Some proof claims are unconfirmed</span>
+        <span class="why">The site shows "500+ Satisfied Clients", "5000+ Products Delivered" and an ISO 9001:2015 certification from 2021. Search engines and AI answers repeat claims like these, so each one needs to be true.</span>
+        <span class="fix">Confirm each one, or I remove it from the site.</span>
+      </li>
+      <li>
+        <span><span class="chip warn">warn</span></span>
+        <span class="what">Every title is longer than 60 characters</span>
+        <span class="why">All 13 titles run 61 to 93 characters (the home page is 93), so Google cuts them off in results. Three meta descriptions go over 155: the home page (159), <code>/tarpaulin-manufacturer-in-gujarat</code> (158) and <code>/contact</code> (158).</span>
+        <span class="fix">Step 3 rewrites them page by page.</span>
+      </li>
+      <li>
+        <span><span class="chip pass">pass</span></span>
+        <span class="what">The technical base is sound</span>
+        <span class="why">All 13 sitemap URLs return 200, each has its own canonical, structured data parses on every page, every page links to every other, and <code>/products/poncho</code> carries a Product offer at ₹20.</span>
+      </li>
+      <li>
+        <span><span class="chip pass">pass</span></span>
+        <span class="what">The home page already earns clicks</span>
+        <span class="why">193 impressions, 26 clicks, a 13.5% click-through rate and an average position of 10.4 over 90 days. Over the last 28 days, the average position is 9.7.</span>
+      </li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="h-numbers">
+    <h2 id="h-numbers">Google Analytics, last 90 days</h2>
+    <p class="section-intro">Property 501922503, filtered to the live host only. These are small numbers, so a few visits move them a lot.</p>
+    <div class="tiles">
+      <div class="tile"><span class="n">50</span><span class="k">sessions in total</span></div>
+      <div class="tile"><span class="n">29</span><span class="k">from Google search, all landing on the home page</span></div>
+      <div class="tile"><span class="n">193</span><span class="k">Google impressions, home page only</span></div>
+      <div class="tile"><span class="n">26</span><span class="k">clicks from Google</span></div>
+      <div class="tile"><span class="n">10.4</span><span class="k">average position of the home page</span></div>
+      <div class="tile bad"><span class="n">0</span><span class="k">key events (conversions) recorded</span></div>
+    </div>
+    <div class="two">
+      <div class="tablebox">
+        <table>
+          <caption>Where visits come from</caption>
+          <thead><tr><th>Channel</th><th class="num">Sessions</th><th class="num">Engaged</th></tr></thead>
+          <tbody>
+            <tr><td>Organic Search</td><td class="num">29</td><td class="num">86.2%</td></tr>
+            <tr><td>Direct</td><td class="num">17</td><td class="num">17.6%</td></tr>
+            <tr><td>Unassigned</td><td class="num">2</td><td class="num">0%</td></tr>
+            <tr><td>AI Assistant (chatgpt.com)</td><td class="num">1</td><td class="num">0%</td></tr>
+            <tr><td>Organic Social (Instagram)</td><td class="num">1</td><td class="num">0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="tablebox">
+        <table>
+          <caption>Where visitors are</caption>
+          <thead><tr><th>Place</th><th class="num">Sessions</th></tr></thead>
+          <tbody>
+            <tr><td>India</td><td class="num">35</td></tr>
+            <tr><td>&nbsp;&nbsp;of which Ahmedabad</td><td class="num">22</td></tr>
+            <tr><td>&nbsp;&nbsp;of which Chennai</td><td class="num">5</td></tr>
+            <tr><td>Germany</td><td class="num">7</td></tr>
+            <tr><td>Singapore</td><td class="num">6</td></tr>
+            <tr><td>France, UK, USA</td><td class="num">1 each</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-business">
+    <h2 id="h-business">The brief: business</h2>
+    <div class="legend">
+      <span><span class="chip pass">confirmed</span> read on the site or measured</span>
+      <span><span class="chip verify">verify</span> inferred, please check</span>
+      <span><span class="chip input">needs input</span> only you know</span>
+    </div>
+    <dl class="fields">
+      <div class="field"><dt>What you sell</dt><dd><span><span class="chip verify">verify</span>Multilayer polyethylene tarpaulins (90–200 GSM, Indoline brand) and hooded rain ponchos with matching pants, made at your own factory in Bavla, Ahmedabad and sold factory-direct in bulk across India.</span></dd></div>
+      <div class="field"><dt>Products</dt><dd>
+        <ul>
+          <li><b>Multilayer tarpaulin</b>: 90, 120, 150 and 200 GSM as standard; any GSM from 70 to 200 on orders of 2 tons; mLDPE, LDPE and LLDPE; waterproof, UV-resistant, reinforced edges.</li>
+          <li><b>Rain poncho</b>: hooded, five colours, 42–140 g per piece, global sizes, custom GSM on 20,000 pieces, ₹20* per piece in bulk.</li>
+          <li><b>Matching raincoat pant</b>: sold with the poncho, no page of its own.</li>
+        </ul>
+      </dd></div>
+      <div class="field"><dt>Price positioning</dt><dd><span><span class="chip verify">verify</span>Budget and factory-direct. ₹20* per poncho sits below the ₹40 to ₹235 range IndiaMART lists for rain ponchos in Ahmedabad.</span></dd></div>
+      <div class="field"><dt>Money pages</dt><dd><span><span class="chip verify">verify</span><code>/inquiry</code>, <code>/products/poncho</code>, <code>/products/tarpaulins</code>, <code>/contact</code>. With no key events in GA, nothing measured backs this list yet.</span></dd></div>
+      <div class="field"><dt>Service area</dt><dd><span><span class="chip pass">confirmed</span>Factory in Bavla, Ahmedabad district. The Gujarat page names Ahmedabad, Gandhinagar, Surat, Vadodara, Rajkot, Bhavnagar, Jamnagar, Junagadh, Anand, Mehsana and Kutch, then all of India.</span></dd></div>
+      <div class="field"><dt>Search market</dt><dd><span><span class="chip verify">verify</span>India, English. Local words such as tadpatri, tarpal and tirpal (તાડપત્રી) already appear inside the English pages.</span></dd></div>
+      <div class="field"><dt>Competitors</dt><dd>
+        <span><span class="chip verify">verify</span>From searches for multilayer tarpaulin and rain poncho manufacturers in Ahmedabad:</span>
+        <ul>
+          <li><b>frankindustries.in</b>: ranks for both products and has a "Best Rain Poncho Manufacturers in Ahmedabad" blog post.</li>
+          <li><b>auitarp.com</b>: multilayer tarpaulin, Narol, Ahmedabad.</li>
+          <li><b>polyshieldindustries.in</b>: rain ponchos, Ahmedabad.</li>
+        </ul>
+        <span>IndiaMART, Justdial and TradeIndia take the top results for both searches.</span>
+      </dd></div>
+      <div class="field"><dt>Primary goal</dt><dd><span><span class="chip verify">verify</span>More bulk enquiries by phone, WhatsApp and the quote form.</span></dd></div>
+      <div class="field"><dt>What a customer is worth</dt><dd><span><span class="chip input">needs input</span></span></dd></div>
+      <div class="field"><dt>Will not do</dt><dd>
+        <ul>
+          <li><span class="chip pass">confirmed</span>No HDPE, anywhere.</li>
+          <li><span class="chip verify">verify</span>No small retail orders ("bulk orders only"). What is the minimum order?</li>
+          <li><span class="chip verify">verify</span>No custom logo printing on ponchos (the claim was removed from the site).</li>
+        </ul>
+      </dd></div>
+      <div class="field"><dt>Proof you can claim</dt><dd>
+        <ul>
+          <li><span class="chip pass">confirmed</span>Founded 2020 (6 years); facility runs 24/7 except national holidays; custom GSM thresholds of 2 tons and 20,000 pieces.</li>
+          <li><span class="chip input">needs input</span>"500+ Satisfied Clients", "5000+ Products Delivered", "hundreds of satisfied customers".</li>
+          <li><span class="chip input">needs input</span>ISO 9001:2015 (About page timeline, 2021).</li>
+          <li><span class="chip input">needs input</span>Case studies, team size.</li>
+        </ul>
+      </dd></div>
+      <div class="field"><dt>Author</dt><dd><span><span class="chip input">needs input</span>No person is named anywhere on the site. Who should content be credited to, and what is their background?</span></dd></div>
+      <div class="field"><dt>Call to action</dt><dd><span><span class="chip pass">confirmed</span>"Get Quote" to <code>/inquiry</code>, plus call or WhatsApp <span class="mono">+91 98251 48321</span>. The form currently sends nothing (see above).</span></dd></div>
+      <div class="field"><dt>Address, exactly</dt><dd><span><span class="chip pass">confirmed</span>DIVINE FABTECH INDUSTRIES, Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220 · Mon–Sat 9:00 AM–6:00 PM · divinefabtech@gmail.com</span></dd></div>
+    </dl>
+  </section>
+
+  <section aria-labelledby="h-voice">
+    <h2 id="h-voice">The brief: voice</h2>
+    <dl class="fields">
+      <div class="field"><dt>Tone</dt><dd><span><span class="chip verify">verify</span>Plain, specific, direct. That is the voice of the newer product and landing pages. The older About and "Why choose us" sections use generic corporate lines ("Quality Excellence", "exceed industry standards") that don't match.</span></dd></div>
+      <div class="field"><dt>Reader</dt><dd><span><span class="chip verify">verify</span>Bulk buyers. For tarpaulins: farmers and agri traders, transporters, builders, factories and warehouses. For ponchos: companies equipping workforces, emergency services, event organisers and distributors. Simple English, often a second language.</span></dd></div>
+      <div class="field"><dt>Their worries</dt><dd><span><span class="chip verify">verify</span>Paying a trader's margin, thin sheets that tear or leak in the monsoon, ordering the wrong GSM, stock arriving after the rains start.</span></dd></div>
+      <div class="field"><dt>Style</dt><dd><span><span class="chip verify">verify</span>"We" and "our factory", no contractions, no humour, short sentences, specs in bullet lists, Indian/British spelling ("colours"), a call or WhatsApp prompt at the end of each page.</span></dd></div>
+    </dl>
+    <div class="tablebox">
+      <table class="saytable">
+        <caption>Say and don't say</caption>
+        <thead><tr><th>Always</th><th>Never</th></tr></thead>
+        <tbody>
+          <tr><td>"multilayer tarpaulin", "rain poncho", "poncho raincoat"</td><td>HDPE, anywhere</td></tr>
+          <tr><td>"manufacturer, not a reseller", "factory-direct"</td><td>"ISO 9001:2015 certified", until confirmed</td></tr>
+          <tr><td>Exact numbers: 90 / 120 / 150 / 200 GSM, 42–140 g, 2 tons, 20,000 pieces</td><td>"500+ clients" or "5000+ products", until confirmed</td></tr>
+          <tr><td>Materials as "mLDPE, LDPE and LLDPE"</td><td>Custom logo printing on ponchos</td></tr>
+          <tr><td>Local names: tadpatri, tarpal, tirpal</td><td>"Disposable" or "transparent" ponchos, until confirmed</td></tr>
+          <tr><td>"bulk orders"</td><td>Any price except the ₹20* poncho price</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <h3>In your own words</h3>
+    <div class="quotes">
+      <blockquote>"We are the manufacturer, not a reseller: every tarpaulin is made at our single in-house facility in Bavla, near Ahmedabad."<cite>/tarpaulin-manufacturer-in-gujarat</cite></blockquote>
+      <blockquote>"Whether you call it a tarpaulin, tarpal or tadpatri (તાડપત્રી), our multilayer sheets are built to take Gujarat's strong summer sun and heavy monsoon rain."<cite>/tarpaulin-manufacturer-in-gujarat</cite></blockquote>
+      <blockquote>"Not sure which you need? Tell us the use and we will recommend a grade."<cite>/tarpaulin-manufacturer-in-gujarat</cite></blockquote>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-questions">
+    <h2 id="h-questions">Questions for you, round 1</h2>
+    <p class="section-intro">The skill asks two or three at a time, starting with the ones that change later steps the most. Reply in chat, in any order, short answers are fine.</p>
+    <ol class="questions">
+      <li>
+        <span class="q">Should searches target India, in English?</span>
+        <span class="ctx">GA agrees: 35 of 50 sessions are from India, mostly Ahmedabad. Do you also want full Hindi or Gujarati pages, or keep the local words inside English pages as now?</span>
+      </li>
+      <li>
+        <span class="q">Is this the right one-line description of what you sell?</span>
+        <span class="ctx">"Multilayer polyethylene tarpaulins (90–200 GSM, Indoline brand) and hooded rain ponchos with matching pants, made at our own factory in Bavla, Ahmedabad and sold factory-direct in bulk across India."</span>
+      </li>
+      <li>
+        <span class="q">Who buys the most, and what do they worry about?</span>
+        <span class="ctx">For example: farmers or traders buying tarpaulins before the monsoon, or companies buying ponchos for workers. Which group brings you the most business?</span>
+      </li>
+    </ol>
+    <div class="later">
+      <b>Coming in the next rounds:</b>
+      <ul>
+        <li>Are 500+ clients, 5000+ products and ISO 9001:2015 true?</li>
+        <li>Where should inquiry form leads go?</li>
+        <li>Are the three competitors right, and are there words you never want used?</li>
+        <li>Who should content be credited to?</li>
+        <li>What does the asterisk on ₹20* mean? Do you have a Google Business Profile, and is the sitemap submitted in Search Console?</li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="h-notes" class="notes">
+    <h3 id="h-notes">Data notes</h3>
+    <ul>
+      <li>GA4 property 501922503, last 90 days to 25 Oct 2026, every report filtered to hostName <code>divine-fabtech-industries.vercel.app</code> because localhost and old preview hosts also report into this property. The Search Console figures for the last 28 days use the same property.</li>
+      <li>Search Console is linked. Its metrics only work here with the <code>landingPagePlusQueryString</code> dimension; the skill's recipe uses <code>landingPage</code>, which this property rejects.</li>
+      <li>Crawl: the sitemap plus the pages it lists, capped at 60 pages; 13 were found and crawled, none skipped.</li>
+      <li>Competitor searches, run for India on 26 Oct 2026: "multilayer tarpaulin manufacturer Ahmedabad Gujarat" and "rain poncho raincoat manufacturer Ahmedabad Gujarat bulk". The <code>site:</code> check came from a third-party search index, which can lag behind Google; Search Console's numbers agree with it.</li>
+      <li>GA has no keyword search volumes and no list of search queries, so neither appears here. It sees AI visits only when someone clicks through, and those often show up as Direct, so the single AI session is a minimum.</li>
+      <li>The full brief, the file every later step reads, is <code>seo/site-brief.md</code> on branch <code>worktree-seo-site-brief</code>.</li>
+    </ul>
+  </section>
+
+</div>
