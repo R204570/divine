@@ -4,11 +4,25 @@ import { Button } from "@/components/ui/button";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import RichText from "@/components/RichText";
 import { formatPostDate, type BlogPost } from "@/content/blog";
+
 import { COMPANY_NAME, PHONE_DISPLAY, TEL_HREF, whatsappHrefWithText } from "@/lib/company";
 
-/** One buying guide from content/blog.ts. */
+/** What the call to action asks for, by the product the guide leads to. */
+const CTA: Record<BlogPost["product"]["id"], { whatsapp: string; prompt: string }> = {
+  poncho: {
+    whatsapp: "Hi, I'd like a price for rain ponchos (bulk order).",
+    prompt: "Tell us the quantity, colours, weight and sizes you need, and whether you want the matching pant.",
+  },
+  tarpaulins: {
+    whatsapp: "Hi, I'd like a price for multilayer tarpaulins (bulk order).",
+    prompt: "Tell us the size, GSM, colour and quantity you need, and what the tarpaulin is for.",
+  },
+};
+
+/** One buying guide from content/blog. */
 const BlogPostPage = ({ post }: { post: BlogPost }) => {
-  const whatsappHref = whatsappHrefWithText("Hi, I'd like a price for rain ponchos (bulk order).");
+  const cta = CTA[post.product.id];
+  const whatsappHref = whatsappHrefWithText(cta.whatsapp);
 
   return (
     <div className="min-h-screen bg-background">
@@ -64,6 +78,41 @@ const BlogPostPage = ({ post }: { post: BlogPost }) => {
                 <RichText text={paragraph} />
               </p>
             ))}
+            {section.table && (
+              <div className="overflow-x-auto mb-6">
+                <table className="w-full min-w-[32rem] border-collapse text-left">
+                  <caption className="caption-bottom pt-2 text-left text-sm text-muted-foreground">
+                    {section.table.caption}
+                  </caption>
+                  <thead>
+                    <tr>
+                      {section.table.head.map((cell) => (
+                        <th key={cell} scope="col" className="border-b-2 border-border py-2 pr-4 font-semibold text-foreground">
+                          {cell}
+                        </th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {section.table.rows.map((row) => (
+                      <tr key={row[0]}>
+                        {row.map((cell, index) =>
+                          index === 0 ? (
+                            <th key={index} scope="row" className="border-b border-border py-2 pr-4 font-medium text-foreground">
+                              {cell}
+                            </th>
+                          ) : (
+                            <td key={index} className="border-b border-border py-2 pr-4 tabular-nums text-muted-foreground">
+                              {cell}
+                            </td>
+                          )
+                        )}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            )}
             {section.image && (
               <img
                 src={section.image.src}
@@ -80,12 +129,10 @@ const BlogPostPage = ({ post }: { post: BlogPost }) => {
 
         <aside className="mt-14 rounded-lg border border-primary/20 bg-primary/5 p-6 md:p-8">
           <h2 className="text-2xl font-bold text-foreground mb-3">Get a factory price for your bulk order</h2>
-          <p className="text-muted-foreground mb-6">
-            Tell us the quantity, colours, weight and sizes you need, and whether you want the matching pant.
-          </p>
+          <p className="text-muted-foreground mb-6">{cta.prompt}</p>
           <div className="flex flex-col sm:flex-row gap-3">
             <Button asChild size="lg">
-              <Link to="/inquiry?product=poncho">Send an Inquiry</Link>
+              <Link to={`/inquiry?product=${post.product.id}`}>Send an Inquiry</Link>
             </Button>
             <Button asChild size="lg" variant="outline">
               <a href={whatsappHref} target="_blank" rel="noopener noreferrer">

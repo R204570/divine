@@ -1,54 +1,19 @@
 import { FOUNDING_YEAR, PHONE_DISPLAY } from "@/lib/company";
-import { PONCHO_IMAGES, type SiteImage } from "./images";
-import { MATERIALS, PONCHO, PONCHO_COLOURS, PONCHO_CUSTOM_GSM_ORDER } from "./products";
+import { PONCHO_IMAGES } from "../images";
+import { MATERIALS, PONCHO, PONCHO_COLOURS, PONCHO_CUSTOM_GSM_ORDER } from "../products";
+import { blogPath, post } from "./types";
 
-/**
- * Buying guides for the blog. Each one answers a search the landing pages
- * can't ("best rain poncho manufacturers in India", "poncho vs raincoat") and
- * links to the page that sells. Text may carry [anchor](/path) links, which
- * components/RichText.tsx turns into router links.
- *
- * Same rule as the landing pages: only facts the business has stated.
- */
-export interface BlogSection {
-  heading: string;
-  paragraphs?: string[];
-  bullets?: string[];
-  image?: SiteImage;
-}
-
-export interface BlogPost {
-  slug: string;
-  path: string;
-  title: string;
-  description: string;
-  /** Short name for the breadcrumb trail. */
-  breadcrumbName: string;
-  h1: string;
-  /** Teaser on the blog index and the home page. */
-  excerpt: string;
-  /** ISO dates, for the byline and the BlogPosting schema. */
-  datePublished: string;
-  dateModified: string;
-  heroImage: SiteImage;
-  intro: string[];
-  sections: BlogSection[];
-  related: { label: string; path: string }[];
-}
+/** Rain poncho buying guides. See ./types.ts for the rules every guide follows. */
 
 const INDIA_PAGE = "/poncho-raincoat-manufacturer-in-india";
 const GUJARAT_PAGE = "/poncho-raincoat-manufacturer-in-gujarat";
-const BEST_INDIA = "/blog/best-rain-poncho-manufacturers-in-india";
-const BEST_GUJARAT = "/blog/best-rain-poncho-manufacturers-in-ahmedabad-gujarat";
-const PONCHO_VS_RAINCOAT = "/blog/poncho-vs-raincoat-for-workers-and-events";
-
-const post = (slug: string, content: Omit<BlogPost, "slug" | "path">): BlogPost => ({
-  slug,
-  path: `/blog/${slug}`,
-  ...content,
-});
+const BEST_INDIA = blogPath("best-rain-poncho-manufacturers-in-india");
+const BEST_GUJARAT = blogPath("best-rain-poncho-manufacturers-in-ahmedabad-gujarat");
+const PONCHO_VS_RAINCOAT = blogPath("poncho-vs-raincoat-for-workers-and-events");
 
 export const BEST_PONCHO_MANUFACTURERS_INDIA = post("best-rain-poncho-manufacturers-in-india", {
+  topic: "poncho",
+  product: PONCHO,
   title: "Best Rain Poncho Manufacturers in India: How to Choose",
   description:
     "What sets the best rain poncho manufacturers in India apart for bulk orders: material, weight per piece, sizes, a matching pant and a clear factory quote.",
@@ -145,6 +110,8 @@ export const BEST_PONCHO_MANUFACTURERS_INDIA = post("best-rain-poncho-manufactur
 });
 
 export const BEST_PONCHO_MANUFACTURERS_GUJARAT = post("best-rain-poncho-manufacturers-in-ahmedabad-gujarat", {
+  topic: "poncho",
+  product: PONCHO,
   title: "Best Rain Poncho Manufacturers in Ahmedabad, Gujarat",
   description:
     "How to find the best rain poncho manufacturer in Ahmedabad and Gujarat for bulk orders: checking the factory, what to order and when to order it.",
@@ -240,6 +207,8 @@ export const BEST_PONCHO_MANUFACTURERS_GUJARAT = post("best-rain-poncho-manufact
 });
 
 export const PONCHO_VS_RAINCOAT_POST = post("poncho-vs-raincoat-for-workers-and-events", {
+  topic: "poncho",
+  product: PONCHO,
   title: "Poncho vs Raincoat: Which Is Better for Workers?",
   description:
     "Rain poncho or raincoat for your team or event? How they compare on fit, speed, coverage, storage and cost in bulk, and when to add a raincoat pant.",
@@ -308,18 +277,8 @@ export const PONCHO_VS_RAINCOAT_POST = post("poncho-vs-raincoat-for-workers-and-
   ],
 });
 
-/** Newest first. */
-export const BLOG_POSTS: BlogPost[] = [
+export const PONCHO_POSTS = [
   BEST_PONCHO_MANUFACTURERS_INDIA,
   BEST_PONCHO_MANUFACTURERS_GUJARAT,
   PONCHO_VS_RAINCOAT_POST,
 ];
-
-/** "2026-10-26" -> "26 Oct 2026", fixed to en-GB so the prerender and the browser agree. */
-export const formatPostDate = (iso: string) =>
-  new Date(`${iso}T00:00:00Z`).toLocaleDateString("en-GB", {
-    day: "numeric",
-    month: "short",
-    year: "numeric",
-    timeZone: "UTC",
-  });
