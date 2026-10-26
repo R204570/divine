@@ -53,7 +53,7 @@ export const TARPAULIN: Product = {
   summary:
     "Premium multilayer tarpaulins in standard 90, 120, 150 and 200 GSM, or any GSM from 70 to 200 on orders of 2 tons. Custom sizes and colours for bulk buyers.",
   overview: [
-    "Our multilayer tarpaulins are made from several bonded layers of polyethylene (mLDPE, LDPE and LLDPE) for extra strength and tear resistance compared with a single-layer sheet. Every sheet is 100% waterproof, has a UV-resistant coating to handle strong sun, and reinforced edges for tying down.",
+    `Our multilayer tarpaulins are made from several bonded layers of ${MATERIALS} for extra strength and tear resistance compared with a single-layer sheet. Every sheet is 100% waterproof, has a UV-resistant coating to handle strong sun, and reinforced edges for tying down.`,
     `Our standard tarpaulins come in ${TARPAULIN_STANDARD_GSM}. For orders of 2 tons we manufacture any GSM from 70 to 200, in the size and colour you need. Everything is made at our own facility in Bavla, Gujarat, sold factory-direct to bulk buyers across India under our Indoline brand.`,
   ],
   cardImage: TARPAULIN_IMAGES.indolineYellow,
@@ -99,7 +99,7 @@ export const PONCHO: Product = {
   summary:
     "Waterproof hooded poncho raincoats in purple, pink, green, blue and yellow, 42–140 grams per piece, with a matching raincoat pant. Custom GSM on orders of 20,000 pieces.",
   overview: [
-    "Our poncho raincoats are made from polyethylene (mLDPE, LDPE and LLDPE): 100% waterproof, durable enough to use again and again, and made from a recyclable plastic family. Each poncho has a hood with a drawstring and slips on over clothes in seconds.",
+    `Our poncho raincoats are made from ${MATERIALS}: 100% waterproof, durable enough to use again and again, and recyclable. Each poncho has a hood with a drawstring and slips on over clothes in seconds.`,
     `Standard ponchos weigh ${PONCHO_STANDARD_WEIGHT}, and for orders of ${PONCHO_CUSTOM_GSM_ORDER} we make custom GSM. They come in five colours (${PONCHO_COLOURS}) and in global sizes, and we also make a matching raincoat pant in the same global sizes, all for bulk orders.`,
   ],
   cardImage: PONCHO_IMAGES.fiveColoursGrid,
@@ -113,7 +113,7 @@ export const PONCHO: Product = {
     "Matching raincoat pant",
     "Global sizes",
     "Custom GSM on 20,000 pcs",
-    "Recyclable polyethylene",
+    "Recyclable mLDPE, LDPE & LLDPE",
   ],
   applications: [
     "Industrial workforces",
