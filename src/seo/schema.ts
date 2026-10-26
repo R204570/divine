@@ -123,6 +123,23 @@ export const buildJsonLd = (meta: PageMeta) => {
     });
   }
 
+  if (meta.article) {
+    const { article } = meta;
+    graph.push({
+      "@type": "BlogPosting",
+      "@id": `${url}#article`,
+      headline: article.headline,
+      description: meta.description,
+      image: absoluteUrl(article.image.src),
+      datePublished: article.datePublished,
+      dateModified: article.dateModified,
+      inLanguage: "en-IN",
+      author: { "@id": BUSINESS_ID },
+      publisher: { "@id": BUSINESS_ID },
+      mainEntityOfPage: { "@id": `${url}#webpage` },
+    });
+  }
+
   if (meta.faq?.length) {
     graph.push({
       "@type": "FAQPage",

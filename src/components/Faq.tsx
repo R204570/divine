@@ -5,8 +5,8 @@ import type { FaqItem } from "@/content/landing-pages";
  * Frequently asked questions as native <details> elements: the answers are in
  * the HTML for crawlers, and open/close works without JavaScript.
  */
-const Faq = ({ items, heading = "Frequently Asked Questions" }: { items: FaqItem[]; heading?: string }) => (
-  <section className="py-16 bg-muted/30">
+const Faq = ({ items, heading = "Frequently Asked Questions", id }: { items: FaqItem[]; heading?: string; id?: string }) => (
+  <section id={id} className="py-16 bg-muted/30 scroll-mt-32">
     <div className="container mx-auto px-4 max-w-3xl">
       <h2 className="text-3xl font-bold text-foreground mb-8 text-center">{heading}</h2>
       <div className="space-y-3">

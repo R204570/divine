@@ -14,8 +14,12 @@ import ContactUsPage from "./pages/ContactUsPage";
 import GalleryPage from "./pages/GalleryPage";
 import InquiryPage from "./pages/InquiryPage";
 import LandingPage from "./pages/LandingPage";
+import BlogPage from "./pages/BlogPage";
+import BlogPostPage from "./pages/BlogPostPage";
+import FaqPage from "./pages/FaqPage";
 import NotFound from "./pages/NotFound";
 import { LANDING_PAGES } from "./content/landing-pages";
+import { BLOG_POSTS } from "./content/blog";
 
 const queryClient = new QueryClient();
 
@@ -39,6 +43,11 @@ const AppShell = () => {
               {LANDING_PAGES.map((page) => (
                 <Route key={page.path} path={page.path} element={<LandingPage content={page} />} />
               ))}
+              <Route path="/blog" element={<BlogPage />} />
+              {BLOG_POSTS.map((post) => (
+                <Route key={post.path} path={post.path} element={<BlogPostPage post={post} />} />
+              ))}
+              <Route path="/faq" element={<FaqPage />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="/contact" element={<ContactUsPage />} />
               <Route path="/gallery" element={<GalleryPage />} />
