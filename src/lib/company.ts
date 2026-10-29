@@ -5,10 +5,11 @@
 
 /**
  * Public address of the live site. Canonical URLs, the sitemap, robots.txt,
- * social previews and structured data are all built from this, so moving to
- * a custom domain later is a one-line change here.
+ * social previews and structured data are all built from this. The bare
+ * divinefabtech.com and the old divine-fabtech-industries.vercel.app address
+ * redirect here (set in the Vercel project's domain settings).
  */
-export const SITE_URL = "https://divine-fabtech-industries.vercel.app";
+export const SITE_URL = "https://www.divinefabtech.com";
 
 export const COMPANY_NAME = "Divine Fabtech Industries";
 
