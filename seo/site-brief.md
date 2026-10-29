@@ -12,7 +12,7 @@
 ## Part 1 — Business
 
 - **Business name:** Divine Fabtech Industries
-- **Domain:** https://divine-fabtech-industries.vercel.app (the only live host; `divinefabtech.com` is not registered, NXDOMAIN on 26 Oct 2026)
+- **Domain:** https://www.divinefabtech.com (live since 29 Oct 2026). `divinefabtech.com` redirects to it (308) and the old https://divine-fabtech-industries.vercel.app redirects to it (301), path for path.
 - **Industry / niche:** B2B manufacturing of polyethylene tarpaulins and rain ponchos, sold in bulk
 - **What they actually sell (one sentence):** Multilayer polyethylene tarpaulins (90–200 GSM, Indoline brand) and hooded rain ponchos with matching pants, made at their own factory in Bavla, Ahmedabad and sold factory-direct in bulk across India. ⚠️ verify
 - **Price positioning:** Budget / factory-direct. The site sells on "factory prices, no trader's margin", and the ₹20* bulk poncho price sits below the ₹40–₹235 per piece rain poncho listings IndiaMART shows for Ahmedabad. ⚠️ verify
@@ -41,7 +41,7 @@ prioritised towards them; GA's key events by landing page are the evidence):
 
 ### Analytics
 
-- **GA4 property ID:** properties/501922503 ("Divine Fabtech", stream G-804ZGJH7NP). Filter every report by hostName = divine-fabtech-industries.vercel.app, because localhost and old preview hosts leak into this property.
+- **GA4 property ID:** properties/501922503 ("Divine Fabtech", stream G-804ZGJH7NP). Filter every report by hostName = www.divinefabtech.com (divine-fabtech-industries.vercel.app before 29 Oct 2026), because localhost and old preview hosts leak into this property.
 - **Search Console linked to GA4:** yes. The Search Console metrics only work with the `landingPagePlusQueryString` dimension here; `landingPage` is rejected as incompatible.
 - **Top countries by sessions (last 90 days):** India 35 sessions (24 users), Germany 7, Singapore 6, France 1, United Kingdom 1, United States 1
 - **Top languages:** English 50 sessions, French 1 (the country × language rows sum to 51, one more than the 50-session total)
