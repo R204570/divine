@@ -1,0 +1,619 @@
+{
+ "90d": {
+  "range": [
+   "2026-08-01",
+   "2026-10-29"
+  ],
+  "totals": [
+   {
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ],
+  "query": [],
+  "query_page": [],
+  "page": [
+   {
+    "keys": [
+     "https://www.divinefabtech.com/"
+    ],
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ],
+  "country": [
+   {
+    "keys": [
+     "ind"
+    ],
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ]
+ },
+ "28d": {
+  "range": [
+   "2026-10-02",
+   "2026-10-29"
+  ],
+  "totals": [
+   {
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ],
+  "query": [],
+  "query_page": [],
+  "page": [
+   {
+    "keys": [
+     "https://www.divinefabtech.com/"
+    ],
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ],
+  "country": [
+   {
+    "keys": [
+     "ind"
+    ],
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ]
+ },
+ "since_move": {
+  "range": [
+   "2026-10-29",
+   "2026-10-29"
+  ],
+  "totals": [
+   {
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ],
+  "query": [],
+  "query_page": [],
+  "page": [
+   {
+    "keys": [
+     "https://www.divinefabtech.com/"
+    ],
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ],
+  "country": [
+   {
+    "keys": [
+     "ind"
+    ],
+    "clicks": 0,
+    "impressions": 2,
+    "ctr": 0,
+    "position": 1.5
+   }
+  ]
+ },
+ "daily_28d": [
+  {
+   "keys": [
+    "2026-10-28"
+   ],
+   "clicks": 0,
+   "impressions": 0,
+   "ctr": 0,
+   "position": 0
+  },
+  {
+   "keys": [
+    "2026-10-29"
+   ],
+   "clicks": 0,
+   "impressions": 2,
+   "ctr": 0,
+   "position": 1.5
+  }
+ ],
+ "sitemaps": {
+  "sitemap": [
+   {
+    "path": "https://www.divinefabtech.com/sitemap.xml",
+    "lastSubmitted": "2026-10-29T19:54:04.771Z",
+    "isPending": false,
+    "isSitemapsIndex": false,
+    "type": "sitemap",
+    "lastDownloaded": "2026-10-29T19:54:06.501Z",
+    "warnings": "0",
+    "errors": "0",
+    "contents": [
+     {
+      "type": "web",
+      "submitted": "30",
+      "indexed": "0"
+     },
+     {
+      "type": "image",
+      "submitted": "117",
+      "indexed": "0"
+     }
+    ]
+   }
+  ]
+ },
+ "inspection": {
+  "/": {
+   "verdict": "NEUTRAL",
+   "coverageState": "Duplicate, Google chose different canonical than user",
+   "lastCrawlTime": "2026-10-30T06:51:18Z",
+   "googleCanonical": null,
+   "userCanonical": "https://www.divinefabtech.com/",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://divine-fabtech-industries.vercel.app/"
+   ]
+  },
+  "/products": {
+   "verdict": "NEUTRAL",
+   "coverageState": "Discovered - currently not indexed",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://divine-fabtech-industries.vercel.app/sitemap.xml/"
+   ]
+  },
+  "/products/tarpaulins": {
+   "verdict": "NEUTRAL",
+   "coverageState": "Discovered - currently not indexed",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": null
+  },
+  "/products/poncho": {
+   "verdict": "NEUTRAL",
+   "coverageState": "Discovered - currently not indexed",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": null
+  },
+  "/tarpaulin-manufacturer-in-gujarat": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T22:26:30Z",
+   "googleCanonical": "https://www.divinefabtech.com/tarpaulin-manufacturer-in-gujarat",
+   "userCanonical": "https://www.divinefabtech.com/tarpaulin-manufacturer-in-gujarat",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/truck-tarpaulin-cover-guide"
+   ]
+  },
+  "/tarpaulin-manufacturer-in-india": {
+   "verdict": "NEUTRAL",
+   "coverageState": "Discovered - currently not indexed",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/truck-tarpaulin-cover-guide"
+   ]
+  },
+  "/poncho-raincoat-manufacturer-in-gujarat": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T21:16:48Z",
+   "googleCanonical": "https://www.divinefabtech.com/poncho-raincoat-manufacturer-in-gujarat",
+   "userCanonical": "https://www.divinefabtech.com/poncho-raincoat-manufacturer-in-gujarat",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/truck-tarpaulin-cover-guide"
+   ]
+  },
+  "/poncho-raincoat-manufacturer-in-india": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-30T07:14:32Z",
+   "googleCanonical": "https://www.divinefabtech.com/poncho-raincoat-manufacturer-in-india",
+   "userCanonical": "https://www.divinefabtech.com/poncho-raincoat-manufacturer-in-india",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin"
+   ]
+  },
+  "/recyclable-poncho-raincoat": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-30T07:44:00Z",
+   "googleCanonical": "https://www.divinefabtech.com/recyclable-poncho-raincoat",
+   "userCanonical": "https://www.divinefabtech.com/recyclable-poncho-raincoat",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/truck-tarpaulin-cover-guide"
+   ]
+  },
+  "/blog": {
+   "verdict": "NEUTRAL",
+   "coverageState": "URL is unknown to Google",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": null,
+   "referringUrls": null
+  },
+  "/blog/best-rain-poncho-manufacturers-in-india": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T19:45:07Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/best-rain-poncho-manufacturers-in-india",
+   "userCanonical": "https://www.divinefabtech.com/blog/best-rain-poncho-manufacturers-in-india",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin"
+   ]
+  },
+  "/blog/best-rain-poncho-manufacturers-in-ahmedabad-gujarat": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T19:46:21Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/best-rain-poncho-manufacturers-in-ahmedabad-gujarat",
+   "userCanonical": "https://www.divinefabtech.com/blog/best-rain-poncho-manufacturers-in-ahmedabad-gujarat",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin"
+   ]
+  },
+  "/blog/poncho-vs-raincoat-for-workers-and-events": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T22:54:28Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/poncho-vs-raincoat-for-workers-and-events",
+   "userCanonical": "https://www.divinefabtech.com/blog/poncho-vs-raincoat-for-workers-and-events",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/best-rain-poncho-manufacturers-in-india"
+   ]
+  },
+  "/blog/best-multilayer-tarpaulin-manufacturers-in-india": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T19:53:14Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/best-multilayer-tarpaulin-manufacturers-in-india",
+   "userCanonical": "https://www.divinefabtech.com/blog/best-multilayer-tarpaulin-manufacturers-in-india",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin"
+   ]
+  },
+  "/blog/best-tarpaulin-manufacturers-in-ahmedabad-gujarat": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T23:37:56Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/best-tarpaulin-manufacturers-in-ahmedabad-gujarat",
+   "userCanonical": "https://www.divinefabtech.com/blog/best-tarpaulin-manufacturers-in-ahmedabad-gujarat",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": null,
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/best-multilayer-tarpaulin-manufacturers-in-india"
+   ]
+  },
+  "/blog/tarpaulin-gsm-guide": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T19:45:42Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/tarpaulin-gsm-guide",
+   "userCanonical": "https://www.divinefabtech.com/blog/tarpaulin-gsm-guide",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin"
+   ]
+  },
+  "/blog/multilayer-vs-single-layer-tarpaulin": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T22:45:08Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/multilayer-vs-single-layer-tarpaulin",
+   "userCanonical": "https://www.divinefabtech.com/blog/multilayer-vs-single-layer-tarpaulin",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/tarpaulin-gsm-guide"
+   ]
+  },
+  "/blog/farm-pond-tarpaulin-lining-guide": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T19:11:40Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/farm-pond-tarpaulin-lining-guide",
+   "userCanonical": "https://divine-fabtech-industries.vercel.app/blog/farm-pond-tarpaulin-lining-guide",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/tarpaulin-gsm-guide"
+   ]
+  },
+  "/blog/tarpaulin-for-grain-and-crop-storage": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T22:48:14Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/tarpaulin-for-grain-and-crop-storage",
+   "userCanonical": "https://www.divinefabtech.com/blog/tarpaulin-for-grain-and-crop-storage",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": null,
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/tarpaulin-gsm-guide"
+   ]
+  },
+  "/blog/truck-tarpaulin-cover-guide": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T20:43:47Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/truck-tarpaulin-cover-guide",
+   "userCanonical": "https://www.divinefabtech.com/blog/truck-tarpaulin-cover-guide",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://divine-fabtech-industries.vercel.app/blog/truck-tarpaulin-cover-guide",
+    "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin"
+   ]
+  },
+  "/blog/tarpaulin-for-construction-sites": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T22:29:37Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/tarpaulin-for-construction-sites",
+   "userCanonical": "https://www.divinefabtech.com/blog/tarpaulin-for-construction-sites",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": null,
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/monsoon-shed-tarpaulin"
+   ]
+  },
+  "/blog/monsoon-shed-tarpaulin": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T19:42:34Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/monsoon-shed-tarpaulin",
+   "userCanonical": "https://www.divinefabtech.com/blog/monsoon-shed-tarpaulin",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin"
+   ]
+  },
+  "/blog/tarpaulin-covers-for-machinery-and-warehouses": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T23:36:22Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/tarpaulin-covers-for-machinery-and-warehouses",
+   "userCanonical": "https://www.divinefabtech.com/blog/tarpaulin-covers-for-machinery-and-warehouses",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ]
+  },
+  "/blog/how-to-measure-and-order-tarpaulin": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T19:14:04Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/how-to-measure-and-order-tarpaulin",
+   "userCanonical": "https://divine-fabtech-industries.vercel.app/blog/how-to-measure-and-order-tarpaulin",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/monsoon-shed-tarpaulin"
+   ]
+  },
+  "/blog/how-to-make-a-tarpaulin-last-longer": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T22:42:01Z",
+   "googleCanonical": "https://www.divinefabtech.com/blog/how-to-make-a-tarpaulin-last-longer",
+   "userCanonical": "https://www.divinefabtech.com/blog/how-to-make-a-tarpaulin-last-longer",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/monsoon-shed-tarpaulin"
+   ]
+  },
+  "/faq": {
+   "verdict": "NEUTRAL",
+   "coverageState": "Discovered - currently not indexed",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": null
+  },
+  "/gallery": {
+   "verdict": "NEUTRAL",
+   "coverageState": "Discovered - currently not indexed",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": null
+  },
+  "/about": {
+   "verdict": "PASS",
+   "coverageState": "Submitted and indexed",
+   "lastCrawlTime": "2026-10-29T22:23:27Z",
+   "googleCanonical": "https://www.divinefabtech.com/about",
+   "userCanonical": "https://www.divinefabtech.com/about",
+   "pageFetchState": "SUCCESSFUL",
+   "robotsTxtState": "ALLOWED",
+   "indexingState": "INDEXING_ALLOWED",
+   "sitemap": [
+    "https://www.divinefabtech.com/sitemap.xml"
+   ],
+   "referringUrls": [
+    "https://www.divinefabtech.com/blog/truck-tarpaulin-cover-guide"
+   ]
+  },
+  "/contact": {
+   "verdict": "NEUTRAL",
+   "coverageState": "URL is unknown to Google",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": null,
+   "referringUrls": null
+  },
+  "/inquiry": {
+   "verdict": "NEUTRAL",
+   "coverageState": "URL is unknown to Google",
+   "lastCrawlTime": null,
+   "googleCanonical": null,
+   "userCanonical": null,
+   "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+   "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+   "indexingState": "INDEXING_STATE_UNSPECIFIED",
+   "sitemap": null,
+   "referringUrls": null
+  }
+ }
+}
