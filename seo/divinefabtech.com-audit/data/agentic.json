@@ -1,0 +1,491 @@
+{
+  "url": "https://www.divinefabtech.com/",
+  "site_root": "https://www.divinefabtech.com",
+  "checked_at": "2026-10-30T11:52:25+00:00",
+  "facts_checked_on": "2026-09-23",
+  "checks": [
+    {
+      "id": "robots-ai-groups",
+      "title": "Deliberate robots.txt groups for AI user agents",
+      "priority": "P0",
+      "status": "info",
+      "standard": "RFC 9309",
+      "evidence": {
+        "named_groups": [],
+        "search_crawlers_blocked_at_root": []
+      },
+      "fix": "Every AI agent falls through to the * group. Add named groups if your policy differs by purpose (training vs search vs user fetches)."
+    },
+    {
+      "id": "server-rendered",
+      "title": "Primary content present without JavaScript",
+      "priority": "P0",
+      "status": "pass",
+      "standard": "practice (all fetchers)",
+      "evidence": {
+        "words_without_js": 855,
+        "js_shell_marker": false
+      },
+      "fix": null
+    },
+    {
+      "id": "robots-reachable",
+      "title": "robots.txt reachable",
+      "priority": "P0",
+      "status": "pass",
+      "standard": "RFC 9309",
+      "evidence": {
+        "status": 200,
+        "groups": 1
+      },
+      "fix": null
+    },
+    {
+      "id": "content-signal",
+      "title": "Content-Signal preference declared",
+      "priority": "P1",
+      "status": "info",
+      "standard": "Cloudflare Content Signals Policy (CC0) + IETF draft; a preference, not enforcement; Google says it does not act on it (checked 2026-09-23)",
+      "evidence": {
+        "lines": [],
+        "outside_any_group": [],
+        "issues": [],
+        "named_groups_without_signal": []
+      },
+      "fix": "No Content-Signal line. Optional: add one (for example 'Content-Signal: search=yes, ai-input=yes, ai-train=no') to each group whose policy you want to state."
+    },
+    {
+      "id": "llms-txt",
+      "title": "llms.txt follows the Lighthouse rules",
+      "priority": "P1",
+      "status": "info",
+      "standard": "community spec (llmstxt.org); Lighthouse checks it, Google Search ignores it",
+      "evidence": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "bytes": 17202,
+        "llms_full_status": 404,
+        "lighthouse": "not-applicable",
+        "errors": [],
+        "notes": [
+          "HTTP 404"
+        ]
+      },
+      "fix": "No /llms.txt. Lighthouse drops the audit from the fraction; publishing a valid one adds a counted pass. Include an H1, a '>' summary and Markdown links."
+    },
+    {
+      "id": "markdown-delivery",
+      "title": "Markdown version of the page",
+      "priority": "P1",
+      "status": "info",
+      "standard": "HTTP content negotiation (RFC 9110) + community practice; no consumer agent is confirmed to request it (checked 2026-09-23)",
+      "evidence": {
+        "negotiation": {
+          "status": null,
+          "content_type": "",
+          "vary_accept": false,
+          "x_markdown_tokens": null,
+          "content_signal_header": null
+        },
+        "alternates": [],
+        "md_sibling": {
+          "url": "https://www.divinefabtech.com/index.md",
+          "status": 404,
+          "content_type": "text/html; charset=utf-8",
+          "ok": false
+        }
+      },
+      "fix": "Optional. Offer a content-equivalent Markdown version via 'Accept: text/markdown' (with 'Vary: Accept'), a rel=\"alternate\" type=\"text/markdown\" link, or a .md URL."
+    },
+    {
+      "id": "robots-user-agents",
+      "title": "User-triggered agents and robots.txt",
+      "priority": "P1",
+      "status": "pass",
+      "standard": "vendor documentation",
+      "evidence": {
+        "blocked_at_root": [],
+        "documented_behaviour": {
+          "ChatGPT-User": "may not apply",
+          "Claude-User": "honours",
+          "Perplexity-User": "generally ignores",
+          "Google-Agent": "generally ignores"
+        }
+      },
+      "fix": null
+    },
+    {
+      "id": "http-404",
+      "title": "Unknown URLs return a real 404",
+      "priority": "P1",
+      "status": "pass",
+      "standard": "HTTP semantics (RFC 9110); Google soft-404 guidance",
+      "evidence": {
+        "probe_url": "https://www.divinefabtech.com/claude-seo-404-probe-82c45488",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "catch_all_200": false
+      },
+      "fix": null
+    },
+    {
+      "id": "webmcp-tools",
+      "title": "WebMCP tools for forms and transactions",
+      "priority": "P2",
+      "status": "info",
+      "standard": "W3C Community Group draft, not a standard; WebKit opposes, Mozilla neutral (checked 2026-09-23)",
+      "evidence": {
+        "registerTool_call_sites": 0,
+        "forms": 1,
+        "forms_annotated": 0,
+        "note": "Static count of registerTool( call sites in inline and same-origin scripts, not the number of tools (a loop registers many). Use lighthouse_agentic.py webmcp-registered-tools for the real list."
+      },
+      "fix": "Optional. If the site has search, booking, checkout or lead forms, register imperative tools bound to the same handlers the UI uses. Static scan only; confirm at runtime with lighthouse_agentic.py (webmcp-registered-tools)."
+    },
+    {
+      "id": "webmcp-entry-point",
+      "title": "WebMCP registered on the current entry point",
+      "priority": "P2",
+      "status": "na",
+      "standard": "W3C Community Group draft",
+      "evidence": {
+        "navigator_modelContext": false,
+        "document_modelContext": false
+      },
+      "fix": null
+    },
+    {
+      "id": "well-known:api-catalog",
+      "title": "API Catalog",
+      "priority": "P2",
+      "status": "na",
+      "standard": "RFC 9727",
+      "evidence": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "fix": "Only needed if you operate the matching service (API Catalog)."
+    },
+    {
+      "id": "well-known:oauth-protected-resource",
+      "title": "OAuth Protected Resource Metadata",
+      "priority": "P2",
+      "status": "na",
+      "standard": "RFC 9728",
+      "evidence": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "fix": "Only needed if you operate the matching service (OAuth Protected Resource Metadata)."
+    },
+    {
+      "id": "well-known:oauth-authorization-server",
+      "title": "OAuth Authorization Server Metadata",
+      "priority": "P2",
+      "status": "na",
+      "standard": "RFC 8414",
+      "evidence": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "fix": "Only needed if you operate the matching service (OAuth Authorization Server Metadata)."
+    },
+    {
+      "id": "webmcp-form-annotations",
+      "title": "Forms annotated for declarative WebMCP (static scan)",
+      "priority": "P3",
+      "status": "info",
+      "standard": "W3C Community Group draft (Chrome only)",
+      "evidence": {
+        "forms": 1,
+        "unannotated": [
+          "form"
+        ]
+      },
+      "fix": "Lighthouse's webmcp-form-coverage audit counts only when every form has toolname or tooldescription. Annotate only forms that are safe for an agent to submit."
+    },
+    {
+      "id": "ard-catalog",
+      "title": "ai-catalog.json (Agentic Resource Discovery)",
+      "priority": "P3",
+      "status": "na",
+      "standard": "Agentic Resource Discovery (ARD) spec 1.0; checked by Lighthouse 13.5 ard-schema (checked 2026-09-23)",
+      "evidence": {
+        "catalog_url": "https://www.divinefabtech.com/.well-known/ai-catalog.json",
+        "signalled": false,
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "fix": "Only publish one if you have agent resources to list (MCP server, A2A agent, skills). Lighthouse treats its absence as not applicable."
+    },
+    {
+      "id": "well-known:agent-card.json",
+      "title": "A2A agent card",
+      "priority": "P3",
+      "status": "na",
+      "standard": "A2A protocol",
+      "evidence": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "fix": "Only needed if you operate the matching service (A2A agent card)."
+    },
+    {
+      "id": "well-known:ucp",
+      "title": "UCP commerce profile",
+      "priority": "P3",
+      "status": "na",
+      "standard": "UCP (Google + Shopify open spec); depth in seo-ecommerce ucp_check.py",
+      "evidence": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "fix": "Only needed if you operate the matching service (UCP commerce profile)."
+    }
+  ],
+  "data": {
+    "page": {
+      "status": 200,
+      "error": null,
+      "words_without_js": 855,
+      "js_shell_marker": false,
+      "final_url": "https://www.divinefabtech.com/",
+      "headers": {},
+      "webmcp": {
+        "forms": 1,
+        "forms_annotated": 0,
+        "forms_unannotated": [
+          "form"
+        ],
+        "registerTool_call_sites": 0,
+        "document_modelContext": false,
+        "navigator_modelContext": false,
+        "same_origin_scripts_scanned": 1
+      }
+    },
+    "robots": {
+      "status": 200,
+      "error": null,
+      "parsed": {
+        "sitemap": [
+          "https://www.divinefabtech.com/sitemap.xml"
+        ],
+        "agentmap": [],
+        "orphan_content_signal": []
+      },
+      "group_count": 1,
+      "agents": [
+        {
+          "token": "GPTBot",
+          "vendor": "OpenAI",
+          "role": "training",
+          "governs": "model training",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "OAI-SearchBot",
+          "vendor": "OpenAI",
+          "role": "search",
+          "governs": "AI search indexing and citation",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "ChatGPT-User",
+          "vendor": "OpenAI",
+          "role": "user",
+          "governs": "fetches and actions a person asked for",
+          "robots_behaviour": "may not apply",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "OAI-AdsBot",
+          "vendor": "OpenAI",
+          "role": "ads",
+          "governs": "ad landing-page checks",
+          "robots_behaviour": "see vendor documentation",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "ClaudeBot",
+          "vendor": "Anthropic",
+          "role": "training",
+          "governs": "model training",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "Claude-SearchBot",
+          "vendor": "Anthropic",
+          "role": "search",
+          "governs": "AI search indexing and citation",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "Claude-User",
+          "vendor": "Anthropic",
+          "role": "user",
+          "governs": "fetches and actions a person asked for",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "PerplexityBot",
+          "vendor": "Perplexity",
+          "role": "search",
+          "governs": "AI search indexing and citation",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "Perplexity-User",
+          "vendor": "Perplexity",
+          "role": "user",
+          "governs": "fetches and actions a person asked for",
+          "robots_behaviour": "generally ignores",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "Google-Extended",
+          "vendor": "Google",
+          "role": "control",
+          "governs": "a robots.txt control token (no separate crawler)",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "Google-Agent",
+          "vendor": "Google",
+          "role": "user",
+          "governs": "fetches and actions a person asked for",
+          "robots_behaviour": "generally ignores",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "Applebot-Extended",
+          "vendor": "Apple",
+          "role": "control",
+          "governs": "a robots.txt control token (no separate crawler)",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        },
+        {
+          "token": "CCBot",
+          "vendor": "Common Crawl",
+          "role": "training",
+          "governs": "model training",
+          "robots_behaviour": "honours",
+          "group": "star",
+          "root_allowed": true,
+          "content_signal": []
+        }
+      ],
+      "agentmap": []
+    },
+    "llms": {
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "bytes": 17202,
+      "llms_full_status": 404,
+      "lighthouse": "not-applicable",
+      "errors": [],
+      "notes": [
+        "HTTP 404"
+      ]
+    },
+    "markdown": {
+      "negotiation": {
+        "status": null,
+        "content_type": "",
+        "vary_accept": false,
+        "x_markdown_tokens": null,
+        "content_signal_header": null
+      },
+      "alternates": [],
+      "md_sibling": {
+        "url": "https://www.divinefabtech.com/index.md",
+        "status": 404,
+        "content_type": "text/html; charset=utf-8",
+        "ok": false
+      }
+    },
+    "ard": {
+      "catalog_url": "https://www.divinefabtech.com/.well-known/ai-catalog.json",
+      "signalled": false,
+      "status": 404,
+      "content_type": "text/html; charset=utf-8"
+    },
+    "well_known": {
+      "/.well-known/api-catalog": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "/.well-known/oauth-protected-resource": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "/.well-known/oauth-authorization-server": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "/.well-known/agent-card.json": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      },
+      "/.well-known/ucp": {
+        "status": 404,
+        "content_type": "text/html; charset=utf-8"
+      }
+    },
+    "not_found": {
+      "probe_url": "https://www.divinefabtech.com/claude-seo-404-probe-82c45488",
+      "status": 404,
+      "content_type": "text/html; charset=utf-8",
+      "catch_all_200": false
+    }
+  },
+  "summary": {
+    "P0": {
+      "info": 1,
+      "pass": 2
+    },
+    "P1": {
+      "info": 3,
+      "pass": 2
+    },
+    "P2": {
+      "info": 1,
+      "na": 4
+    },
+    "P3": {
+      "info": 1,
+      "na": 3
+    }
+  }
+}

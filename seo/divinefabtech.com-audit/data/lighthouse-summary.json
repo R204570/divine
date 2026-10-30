@@ -1,0 +1,114 @@
+{
+ "blog_tarpaulin-gsm-guide_desktop": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 100,
+   "accessibility": 96,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 607,
+  "fcp_ms": 487,
+  "tbt_ms": 0,
+  "cls": 0,
+  "speed_index_ms": 542
+ },
+ "blog_tarpaulin-gsm-guide_mobile": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 73,
+   "accessibility": 96,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 4664,
+  "fcp_ms": 3501,
+  "tbt_ms": 98,
+  "cls": 0,
+  "speed_index_ms": 4909
+ },
+ "home_desktop": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 99,
+   "accessibility": 96,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 947,
+  "fcp_ms": 477,
+  "tbt_ms": 0,
+  "cls": 0,
+  "speed_index_ms": 774
+ },
+ "home_mobile": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 74,
+   "accessibility": 96,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 5203,
+  "fcp_ms": 2203,
+  "tbt_ms": 127,
+  "cls": 0,
+  "speed_index_ms": 4552
+ },
+ "poncho-raincoat-manufacturer-in-gujarat_desktop": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 98,
+   "accessibility": 96,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 1038,
+  "fcp_ms": 616,
+  "tbt_ms": 0,
+  "cls": 0,
+  "speed_index_ms": 769
+ },
+ "poncho-raincoat-manufacturer-in-gujarat_mobile": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 72,
+   "accessibility": 97,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 4610,
+  "fcp_ms": 3537,
+  "tbt_ms": 139,
+  "cls": 0,
+  "speed_index_ms": 5006
+ },
+ "products_poncho_desktop": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 98,
+   "accessibility": 96,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 1088,
+  "fcp_ms": 668,
+  "tbt_ms": 0,
+  "cls": 0,
+  "speed_index_ms": 844
+ },
+ "products_poncho_mobile": {
+  "lighthouse": "13.5.0",
+  "scores": {
+   "performance": 71,
+   "accessibility": 96,
+   "best-practices": 100,
+   "seo": 100
+  },
+  "lcp_ms": 4918,
+  "fcp_ms": 3702,
+  "tbt_ms": 50,
+  "cls": 0,
+  "speed_index_ms": 4904
+ }
+}

@@ -1,0 +1,162 @@
+{
+  "meta": {
+    "site": "https://www.divinefabtech.com",
+    "old_host": "https://divine-fabtech-industries.vercel.app",
+    "audit_date": "2026-10-30",
+    "tool": "claude-seo 2.5.0 (seo-audit), run inline; Lighthouse 13.5.0 local lab runs; Search Console + GA4 APIs",
+    "pages_crawled": 30
+  },
+  "summary": {
+    "health_score": 75,
+    "business_type": "Local manufacturer (B2B, brick-and-mortar factory in Bavla, Ahmedabad) with a product catalogue and a buying-guide blog",
+    "top_findings": [
+      "Domain move not finished in Google: the www home page is marked 'Google chose different canonical' (Google still prefers the old .vercel.app home), and 9 of 30 www pages are not indexed yet.",
+      "Mobile LCP is 4.6 to 5.2 s in Lighthouse (poor is above 4 s); the hero image waits about 1.7 s to paint because of the slideshow fade and render-blocking CSS/JS.",
+      "Money pages are short against the skill's topical-coverage floors: product pages about 240 words, location landing pages 489 to 796, guides 303 to 768.",
+      "Few trust signals: no named people, no on-site reviews, unconfirmed claims on About (500+ clients, ISO 9001:2015), and an unexplained asterisk on the Rs 20* poncho price.",
+      "No key events in GA4, so leads from search (WhatsApp, call and form clicks) are not counted as conversions."
+    ],
+    "quick_wins": [
+      "Use the Change of Address tool in the old .vercel.app Search Console property and request indexing for the home page and the 3 product pages.",
+      "Mark contact_click and form_start as key events in GA4.",
+      "Add fetchpriority=\"high\" to the first hero slide and render it without the fade; serve the logo as a small WebP instead of the 110 KB PNG.",
+      "Update the website link on the Google Business Profile, Justdial, Instagram and Facebook to https://www.divinefabtech.com.",
+      "Fix the Google Business Profile address typo and category, then add geo, priceRange and the Business Profile and Justdial URLs to the LocalBusiness schema (IndiaMART once a listing exists; none does yet)."
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "weight": 0.22,
+      "score": 85,
+      "what_works": [
+        "Old host 301-redirects path for path to www; bare domain 308-redirects to www; HTTPS with HSTS",
+        "30/30 pages self-canonical on www, indexable, prerendered HTML (855 words visible without JavaScript on the home page)",
+        "Valid sitemap with 30 URLs and 117 images, declared in robots.txt, submitted 29 Oct 2026 and read 2 seconds later with 0 errors",
+        "Unknown URLs return a real 404; anti-framing headers (CSP frame-ancestors, X-Frame-Options) are live",
+        "20 of 30 www pages indexed within about a day of the sitemap submission"
+      ],
+      "findings": [
+        {"title": "Google still treats the old home page as canonical", "severity": "High", "description": "URL Inspection of https://www.divinefabtech.com/ on 30 Oct: 'Duplicate, Google chose different canonical than user'. The old https://divine-fabtech-industries.vercel.app/ is still 'Submitted and indexed' with itself as canonical. Two guides were crawled at 19:11 and 19:14 UTC on 29 Oct, minutes before the domain switch deployed at 19:17 UTC, and still carry the old canonical.", "recommendation": "In the old URL-prefix property use Settings > Change of address to point to sc-domain:divinefabtech.com, keep the 301s permanently, and request indexing for the www home page."},
+        {"title": "9 www pages not indexed yet", "severity": "High", "description": "Discovered - currently not indexed: /products, /products/tarpaulins, /products/poncho, /tarpaulin-manufacturer-in-india, /faq, /gallery. Unknown to Google: /blog, /contact, /inquiry.", "recommendation": "Request indexing for /products/poncho, /products/tarpaulins and /tarpaulin-manufacturer-in-india first; the rest will follow from internal links and the sitemap."},
+        {"title": "Identical lastmod on every sitemap URL", "severity": "Low", "description": "Every <lastmod> is the build date, so it carries no signal about which page changed.", "recommendation": "Store a real last-edited date per page (blog posts already have one) and emit that."},
+        {"title": "Missing hardening headers", "severity": "Low", "description": "X-Content-Type-Options, Referrer-Policy and Permissions-Policy are not sent.", "recommendation": "Add nosniff, strict-origin-when-cross-origin and a minimal Permissions-Policy in vercel.json."},
+        {"title": "Bing Webmaster Tools and IndexNow not set up", "severity": "Medium", "description": "Bing powers Copilot and feeds ChatGPT search; the new domain is not registered there.", "recommendation": "Add the site in Bing Webmaster Tools by importing from Search Console and submit the sitemap."}
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "weight": 0.23,
+      "score": 62,
+      "what_works": [
+        "Specific, checkable facts (GSM ranges, sizes, colours, Rs 20* bulk price, location) instead of filler",
+        "claude-seo content_quality: 0 filler and 0 AI-pattern flags on all 30 pages; scores 65 to 93",
+        "15 distinct buying guides with their own topics, no duplicated bodies"
+      ],
+      "findings": [
+        {"title": "Money pages are short against coverage floors", "severity": "High", "description": "Main-content words (trafilatura): /products/poncho 231 and /products/tarpaulins 243 (floor 400); location pages 489 to 796 (floor 800); guides 303 to 768 (floor 1,500). content_quality flags thin-content on 10 pages. Word count is not a ranking factor, but these pages leave buyer questions unanswered (MOQ, lead time, packing, sizes, test data).", "recommendation": "Expand the 3 poncho pages and 2 product pages first with a spec table, MOQ, lead time, packing, real factory photos and a short case example."},
+        {"title": "Weak first-hand and trust signals", "severity": "High", "description": "No named owner or team, no on-site reviews or testimonials, About page claims (500+ clients, 5000+ products, ISO 9001:2015) are not backed by evidence, and the Rs 20* asterisk has no footnote. Google Business Profile shows 3.7 stars from 6 reviews.", "recommendation": "Name the founder/team with a photo, show real testimonials, keep only claims you can prove, explain the asterisk, and ask recent buyers for Google reviews."}
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "weight": 0.20,
+      "score": 84,
+      "what_works": [
+        "30 unique titles, all 60 characters or fewer; descriptions 124 to 155 characters",
+        "Exactly one H1 per page, matching the target search on landing pages",
+        "Templated-metadata check: 0 of 30 pages templated, site risk low",
+        "No orphan pages; every guide has at least 7 internal links in; breadcrumbs on 29 pages"
+      ],
+      "findings": [
+        {"title": "Landing pages and 'best manufacturers' guides target overlapping searches", "severity": "Medium", "description": "/poncho-raincoat-manufacturer-in-gujarat and /blog/best-rain-poncho-manufacturers-in-ahmedabad-gujarat (and the India and tarpaulin pairs) aim at nearly the same query.", "recommendation": "Keep the landing page commercial (manufacturer, MOQ, quote) and the guide informational (how to choose), link guide to landing page with the exact phrase, and watch Search Console for which URL Google picks."},
+        {"title": "Product page H1s are generic", "severity": "Low", "description": "/products/tarpaulins H1 'Multilayer Tarpaulin' and /products/poncho H1 'Poncho Raincoats' do not say manufacturer, bulk or a location.", "recommendation": "For example 'Multilayer Tarpaulin, 90 to 200 GSM, from our Bavla factory'."}
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "weight": 0.10,
+      "score": 78,
+      "what_works": [
+        "Valid JSON-LD on all 30 pages with https://schema.org context and absolute URLs",
+        "LocalBusiness with address, phone, hours, contactPoint, hasMap; BreadcrumbList on 29 pages; BlogPosting with dates on 15 guides; Product + Offer (Rs 20) on /products/poncho"
+      ],
+      "findings": [
+        {"title": "LocalBusiness missing geo, priceRange and key profiles", "severity": "Medium", "description": "No geo coordinates or priceRange; sameAs lists only Instagram and Facebook.", "recommendation": "Add geo (5 decimals), priceRange, and the Google Business Profile, Justdial and IndiaMART URLs to sameAs."},
+        {"title": "Guides credit the company, not a person", "severity": "Low", "description": "BlogPosting.author points at the business.", "recommendation": "Add a named Person author with a short bio page."},
+        {"title": "FAQPage markup on 6 pages", "severity": "Info", "description": "Google retired FAQ rich results for all sites on 7 May 2026.", "recommendation": "No action needed; leave it in place."}
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "weight": 0.10,
+      "score": 68,
+      "what_works": [
+        "CLS 0 on all tested pages; Total Blocking Time 50 to 140 ms on mobile",
+        "Desktop performance 98 to 100; Lighthouse SEO 100, Best Practices 100, Accessibility 96 to 97"
+      ],
+      "findings": [
+        {"title": "Mobile LCP is poor", "severity": "High", "description": "Lighthouse 13.5.0 mobile (simulated slow 4G): home 5.2 s, poncho landing 4.6 s, /products/poncho 4.9 s, GSM guide 4.7 s; performance 71 to 74. Home LCP is the first hero slide: TTFB 110 ms, load 727 ms, then 1,746 ms render delay. No CrUX field data exists yet (too little traffic).", "recommendation": "Render the first hero slide without the opacity fade, add fetchpriority=\"high\", defer gtag until after load, and inline the small critical CSS."},
+        {"title": "Heavy logo and third-party script", "severity": "Medium", "description": "logo.png is 110 KB (108 KB wasted); gtag.js is 181 KB with 76 KB unused; vendor JS 125 KB with 72 KB unused; no preconnect.", "recommendation": "Ship the logo as a 2x WebP at display size (about 5 KB), lazy-load gtag, split unused vendor code."}
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "weight": 0.10,
+      "score": 68,
+      "what_works": [
+        "All AI search crawlers allowed (OAI-SearchBot, Claude-SearchBot, PerplexityBot, Googlebot); content is in the HTML without JavaScript",
+        "Agent-UX heuristic 100/100: real buttons and links, 11 landmarks, no unnamed controls",
+        "Question-style headings and short direct answers in the FAQ and guides"
+      ],
+      "findings": [
+        {"title": "Little brand presence outside the site", "severity": "Medium", "description": "In 90 days GA4 saw 1 visit from ChatGPT and none from Gemini, Perplexity or Copilot. AI answers lean on third-party mentions (YouTube, directories, Reddit) that do not exist yet for the new domain.", "recommendation": "Short factory videos on YouTube, complete IndiaMART/TradeIndia/Justdial profiles linking to www, and Bing Webmaster Tools."},
+        {"title": "No llms.txt", "severity": "Low", "description": "Optional: Lighthouse counts it in Agentic Browsing; Google Search ignores it.", "recommendation": "Optional: publish a short /llms.txt listing the product, location and guide pages."}
+      ]
+    },
+    {
+      "name": "Images",
+      "weight": 0.05,
+      "score": 86,
+      "what_works": [
+        "WebP photos, width and height on all 208 images, descriptive alt text; decorative duplicates correctly use alt=\"\"",
+        "152 of 208 images lazy-loaded; image sitemap lists 117 photos"
+      ],
+      "findings": [
+        {"title": "Oversized images", "severity": "Medium", "description": "logo.png 110 KB; the five-colour poncho photo is 1580x504 but shown in a 380x380 box; Lighthouse estimates 140 KiB savings on the home page.", "recommendation": "Resize to display size with srcset and use WebP for the logo."}
+      ]
+    }
+  ],
+  "action_plan": {
+    "phases": [
+      {"name": "Phase 1: Critical Fixes", "timeframe": "Week 1", "items": [
+        "Search Console: Change of address from the old .vercel.app property to sc-domain:divinefabtech.com",
+        "Request indexing: www home, /products/poncho, /products/tarpaulins, /tarpaulin-manufacturer-in-india",
+        "Update the website link on Google Business Profile, Justdial, Instagram and Facebook to www.divinefabtech.com",
+        "GA4: mark contact_click and form_start as key events"
+      ]},
+      {"name": "Phase 2: High-Impact Improvements", "timeframe": "Weeks 2-3", "items": [
+        "Fix mobile LCP: no fade on the first hero slide, fetchpriority high, WebP logo, deferred gtag",
+        "Expand the 3 poncho pages and 2 product pages (specs, MOQ, lead time, packing, real photos)",
+        "Schema: geo, priceRange, sameAs with GBP/Justdial/IndiaMART",
+        "Add Bing Webmaster Tools via Search Console import",
+        "Add nosniff, Referrer-Policy and Permissions-Policy headers"
+      ]},
+      {"name": "Phase 3: Content & Authority", "timeframe": "Month 2", "items": [
+        "Trust: named founder/team, real testimonials, prove or remove About claims, explain the Rs 20* asterisk",
+        "Collect Google reviews from recent buyers (now 3.7 stars from 6)",
+        "Make Justdial match the site (name 'Divine Fabtech Industries', Rupal, Bavla) and list on IndiaMART/TradeIndia with the new link",
+        "Deepen the guides that start getting impressions"
+      ]},
+      {"name": "Phase 4: Monitoring & Iteration", "timeframe": "Ongoing", "items": [
+        "Weekly: Search Console indexing and queries for sc-domain:divinefabtech.com",
+        "Monthly: rank check against seo/rank-check-2026-10-30.csv",
+        "Watch which URL ranks for each 'best rain poncho manufacturer' search and adjust internal links"
+      ]}
+    ]
+  },
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/"
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "phases": [
+    {"when": "week 1 · now", "title": "Finish the domain move", "items": [
+      ["you", "Search Console: open the old .vercel.app property → Settings → Change of address → divinefabtech.com."],
+      ["you", "Request indexing for <code>/</code>, <code>/products/poncho</code>, <code>/products/tarpaulins</code> and <code>/tarpaulin-manufacturer-in-india</code>."],
+      ["you", "Change the website link on your Google Business Profile, Justdial, Instagram and Facebook to www.divinefabtech.com."],
+      ["you", "GA4: mark <code>contact_click</code> and <code>form_start</code> as key events."],
+      ["you", "Add the site to Bing Webmaster Tools by importing it from Search Console."]
+    ]},
+    {"when": "weeks 2 – 3", "title": "Speed, markup, listings", "items": [
+      ["code", "Show the first hero slide without the fade, with <code>fetchpriority=\"high\"</code>; load the Google tag after the page."],
+      ["code", "Serve the logo as a small WebP and resize the poncho photo; add three security headers."],
+      ["code", "Add geo, priceRange and sameAs (Business Profile, Justdial, the real Facebook page URL; IndiaMART once live) to LocalBusiness."],
+      ["you", "Fix the Business Profile address and categories; make Justdial match the site; remove the 'HDPE' title on JD Mart."],
+      ["you", "Create IndiaMART, TradeIndia and ExportersIndia listings that link to www."],
+      ["you", "Start the review drive: send every buyer from the last 12 months the Google review link on WhatsApp."]
+    ]},
+    {"when": "month 2", "title": "Content and trust", "items": [
+      ["code", "Rebuild <code>/products/poncho</code> and <code>/products/tarpaulins</code>: spec tables, MOQ, lead time, packing, price-by-quantity, real factory photos."],
+      ["code", "Add an About section with the founder and team, factory photos and the story; keep only claims you can prove."],
+      ["code", "Explain the ₹20* asterisk next to the price; add 3 customer stories with photos."],
+      ["code", "Publish Gujarati and Hindi versions of the tarpaulin pages, starting with the farmer and trader pages."],
+      ["you", "Film 6 short factory videos (lamination line, GSM test, poncho stitching, packing, dispatch, colours) for YouTube and the site."]
+    ]},
+    {"when": "ongoing", "title": "Grow and measure", "items": [
+      ["you", "Run the seasonal campaigns in the calendar; track leads by channel in GA4."],
+      ["code", "Every month, add 2 guides that answer a question buyers ask on WhatsApp."],
+      ["you", "Every month, repeat the rank check and run <code>/seo drift compare</code> on the 6 baseline pages."],
+      ["you", "Pitch the 'best manufacturers' lists and directories named in the Authority section."]
+    ]}
+  ],
+  "actions": [
+    {"id": "a1", "short": "Change of address", "name": "Change of Address in Search Console", "who": "you", "impact": 5, "effort": 1, "jx": -0.15, "jy": 0.15},
+    {"id": "a2", "short": "Request indexing", "name": "Request indexing for home + product pages", "who": "you", "impact": 4, "effort": 1, "jx": 0.1, "jy": 0.05},
+    {"id": "a3", "short": "Profile links → www", "name": "Point Business Profile, Justdial and social links at www", "who": "you", "impact": 3, "effort": 1, "jx": -0.2, "jy": -0.1},
+    {"id": "a4", "short": "GA4 key events", "name": "Mark contact_click and form_start as key events", "who": "you", "impact": 3, "effort": 1, "jx": 0.18, "jy": 0.2},
+    {"id": "a5", "short": "Hero LCP fix", "name": "First hero slide: no fade, fetchpriority high", "who": "code", "impact": 4, "effort": 2, "jx": -0.1, "jy": 0.12},
+    {"id": "a6", "short": "WebP logo", "name": "Logo as WebP, resize poncho photo", "who": "code", "impact": 2, "effort": 1, "jx": 0.0, "jy": 0.1},
+    {"id": "a7", "short": "Defer gtag", "name": "Load the Google tag after page load", "who": "code", "impact": 2, "effort": 1, "jx": 0.22, "jy": -0.15},
+    {"id": "a8", "short": "Schema details", "name": "geo, priceRange, sameAs in LocalBusiness", "who": "code", "impact": 2, "effort": 1, "jx": -0.22, "jy": -0.2},
+    {"id": "a9", "short": "Headers", "name": "nosniff, Referrer-Policy, Permissions-Policy", "who": "code", "impact": 1, "effort": 1, "jx": 0.0, "jy": 0.0},
+    {"id": "a10", "short": "Bing", "name": "Bing Webmaster Tools via Search Console import", "who": "you", "impact": 2, "effort": 1, "jx": 0.15, "jy": 0.2},
+    {"id": "a11", "short": "Deeper product pages", "name": "Rebuild product and poncho pages with specs, MOQ, lead time, proof", "who": "both", "impact": 5, "effort": 3, "jx": 0.0, "jy": 0.12},
+    {"id": "a12", "short": "Trust layer", "name": "Team, testimonials, provable claims, asterisk footnote", "who": "both", "impact": 5, "effort": 3, "jx": 0.18, "jy": -0.12},
+    {"id": "a13", "short": "Review drive", "name": "Google review drive with buyers", "who": "you", "impact": 4, "effort": 2, "jx": 0.1, "jy": -0.1},
+    {"id": "a14", "short": "Fix Justdial", "name": "Make the Justdial listing match the site", "who": "you", "impact": 3, "effort": 1, "jx": 0.0, "jy": -0.25},
+    {"id": "a15", "short": "IndiaMART / TradeIndia", "name": "Create IndiaMART, TradeIndia and ExportersIndia listings linking to www", "who": "you", "impact": 5, "effort": 2, "jx": -0.1, "jy": 0.0},
+    {"id": "a21", "short": "Fix Business Profile", "name": "Fix the Business Profile address typo and categories; add products and photos", "who": "you", "impact": 4, "effort": 1, "jx": 0.05, "jy": -0.12},
+    {"id": "a16", "short": "Factory videos", "name": "YouTube factory video series", "who": "you", "impact": 4, "effort": 3, "jx": -0.15, "jy": 0.0},
+    {"id": "a17", "short": "Gujarati / Hindi pages", "name": "Gujarati and Hindi versions of farmer and trader pages", "who": "both", "impact": 4, "effort": 3, "jx": 0.2, "jy": 0.15},
+    {"id": "a18", "short": "GeM / tenders", "name": "GeM seller registration and tender pages", "who": "you", "impact": 4, "effort": 4, "jx": 0.0, "jy": 0.0},
+    {"id": "a19", "short": "Size & GSM calculator", "name": "Tarpaulin size, weight and price calculator", "who": "code", "impact": 4, "effort": 3, "jx": 0.05, "jy": -0.2},
+    {"id": "a20", "short": "Listicle outreach", "name": "Get named on 'best manufacturers' lists", "who": "you", "impact": 3, "effort": 3, "jx": 0.0, "jy": 0.0}
+  ]
+}

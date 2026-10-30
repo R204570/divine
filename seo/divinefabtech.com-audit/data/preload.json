@@ -1,0 +1,24 @@
+{
+  "url": "https://www.divinefabtech.com/",
+  "speculation_rules": {
+    "inline_blocks": 0,
+    "header_present": false,
+    "actions": []
+  },
+  "preload_hints": 0,
+  "prerender_links": 0,
+  "bfcache_signals": {
+    "cache_control_no_store": false,
+    "unload_listener": false,
+    "beforeunload_listener": false
+  },
+  "lcp_resource_hints": {
+    "preload_lcp_candidate": false,
+    "fetchpriority_high": 0
+  },
+  "score": 50,
+  "recommendations": [
+    "Add <script type=\"speculationrules\"> for prefetch+prerender on top user-paths. Saves entire next-navigation paint cost.",
+    "Mark the LCP hero image with fetchpriority=\"high\" so the browser preloads it ahead of other resources."
+  ]
+}
