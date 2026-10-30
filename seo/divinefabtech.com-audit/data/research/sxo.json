@@ -1,0 +1,34 @@
+[
+  {"keyword": "rain poncho manufacturer in gujarat", "serp_consensus_type": "marketplace / directory listing", "consensus_pct": 50,
+   "divine_url": "/poncho-raincoat-manufacturer-in-gujarat", "mismatch": "MEDIUM",
+   "user_stories": [
+     "As a Gujarat buyer comparing suppliers, I want a per-piece price and minimum order up front, so I can shortlist without calling (IndiaMART 'Get Latest Price' pages at #1 and #4).",
+     "As a buyer, I want several manufacturers side by side (Justdial 'Top Rain Poncho Manufacturers' at #3 and #8; Frank Industries' 'Best Rain Poncho Manufacturers in Ahmedabad' at #5).",
+     "As a seva or event organiser, I want daily capacity and dispatch time, so the ponchos arrive before the date (Aashi Rainwear's '8000 raincoats daily' post ranks #10)."],
+   "gap_scores": {"page_type": 10, "content_depth": 8, "ux": 9, "schema": 9, "media": 7, "authority": 4, "freshness": 8}, "total": 55,
+   "top_fixes": ["Price-by-quantity table, standard MOQ, carton quantity and dispatch time on the landing page", "State daily capacity", "Get into the Justdial and IndiaMART Ahmedabad poncho lists", "Product + Offer markup on the landing page, not only /products/poncho"]},
+  {"keyword": "multilayer tarpaulin manufacturer in ahmedabad", "serp_consensus_type": "marketplace / directory listing", "consensus_pct": 42,
+   "divine_url": "/tarpaulin-manufacturer-in-gujarat", "mismatch": "MEDIUM",
+   "user_stories": [
+     "As a contractor in Ahmedabad, I want GSM, width and price per kg on one page (IndiaMART 'Laminated Tarpaulin Price in Ahmedabad' at #1).",
+     "As a buyer, I want proof the sheet is multilayer cross-laminated, not woven HDPE (HDPE results at #7, #8, #10 next to LDPE ones).",
+     "As a buyer, I want to see the factory (Maha Shakti Polycoat's factory video ranks #9)."],
+   "gap_scores": {"page_type": 10, "content_depth": 9, "ux": 9, "schema": 9, "media": 7, "authority": 3, "freshness": 8}, "total": 55,
+   "top_fixes": ["Spec table per GSM with weight per sheet and price basis", "LDPE multilayer vs HDPE explainer link", "Factory video embedded on the page", "Named owners and Bavla address with map"]},
+  {"keyword": "best rain poncho manufacturers in india", "serp_consensus_type": "manufacturer product / catalogue page", "consensus_pct": 50,
+   "divine_url": "/blog/best-rain-poncho-manufacturers-in-india", "mismatch": "HIGH",
+   "user_stories": [
+     "As a national buyer, I want a manufacturer's raincoat/poncho catalogue with specs and price (Shalimar, International Tarpaulin, JMD, Welpack product pages at #2, #3, #4, #10).",
+     "As a researcher, I want a ranked list of brands (Dinesh Hosiery 'Top 10 Raincoat Brands' at #6, an Instagram top-10 post at #9).",
+     "As a buyer, I use 'raincoat' and 'poncho' interchangeably (titles mix 'Plastic Raincoat Poncho' and 'Raincoat Brands')."],
+   "gap_scores": {"page_type": 6, "content_depth": 8, "ux": 8, "schema": 8, "media": 6, "authority": 2, "freshness": 8}, "total": 46,
+   "top_fixes": ["Point this search at /poncho-raincoat-manufacturer-in-india, rebuilt as a catalogue page with 'raincoat' wording", "Keep the guide as support and link it to that page", "Get named in the Dinesh Hosiery-style top-10 lists and post an Instagram carousel"]},
+  {"keyword": "tarpaulin manufacturer in india", "serp_consensus_type": "manufacturer product / category page", "consensus_pct": 50,
+   "divine_url": "/tarpaulin-manufacturer-in-india", "mismatch": "ALIGNED",
+   "user_stories": [
+     "As a procurement buyer, I want scale, certifications and export track record (Comsyn, Essen, Suprabha category pages at #2, #3, #6).",
+     "As a buyer, I want uses shown, such as pond liners and covers (Suprabha 'Tarpaulin Manufacturers, Pond Liners' at #3).",
+     "As a researcher, I want a top list (Instagram top-10 post at #4, ROC Tarp 'Top 7' at #7)."],
+   "gap_scores": {"page_type": 12, "content_depth": 7, "ux": 9, "schema": 9, "media": 6, "authority": 2, "freshness": 8}, "total": 53,
+   "top_fixes": ["Get the page indexed (it is 'discovered, not indexed')", "Add capacity, test results and dispatch coverage by state", "Link the 10 use-case guides from the page as an applications block"]}
+]

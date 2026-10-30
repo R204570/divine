@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Ramesh, Gujarati farmer claiming tadpatri sahay",
+    "segment": "Farmers and FPOs",
+    "goal": "Buy 2 tarpaulins with a bill the i-Khedut claim will accept, at the best price for a sheet that lasts more than one season.",
+    "journey_stage": "Decision",
+    "key_questions": ["Which GSM and size for harvest and fodder?", "What does one 18x24 or 24x30 sheet cost?", "Will this bill work for tadpatri sahay, and where can I buy near me?"],
+    "evidence": "Gujarati scheme explainers and YouTube videos for 'tadpatri sahay yojana' (Feb 2025, Mar 2026); Trends 'tadpatri' in Gujarat; Hindi/Gujarati terms dominate marketplace titles.",
+    "scores": {"relevance": 9, "clarity": 7, "trust": 9, "action": 14},
+    "score_notes": {
+      "relevance": "The GSM and farm guides exist, but nothing mentions i-Khedut, subsidy bills, or 1-2 sheet purchases.",
+      "clarity": "English only, ~240-word pages, no per-sheet prices or sizes in Gujarati; the answer is not findable in 10 seconds.",
+      "trust": "Manufacturer address helps, but the 3.7-star rating, no farmer testimonials and no named people leave doubt.",
+      "action": "WhatsApp/call buttons are low-friction, but no MOQ means a farmer cannot tell whether a 2-sheet order is welcome."
+    },
+    "total": 39,
+    "fix_first": "Publish a Gujarati page 'તાડપત્રી સહાય યોજના: કઈ તાડપત્રી ખરીદવી' with sizes, GSM, an indicative per-sheet price, the GST-bill note and a WhatsApp button that pre-fills 'i-Khedut, 2 sheets, district'. Route small orders to named Gujarat dealers."
+  },
+  {
+    "name": "Harpreet, mandi trader / FPO buyer racing a rain forecast",
+    "segment": "Agri traders, mandi/APMC commission agents and procurement-centre operators",
+    "goal": "Get 50+ large heavy sheets delivered within days, before harvest arrivals meet forecast rain.",
+    "journey_stage": "Decision",
+    "key_questions": ["Do you stock 40x60 ft at 150-200 GSM?", "Price per kg and freight to my state?", "How fast can you dispatch?"],
+    "evidence": "News of grain soaked in Haryana and Delhi mandis and paddy under tarpaulins in Telangana; marketplace listings priced per kg by GSM.",
+    "scores": {"relevance": 15, "clarity": 10, "trust": 10, "action": 16},
+    "score_notes": {
+      "relevance": "The grain storage and GSM guides match the need; large-size availability is not explicit.",
+      "clarity": "No price basis, no stock-size chart with weights, no lead time.",
+      "trust": "No dispatch proof, client names or photos of mandi use; 3.7-star rating.",
+      "action": "WhatsApp is the right channel for urgent buys, but there is no 'urgent bulk' prompt or size calculator."
+    },
+    "total": 51,
+    "fix_first": "Add a 'Large sizes in stock' block to the tarpaulin and grain-storage pages: size, GSM, weight per sheet, price basis per kg, dispatch time by region, and a WhatsApp button pre-filled with 'size x qty x GSM x pincode'."
+  },
+  {
+    "name": "Neha, construction and warehouse purchase manager",
+    "segment": "Construction contractors, builders and infra sites / Cold storage, private warehouses and factories",
+    "goal": "Shortlist a manufacturer that can quote custom sizes on a GST invoice with a firm lead time before the monsoon.",
+    "journey_stage": "Consideration",
+    "key_questions": ["Can you make 18x30 m joined sheets or rolls?", "What is the MOQ and lead time?", "Do you have a spec sheet and past projects?"],
+    "evidence": "Monsoon-shed and custom-size listings on IndiaMART; B2B buyers compare spec sheets and lead times.",
+    "scores": {"relevance": 16, "clarity": 10, "trust": 8, "action": 14},
+    "score_notes": {
+      "relevance": "The construction, monsoon-shed and machinery/warehouse guides cover the use cases well.",
+      "clarity": "No MOQ, lead time or downloadable spec sheet; short product pages.",
+      "trust": "No certifications, test data, project photos or named contacts.",
+      "action": "Call and WhatsApp exist, but there is no RFQ form or email path a purchase team can file."
+    },
+    "total": 48,
+    "fix_first": "Add a one-page spec sheet (PDF plus HTML table: GSM tolerance, layers, UV, sizes, MOQ, lead time) and an RFQ form beside WhatsApp; add 3-5 real project photos with location and use."
+  },
+  {
+    "name": "Suresh, dealer or distributor looking for a Gujarat source",
+    "segment": "Dealers, distributors and retailers",
+    "goal": "Find a reliable manufacturer with consistent GSM, workable MOQ and margin for pre-season stock.",
+    "journey_stage": "Consideration",
+    "key_questions": ["What is the dealer price and MOQ per GSM?", "Can I get the Indoline brand or my own?", "Will batches weigh what the label says?"],
+    "evidence": "IndiaMART Ahmedabad tarpaulin and plastic tarpaulin listings; rainwear wholesalers; marketplace price-per-kg norms.",
+    "scores": {"relevance": 12, "clarity": 7, "trust": 8, "action": 14},
+    "score_notes": {
+      "relevance": "Products and the brand are present, but there is no dealer offer or page.",
+      "clarity": "No MOQ, price list, margins, territory or freight terms.",
+      "trust": "No factory capacity, years or team shown; 3.7-star rating is visible.",
+      "action": "WhatsApp works, but there is no 'Become a dealer' path."
+    },
+    "total": 41,
+    "fix_first": "Create a 'Dealers and distributors' page in English, Hindi and Gujarati: MOQ per GSM, price basis, freight, packaging, Indoline branding, a factory photo set and capacity, plus a dealer-inquiry WhatsApp CTA."
+  },
+  {
+    "name": "Pandit-ji, yatra seva committee or route vendor buying ponchos",
+    "segment": "Pilgrimage and yatra buyers / Festival and procession committees",
+    "goal": "Buy thousands of cheap ponchos delivered before the yatra or procession date.",
+    "journey_stage": "Decision",
+    "key_questions": ["Is Rs 20 the real price at my quantity?", "Will it reach Haridwar, Jammu or Pandharpur in time?", "Will it tear on the trek?"],
+    "evidence": "Kedarnath raincoat content ('Kedarnath raincoat Rs 20 Only'); Char Dham poncho reels; record pilgrim counts; 2026 yatra dates.",
+    "scores": {"relevance": 19, "clarity": 17, "trust": 9, "action": 18},
+    "score_notes": {
+      "relevance": "The poncho page with Rs 20* bulk price and colours matches the core need; there is no yatra framing.",
+      "clarity": "The price is visible above the fold, but the asterisk terms, carton quantity and thickness are missing.",
+      "trust": "No photos of bulk dispatches, no testimonials; 3.7-star rating.",
+      "action": "The WhatsApp button suits this buyer well."
+    },
+    "total": 63,
+    "fix_first": "Explain the asterisk next to Rs 20* (MOQ, GST, freight) and add carton quantity, thickness and size, and dispatch times to Uttarakhand, J&K and Maharashtra. Add a 'Ponchos for yatras and seva' section timed for March-May."
+  },
+  {
+    "name": "Ankit, brand or CSR manager ordering logo ponchos",
+    "segment": "Corporate promotional and branded poncho buyers / Schools, NGOs and CSR",
+    "goal": "Order 5,000-20,000 printed or recyclable ponchos for a June monsoon activation or CSR drive.",
+    "journey_stage": "Consideration",
+    "key_questions": ["Can you print our logo, and what is the MOQ for printing?", "Lead time to deliver by June?", "Is the recyclable poncho claim defensible for our CSR report?"],
+    "evidence": "Printed-poncho listings (Rs 65 at MOQ 200); promotional raincoat printers advertising; NGO raincoat drives; imported promo ponchos at US$0.16-0.19.",
+    "scores": {"relevance": 8, "clarity": 8, "trust": 6, "action": 13},
+    "score_notes": {
+      "relevance": "Recyclable ponchos are mentioned, but no printing or branding information is shown.",
+      "clarity": "No printing MOQ, colours, mock-up process or lead time.",
+      "trust": "No brand clients, samples or material documentation for the recyclable claim.",
+      "action": "WhatsApp works for an inquiry, but there is no sample request or email path for corporate procurement."
+    },
+    "total": 35,
+    "fix_first": "If printing is offered, add a 'Custom printed and recyclable ponchos' page with printing MOQ, colours, mock-up turnaround, lead-time calendar ('order by 15 April for June') and a sample-request CTA. If it is not offered, say so and focus the page on recyclable bulk supply."
+  }
+]

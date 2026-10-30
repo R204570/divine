@@ -21,7 +21,7 @@
       "Mark contact_click and form_start as key events in GA4.",
       "Add fetchpriority=\"high\" to the first hero slide and render it without the fade; serve the logo as a small WebP instead of the 110 KB PNG.",
       "Update the website link on the Google Business Profile, Justdial, Instagram and Facebook to https://www.divinefabtech.com.",
-      "Add the Google Business Profile, Justdial and IndiaMART URLs to sameAs and add geo coordinates to the LocalBusiness schema."
+      "Fix the Google Business Profile address typo and category, then add geo, priceRange and the Business Profile and Justdial URLs to the LocalBusiness schema (IndiaMART once a listing exists; none does yet)."
     ]
   },
   "categories": [

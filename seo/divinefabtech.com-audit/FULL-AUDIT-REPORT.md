@@ -43,7 +43,7 @@ What holds the site back is not the code. Three things do:
 2. Mark `contact_click` and `form_start` as key events in GA4.
 3. Give the first hero slide `fetchpriority="high"` and no fade, and serve the logo as a small WebP.
 4. Update the website link on the Google Business Profile, Justdial, Instagram and Facebook.
-5. Add `geo`, `priceRange` and the Business Profile, Justdial and IndiaMART URLs to the LocalBusiness schema.
+5. Fix the Google Business Profile: correct the address typo, swap the category "Business to business service" for tarpaulin and raincoat categories, and add products and photos. Then add `geo`, `priceRange` and the Business Profile and Justdial URLs to the LocalBusiness schema. Add the IndiaMART URL once that listing exists; there isn't one yet.
 
 ## 1. The domain move: both hosts side by side
 
@@ -190,7 +190,7 @@ All blocks are valid JSON-LD with `https://schema.org` context and absolute URLs
 
 | Severity | Finding | Fix |
 |---|---|---|
-| Medium | LocalBusiness has no `geo` and no `priceRange`; `sameAs` lists only Instagram and Facebook | Add geo (5 decimals), priceRange, and the Business Profile, Justdial and IndiaMART URLs |
+| Medium | LocalBusiness has no `geo` and no `priceRange`; `sameAs` lists only Instagram and a Facebook share redirect | Add geo (5 decimals), priceRange, the Business Profile and Justdial URLs, and the real Facebook page URL; add IndiaMART once that listing exists |
 | Low | BlogPosting `author` is the business | Add a named Person author with a short bio |
 | Info | FAQPage on 6 pages: Google retired FAQ rich results for all sites on 7 May 2026 | Leave it; no action needed |
 
@@ -262,8 +262,13 @@ User-triggered agents are not blocked.
 
 - **NAP (name, address, phone):** site, schema and the Google Business Profile embed agree. Divine Fabtech Industries, Survey No 710-711, Village Rupal, Bavla, Jivapura, Gujarat 382220, +91 98251 48321.
 - **Google Business Profile:** 3.7 stars from 6 reviews. The map embed on `/contact` works on the new domain (checked in a real browser on 30 Oct).
-- **Justdial:** "Divine Fab Tech, Adroda", 3.5 stars from 8 ratings. The name and locality differ from the site; make them match.
-- **Citations:** the IndiaMART and TradeIndia profiles that dominate this market's search results don't link to the new domain yet.
+- **Google Business Profile problems (found 31 Oct):**
+  - The address reads "710-711Village Rupal Rupal ,".
+  - The category is "Business to business service".
+  - Divine isn't in the top 20 Maps results for "tarpaulin manufacturer Bavla Ahmedabad".
+- **Justdial:** the listing is "Divine Fab Tech, Adroda", 4.1 stars from 7. Category pages show 3.58 and 4.17. The name and locality differ from the site, so make them match.
+- **JD Mart:** a product is titled "200 gsm HDPE tarpaulin". Divine makes no HDPE, so have it corrected.
+- **Marketplaces:** Divine has **no** IndiaMART, TradeIndia or ExportersIndia listing. Seven of the ten Indian competitors are on IndiaMART. See `findings/local.md` and `findings/backlinks.md`.
 
 ## 11. Analytics (GA4 property 501922503)
 
@@ -292,9 +297,127 @@ User-triggered agents are not blocked.
   - Chrome field data: no traffic yet, and no API key.
   - A PDF version of this report: WeasyPrint needs GTK on Windows.
 
+## 13. Market: competitors (claude-seo seo-sxo, seo-cluster, seo-competitor-pages)
+
+These are 16 target searches, top 10 each (160 slots), taken from a live India web search on 30 Oct. Full detail is in `findings/competitors.md`, `findings/cluster.md` and `findings/sxo.md`.
+
+**Share of voice** (#1 = 10 points ... #10 = 1):
+
+| Site | Points | Top-10 appearances |
+|---|---|---|
+| IndiaMART | 191 | 25 |
+| Justdial | 78 | 14 |
+| Shalimar Group | 68 | 10 |
+| Frank Industries | 34 | 6 |
+| International Tarpaulin | 31 | 4 |
+| TradeIndia | 26 | 9 |
+| Amrut Plastopack | 22 | 3 |
+| Divine Fabtech: www | 11 | 2 |
+| Divine Fabtech: old .vercel.app | 10 | 2 |
+
+**Two different battles:**
+- **Local searches** (Ahmedabad, Gujarat, Rupal–Bavla): 42–50% of the top 10 are marketplace and directory list pages. Be inside those lists.
+- **National product searches:** 70% of the top 10 for "multilayer tarpaulin" are manufacturer product pages, and 60% for LDPE tarpaulin. Divine's own pages can win these.
+
+**Main rivals:**
+- **NK Polycross:** same Rupal–Bavla road; 4.5★ from 42 Google reviews; IndiaMART 4.7; YouTube. No prices, no MOQ, no blog, and product copy that matches Supreme's.
+- **Frank Industries:** an Ahmedabad trader; top 10 for 6 of the 16 searches with city blog posts; a dated site with no numbers.
+- **Shalimar:** #2 for all five national poncho searches with a priced shop page.
+- **Amrut Plastopack:** #1 for "multilayer tarpaulin manufacturer in india"; shows prices at ₹169–188/kg.
+- **A.U. Industries:** #2 for "multilayer tarpaulin manufacturer in ahmedabad"; names its founders.
+- **Supreme Silpaulin:** a national brand with 18 application pages.
+
+**Cluster gaps:**
+- "Tarpaulin price per kg" is a **critical** mismatch: no Divine page states a price.
+- "90 GSM tarpaulin" is a **high** mismatch: priced product pages win.
+
+**Search-experience gap scores (/100):**
+
+| Search | Score | Mismatch |
+|---|---|---|
+| rain poncho manufacturer in gujarat | 55 | medium |
+| multilayer tarpaulin manufacturer in ahmedabad | 55 | medium |
+| best rain poncho manufacturers in india | 46 | high: Google rewards catalogue pages, not guides |
+| tarpaulin manufacturer in india | 53 | aligned |
+
+## 14. Market: audience and demand
+
+There are 15 segments and 6 personas; see `findings/audience.md` and `data/research/audience.json`. The seasonality figures are **real Google Trends data** for India, monthly from 2019 (Firecrawl trends provider).
+
+- **Most valuable segments:**
+  - **Dealers and distributors:** value 5/5, easy to reach. Today's site fit is 35/100: no dealers page, price basis or standard MOQ.
+  - **Pilgrimage and seva buyers:** best fit today (55/100). The ₹20* price matches route prices; Kedarnath had 16.52 lakh pilgrims in 2025; they order in March–May.
+  - **Mandi traders and FPOs.**
+  - **Construction and warehouse buyers.**
+- **Personas** score 35–63 out of 100. **Trust is the weakest dimension for every one.**
+- **Seasonality:**
+  - Tarpaulin sells year-round: the low is 59% of the June peak, with 87 in May.
+  - Raincoats run at 9–11 from November to April, then 33 in May, 88 in June and 100 in July.
+  - The Hindi term "tirpal" grew 76% from 2019 to 2025.
+- **Wording:** "rain poncho" has almost no search volume in India, and "poncho" peaks in December as a fashion term. **The poncho pages need "raincoat" wording.**
+- **Buyer complaints the content should answer:**
+  - GSM shortfall;
+  - price per kg vs per piece;
+  - UV brittleness;
+  - HDPE vs LDPE confusion;
+  - inflated layer claims;
+  - eyelet tear-out.
+- **Schemes:**
+  - Gujarat's tadpatri sahay yojana (i-Khedut) is farmer-side, with a February window and no supplier empanelment. Publish a Gujarati explainer and stock dealers before February.
+  - GeM's standard tarpaulin category is HDPE to IS 7903, which Divine can't supply.
+  - Rajasthan's manufacturer EOI (multilayer, cross-laminated, UV-stabilised) matches the product; eligibility is unconfirmed.
+
+## 15. Authority and AI visibility (claude-seo seo-local, seo-backlinks, seo-geo)
+
+11 companies were compared; see `findings/local.md`, `findings/backlinks.md`, `findings/geo.md` and `data/research/authority.json`.
+
+- **Divine Fabtech:** the youngest domain (registered 29 Oct 2026) and the fewest Google reviews (3.7★ from 6). No YouTube, no LinkedIn, no marketplace listings.
+- **For comparison:**
+  - Comsyn's domain is 28 years old.
+  - Everest Polymers has 146 IndiaMART ratings.
+  - Gokyo has 4.8★ from 385 reviews (a consumer brand).
+- **AI-answer proxy:** across 4 "best manufacturer" searches, Divine is named in **none**. IndiaMART pages appear in all 4.
+- **Top opportunities:**
+  1. Fix and complete the Google Business Profile.
+  2. Create an IndiaMART listing.
+  3. Correct the Justdial name and locality, and add the rain-poncho category.
+  4. List on TradeIndia and ExportersIndia.
+  5. Set up Bing Places and Apple Business Connect.
+  6. Start a YouTube channel.
+  7. Join trade bodies (GSPMA, AIPMA, ITTA, GCCI) for member-directory links.
+
+## 16. Strategy: how to win and 12-month campaigns
+
+The web report has the full campaign calendar and cards; the source is `data/research/strategy.json`.
+
+**How to win:**
+1. **Win the Bavla–Ahmedabad map:** fix the Business Profile, get 25+ reviews, be inside the IndiaMART, Justdial and TradeIndia lists.
+2. **Publish what rivals hide:** a price band per GSM, weight per sheet, GSM tolerance, carton quantities, lead times.
+3. **Speak the way buyers search:** "raincoat", "tirpal", "tadpatri"; Gujarati and Hindi pages.
+4. **Show the factory:** named owners, a daily capacity figure, factory videos, customer stories.
+5. **Build a dealer network:** a dealers page in 3 languages, a WhatsApp catalogue, a dealer drive from November to March.
+6. **Arrive before the season:** everything live by April; yatra outreach in March; harvest pages before March and before October.
+
+**Campaigns, Nov 2026 – Oct 2027:**
+
+| Campaign | When |
+|---|---|
+| Monsoon raincoat bulk push | Apr–Jul |
+| Yatra and seva ponchos | Apr–Aug |
+| Pre-monsoon tarpaulin | Apr–Jun |
+| Harvest covers | Mar–May and Oct–Nov |
+| Tadpatri sahay explainer | Feb |
+| Dealer network drive | Dec–Apr |
+| Reviews and listings sprint | Nov–Jan |
+| Factory on camera | Dec–Mar |
+| Branded ponchos for companies | Mar–Jun, only if printing is offered |
+| Festival and pandal covers | Aug–Sep |
+
 ## Files
 
 - Web version of this report (private): https://claude.ai/artifact/Y3vsiengWdokKUWBoodJx5
+- `findings/`: specialist write-ups (competitors, cluster, sxo, audience, local, backlinks, geo).
+- `data/research/`: the research data behind sections 13–16.
 - `ACTION-PLAN.md`: the prioritised to-do list.
 - `audit-data.json`: the structured envelope for the claude-seo report generator.
 - `data/`: Search Console snapshots for both properties, the per-page summary, Lighthouse summary, metadata, sitemap, agent-readiness and domain-history checks.
